@@ -12,7 +12,7 @@
       cat = document.getElementById(cat);
       if (bloggood.checked) cat.style.display = "block";
       else cat.style.display = "none";
-    }
+    } 
 
     
   </script>
@@ -22,6 +22,72 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
+  <link href="../../dist/css/slidercss.css" rel="stylesheet">
+  <script src="../../dist/js/sliderjs.js" defer></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 1% auto;
+    }
+
+    .itc-slider__items {
+      counter-reset: slide;
+    }
+
+    .itc-slider__item {
+      flex: 0 0 100%;
+      max-width: 100%;
+      counter-increment: slide;
+      height: 250px;
+      position: relative;
+    }
+
+    .itc-slider__item::before {
+      content: counter(slide) "/5";
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: #fff;
+      font-style: italic;
+      font-size: 32px;
+      font-weight: bold;
+      display: block;
+    }
+
+    .itc-slider__item:nth-child(1) {
+      background-color: #f44336;
+    }
+
+    .itc-slider__item:nth-child(2) {
+      background-color: #9c27b0;
+    }
+
+    .itc-slider__item:nth-child(3) {
+      background-color: #3f51b5;
+    }
+
+    .itc-slider__item:nth-child(4) {
+      background-color: #03a9f4;
+    }
+
+    .itc-slider__item:nth-child(5) {
+      background-color: #4caf50;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -154,13 +220,194 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Домой</a></li>
-              <li class="breadcrumb-item active">Профиль пользователя</li>
+              <li class="breadcrumb-item active"><a href="#">Главная/</a></li>
             </ol>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- interactive chart -->
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h3 class="card-title">
+                  Сайт фриланса для IT-специалистов.
+                </h3>
+
+                <div class="card-tools">
+              
+                  <div class="btn-group" id="realtime" data-toggle="btn-toggle">
+                    <button type="button" class="btn btn-default btn-sm " data-toggle="on" ><a href="myorder.html">Сделать Заказ</a></button>
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="off"><a href="profile.html">Стать фрилансером</a></button>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+
+                <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="false">
+                  <div class="itc-slider__wrapper">
+                    <div class="itc-slider__items">
+                      <div class="itc-slider__item">
+                        <img src="../../dist/img/slide1.png"/>  
+                      </div>
+                      <div class="itc-slider__item">
+                        <img src="../../dist/img/slide2.png"/>  
+                      </div>
+                      <div class="itc-slider__item">
+                        <img src="../../dist/img/slide3.png"/>  
+                      </div>
+                      <div class="itc-slider__item">
+                        <img src="../../dist/img/slide4.png"/>  
+                      </div>
+                      <div class="itc-slider__item">
+                        <img src="../../dist/img/slide5.png"/>  
+                      </div>
+                    </div>
+                  </div>
+                  <button class="itc-slider__btn itc-slider__btn_prev"></button>
+                  <button class="itc-slider__btn itc-slider__btn_next"></button>
+                </div>
+              
+              </div>
+              <!-- /.card-body-->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Наши лучшие специалисты!</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Место</th>
+                    <th>Фото</th>
+                    <th>Исполнитель</th>
+                    <th>Навыки(s)</th>
+                    <th>Рейтинг у заказчиков</th>
+                    <th>Рейтинг на сайте</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Аватарка</td>
+                    <td>Иванов Иван
+                    </td>
+                    <td>1С</td>
+                    <td>400</td>
+                    <td>280</td>
+                  </tr>
+                  
+                  </tbody>
+                  
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+  </section>
+    
 
 
     <!-- /.content -->
@@ -168,9 +415,9 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0-pre
+      
     </div>
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">OnlyFreelance</a>.</strong> All rights reserved.
   </footer>
 
   <aside class="control-sidebar control-sidebar-dark">

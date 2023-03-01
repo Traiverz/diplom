@@ -90,6 +90,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/alex.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
@@ -330,9 +331,10 @@
                   <!-- /Архив-->
                   <div class="tab-pane" id="timeline">
                     <!-- The timeline -->
-                    <div class="timeline timeline-inverse">
+                    <!-- <div class="timeline timeline-inverse"> -->
+                    <div>
                       <!-- timeline time label -->
-                      <div class="time-label">
+                      <!-- <div class="time-label">
                         123
                       </div>
                       <div class="time-label">
@@ -340,7 +342,42 @@
                       </div>
                       <div class="time-label">
                         123
-                      </div> 
+                      </div>  -->
+                      <div class="zakaz">
+                        <table class="mytable2">
+                          <tr>
+                            <td rowspan="3" style="width: 8%;">Аватар</td>
+                            <td colspan="2">Тема</td>
+                            <td style="width: 12%;">Статус заказа</td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Краткое описание проекта</td>
+                            <td style="width: 12%;">Технологии</td>
+                          </tr>
+                          <tr>
+                            <td style="width: 46%;">Дата начала </td>
+                            <td colspan="2" style="width: 46%;">Дата закрытия</td>
+                          </tr>
+                        </table>
+                      </div>
+
+                      <div class="zakaz">
+                        <table class="mytable2">
+                          <tr>
+                            <td rowspan="3" style="width: 8%;">Аватар</td>
+                            <td colspan="2">Тема</td>
+                            <td style="width: 12%;">Статус заказа</td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Краткое описание проекта</td>
+                            <td style="width: 12%;">Технологии</td>
+                          </tr>
+                          <tr>
+                            <td style="width: 46%;">Дата начала </td>
+                            <td colspan="2" style="width: 46%;">Дата закрытия</td>
+                          </tr>
+                        </table>
+                      </div>
 
                     
 
@@ -394,10 +431,10 @@
                       <form action="handler.php">
                         <p><b>Кто вы?</b></p>
                          <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis("type11", "ispol", "stataIsp", "statusRazrab", "type12", 
-                         "stataZakaz", "uslugi", "zakazi");'>Исполнитель</p>
+                         "stataZakaz", "uslugi", "zakazi");'>                             Фрилансер</p>
 
                          <p><input id='type12' name="zakazchik" type="checkbox" value="zakazchik" onchange='showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", 
-                         "stataIsp", "zakazi", "uslugi");'>Заказчик</p>
+                         "stataIsp", "zakazi", "uslugi");'> Заказчик</p>
                        </form> 
                       <br>
 
@@ -703,9 +740,9 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0-pre
+      
     </div>
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">OnlyFreelance</a>.</strong> All rights reserved.
   </footer>
 
   <aside class="control-sidebar control-sidebar-dark">

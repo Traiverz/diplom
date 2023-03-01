@@ -1,0 +1,34 @@
+.mytable1 {
+    /* border: 1px solid grey; */
+    border-collapse: separate;
+    width: 100%;
+    text-align: center;
+    border-spacing: 10px;
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
+}
+.mytable2 {
+    /* border: 1px solid grey; */
+    border-collapse: separate;
+    width: 100%;
+    text-align: left;
+    border-spacing: 10px;
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
+}
+
+th, td {
+    /* border: 1px solid grey; */
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+
+}
+
+.technologies{
+    margin: 15px;
+}
+
+.zakaz{
+    width: 100%;
+    /* border: 1px solid grey; */
+    margin-top: 20px;
+    padding: 2px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
