@@ -11289,6 +11289,12 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   width: 90px;
 }
 
+.widget-user .widget-user-image1 > img {
+  border: 3px solid #fff;
+  height: auto;
+  width: 45px;
+}
+
 .widget-user .card-footer {
   padding-top: 50px;
 }
