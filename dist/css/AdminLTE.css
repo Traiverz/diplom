@@ -10729,7 +10729,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 }
 
 .direct-chat.timestamp-dark .direct-chat-timestamp {
-  color: #cccccc;
+  color: black;
 }
 
 .direct-chat-messages {
