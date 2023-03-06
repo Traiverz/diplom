@@ -12,13 +12,16 @@
     width: 100%;
     text-align: left;
     border-spacing: 10px;
+    
     /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
 }
 
 th, td {
     /* border: 1px solid grey; */
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
-
+    border-radius: 15px;
+    /* padding: 3px; */
+    padding-left: 15px;
 }
 
 .technologies{
@@ -31,6 +34,7 @@ th, td {
     margin-top: 20px;
     padding: 2px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 15px;
 }
 
 
@@ -73,7 +77,7 @@ th, td {
   text-decoration: none;
   display: block;
 }
-  
+
   /* Изменение цвета выпадающих ссылок при наведении курсора */
 .dropdown-content a:hover {background-color: #ddd;}
   
@@ -81,7 +85,7 @@ th, td {
 .dropdown:hover .dropdown-content {display: block;}
   
   /* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
-.dropdown:hover .dropbtn {background-color:aqua; color: black;}
+.dropdown:hover .dropbtn {background-color: #4682b4; color: white;}
 
 .filtr {
     border-radius: 20px;
