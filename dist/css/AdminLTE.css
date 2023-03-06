@@ -10729,7 +10729,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 }
 
 .direct-chat.timestamp-dark .direct-chat-timestamp {
-  color: black;
+  color: #cccccc;
 }
 
 .direct-chat-messages {
@@ -11287,12 +11287,6 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   border: 3px solid #fff;
   height: auto;
   width: 90px;
-}
-
-.widget-user .widget-user-image1 > img {
-  border: 3px solid #fff;
-  height: auto;
-  width: 45px;
 }
 
 .widget-user .card-footer {
@@ -19462,7 +19456,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-primary.btn:hover {
-  border-color: #0062cc;
+  border-color: #ececec;
   color: #ececec;
 }
 

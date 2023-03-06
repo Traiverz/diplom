@@ -92,6 +92,146 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/alex.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
+  <style>
+    body {
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #292b2c;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* свойства модального окна по умолчанию */
+    .modal {
+      position: fixed;
+      /* фиксированное положение */
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      /* цвет фона */
+      z-index: 1050;
+      opacity: 0;
+      /* по умолчанию модальное окно прозрачно */
+      -webkit-transition: opacity 400ms ease-in;
+      -moz-transition: opacity 400ms ease-in;
+      transition: opacity 400ms ease-in;
+      /* анимация перехода */
+      pointer-events: none;
+      /* элемент невидим для событий мыши */
+    }
+
+    /* при отображении модального окно */
+    .modal:target {
+      opacity: 1;
+      pointer-events: auto;
+      overflow-y: auto;
+    }
+
+    /* ширина модального окна и его отступы от экрана */
+    .modal-dialog {
+      position: relative;
+      width: auto;
+      margin: 10px;
+    }
+
+    @media (min-width: 576px) {
+      .modal-dialog {
+        max-width: 500px;
+        margin: 30px auto;
+      }
+    }
+
+    /* свойства для блока, содержащего контент модального окна */
+    .modal-content {
+      position: relative;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      background-color: #fff;
+      -webkit-background-clip: padding-box;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, .2);
+      border-radius: .3rem;
+      outline: 0;
+    }
+
+    @media (min-width: 768px) {
+      .modal-content {
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+      }
+    }
+
+    /* свойства для заголовка модального окна */
+    .modal-header {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding: 15px;
+      border-bottom: 1px solid #eceeef;
+    }
+
+    .modal-title {
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 1.5;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    /* свойства для кнопки "Закрыть" */
+    .close {
+      float: right;
+      font-family: sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1;
+      color: #000;
+      text-shadow: 0 1px 0 #fff;
+      opacity: .5;
+      text-decoration: none;
+    }
+
+    /* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+    .close:focus,
+    .close:hover {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: .75;
+    }
+
+    /* свойства для блока, содержащего основное содержимое окна */
+    .modal-body {
+      position: relative;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      padding: 15px;
+      overflow: auto;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -442,7 +582,7 @@
                           <h3>Вы можете указать свои навыки</h3>
                           <h6>Благодаря ним мы сможем помочь вам с подбором заказа и показывать предложения</h6>
                           <div >
-                              <input type = 'checkbox' id = 'bloggood1' onchange = 'showOrHide("bloggood1", "cat1");'/>Дизайн
+                              <input type = 'checkbox' id = 'bloggood1' onchange = 'showOrHide("bloggood1", "cat1");'/> Дизайн
                               <br />
                               <div id = 'cat1' style = 'display: none;'>   
                                 <!-- графдизайн, веб-дизайн, ux-дизайн, дизайн интерфейсов и бренд-дизайн
@@ -462,15 +602,15 @@
                                   <input type="checkbox" name="languages" value="HTML">бренд-дизайн
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML"> графдизайн</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">веб-дизайн</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">ux-дизайн</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">дизайн интерфейсов</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">бренд-дизайн</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Графдизайн</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Веб-дизайн</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Ux-дизайн</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Дизайн интерфейсов</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Бренд-дизайн</li>
                                 </ul>
                               </div>
                           
-                              <input type = 'checkbox' id = 'bloggood2' onchange = 'showOrHide("bloggood2", "cat2");' />Доработка сайта
+                              <input type = 'checkbox' id = 'bloggood2' onchange = 'showOrHide("bloggood2", "cat2");' /> Доработка сайта
                               <br />
                               <div id = 'cat2' style = 'display: none;'>
                                 <!-- HTML, CSS, JavaScript и PHP
@@ -487,14 +627,14 @@
                                   <input type="checkbox" name="languages" value="HTML">PHP
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">HTML</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">CSS</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">JavaScript</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">PHP</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> HTML</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> CSS</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> JavaScript</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> PHP</li>
                                 </ul>
                               </div>
                           
-                              <input type = 'checkbox' id = 'bloggood3' onchange = 'showOrHide("bloggood3", "cat3");' />Создание сайта
+                              <input type = 'checkbox' id = 'bloggood3' onchange = 'showOrHide("bloggood3", "cat3");' /> Создание сайта
                               <br />
                               <div id = 'cat3' style = 'display: none;'>
                                 <!-- HTML, CSS, JavaScript и PHP.
@@ -511,14 +651,14 @@
                                   <input type="checkbox" name="languages" value="HTML">PHP
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">HTML </li>
-                                  <li><input type="checkbox" name="languages" value="HTML">CSS</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">JavaScript</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">PHP</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> HTML </li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> CSS</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> JavaScript</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> PHP</li>
                                 </ul>
                               </div>
                           
-                              <input type = 'checkbox' id = 'bloggood4' onchange = 'showOrHide("bloggood4", "cat4");' />Дестоп
+                              <input type = 'checkbox' id = 'bloggood4' onchange = 'showOrHide("bloggood4", "cat4");' /> Desktop
                               <br />
                                 <div id = 'cat4' style = 'display: none;'>
                                 <!-- C++, C#, C, Python
@@ -535,17 +675,16 @@
                                   <input type="checkbox" name="languages" value="HTML">Python
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">C++</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">C#</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">C</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Python</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> C++</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> C#</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> C</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Python</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox' id = 'bloggood5' onchange = 'showOrHide("bloggood5", "cat5");' />Мобильные
+                            <input type = 'checkbox' id = 'bloggood5' onchange = 'showOrHide("bloggood5", "cat5");' /> Мобильные
                               <br />
                               <div id = 'cat5' style = 'display: none;'>
-                                Swift. HTML5 JavaScript. C# Objective-C. Python
                                 <!-- <label>
                                   <input type="checkbox" name="languages" value="HTML">Swift
                                 </label>
@@ -568,17 +707,17 @@
                                   <input type="checkbox" name="languages" value="HTML">Python
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">Swift</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">HTML5</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">JavaScript</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">C++</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">C#</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Objective-C</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Python</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Swift</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> HTML5</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> JavaScript</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> C++</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> C#</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Objective-C</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Python</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox' id = 'bloggood6' onchange = 'showOrHide("bloggood6", "cat6");' />Доработка программ
+                            <input type = 'checkbox' id = 'bloggood6' onchange = 'showOrHide("bloggood6", "cat6");' /> Доработка программ
                               <br />
                               <div id = 'cat6' style = 'display: none;'>
                                 <!-- Swift. HTML5 JavaScript. C# Objective-C
@@ -601,16 +740,16 @@
                                   <input type="checkbox" name="languages" value="HTML">Objective-C
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">Swift</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">HTML5</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">JavaScript</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">C++</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">C#</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Objective-C</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Swift</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> HTML5</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> JavaScript</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> C++</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> C#</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Objective-C</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox' id = 'bloggood7' onchange = 'showOrHide("bloggood7", "cat7");' />1С
+                            <input type = 'checkbox' id = 'bloggood7' onchange = 'showOrHide("bloggood7", "cat7");' /> 1С
                               <br />
                               <div id = 'cat7' style = 'display: none;'>
                                 <!-- Бухгалтерия, Предприятие, Фреш
@@ -624,13 +763,13 @@
                                   <input type="checkbox" name="languages" value="HTML">Фреш
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">Бухгалтерия</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Предприятие</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Фреш</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Бухгалтерия</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Предприятие</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Фреш</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox' id = 'bloggood8' onchange = 'showOrHide("bloggood8", "cat8");' />Парсер
+                            <input type = 'checkbox' id = 'bloggood8' onchange = 'showOrHide("bloggood8", "cat8");' /> Парсер
                               <br />
                               <div id = 'cat8' style = 'display: none;'>
                                 <!-- Ruby, PHP, Python, C# 
@@ -647,14 +786,14 @@
                                   <input type="checkbox" name="languages" value="HTML">C#
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">Ruby</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">PHP</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Python</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">C#</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Ruby</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> PHP</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Python</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> C#</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox' id = 'bloggood9' onchange = 'showOrHide("bloggood9", "cat9");' />Разработка игр
+                            <input type = 'checkbox' id = 'bloggood9' onchange = 'showOrHide("bloggood9", "cat9");' /> Разработка игр
                               <br />
                               <div id = 'cat9' style = 'display: none;'>
                                 <!-- Swift — игры на iOS или macOS.
@@ -665,43 +804,43 @@
                                   <input type="checkbox" name="languages" value="HTML">Swift — игры на macOS.
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">Swift — игры на iOS</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Swift — игры на macOS.</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Swift — игры на iOS</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Swift — игры на macOS.</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox' id = 'bloggood10' onchange = 'showOrHide("bloggood10", "cat10");' />PHP и JavaScript
+                            <input type = 'checkbox' id = 'bloggood10' onchange = 'showOrHide("bloggood10", "cat10");' /> PHP и JavaScript
                               <br />
                               <div id = 'cat10' style = 'display: none;'>
                                 <!-- <label>
                                   <input type="checkbox" name="languages" value="HTML">браузерные игры
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">браузерные игры</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Браузерные игры</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox' id = 'bloggood11' onchange = 'showOrHide("bloggood11", "cat11");' />C#
+                            <input type = 'checkbox' id = 'bloggood11' onchange = 'showOrHide("bloggood11", "cat11");' /> C#
                               <br />
                               <div id = 'cat11' style = 'display: none;'>
                                 <!-- <input type="checkbox" name="languages" value="HTML">игры на Unity
                               </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">игры на Unity</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Игры на Unity</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox' id = 'bloggood12' onchange = 'showOrHide("bloggood12", "cat12");' />С или C++
+                            <input type = 'checkbox' id = 'bloggood12' onchange = 'showOrHide("bloggood12", "cat12");' /> С или C++
                               <br />
                               <div id = 'cat12' style = 'display: none;'>
                                 <!-- <input type="checkbox" name="languages" value="HTML">большие требовательные игры
                               </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">большие требовательные игры</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Большие требовательные игры</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox' id = 'bloggood13' onchange = 'showOrHide("bloggood13", "cat13");' />Тестирование
+                            <input type = 'checkbox' id = 'bloggood13' onchange = 'showOrHide("bloggood13", "cat13");' /> Тестирование
                               <br />
                               <div id = 'cat13' style = 'display: none;'>
                                 <!-- Игры, Приложение, Приложение мобильные
@@ -712,14 +851,14 @@
                                   <input type="checkbox" name="languages" value="HTML">Приложение мобильные
                                 </label> -->
                                 <ul class="vipad">
-                                  <li><input type="checkbox" name="languages" value="HTML">Игры</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Приложение</li>
-                                  <li><input type="checkbox" name="languages" value="HTML">Приложение мобильные</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Игры</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Приложение</li>
+                                  <li><input type="checkbox" name="languages" value="HTML"> Приложение мобильные</li>
                                 </ul>
                               </div>
                           
-                            <input type = 'checkbox'/>Хостинг <br />
-                            <input type = 'checkbox'/>Администрация серверов
+                            <input type = 'checkbox'/> Хостинг <br />
+                            <input type = 'checkbox'/> Администрация серверов
                         </div>
 
                       
@@ -767,5 +906,38 @@
 <script src="../../dist/js/bootstrap-material-design.min.js"></script>
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 <script src="../../dist/js/demo.js"></script>
+<div class="container">
+  <div style="text-align: center;">
+    <a href="#openModal">Открыть модальное окно</a>
+  </div>
+  <div id="openModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Название</h3>
+          <a href="#close" title="Close" class="close">×</a>
+        </div>
+        <div class="modal-body">
+          Содержимое модального окна...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var scrollbar = document.body.clientWidth - window.innerWidth + 'px';
+    console.log(scrollbar);
+    document.querySelector('[href="#openModal"]').addEventListener('click', function () {
+      document.body.style.overflow = 'hidden';
+      document.querySelector('#openModal').style.marginLeft = scrollbar;
+    });
+    document.querySelector('[href="#close"]').addEventListener('click', function () {
+      document.body.style.overflow = 'visible';
+      document.querySelector('#openModal').style.marginLeft = '0px';
+    });
+  });
+</script>
 </body>
 </html>
