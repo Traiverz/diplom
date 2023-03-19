@@ -7,3 +7,13 @@
     width: 25px;
 	align: center;
 }
+
+.brand-image11 {
+    float: center;
+    line-height: .8;
+    margin-left: 0.8rem;
+    margin-right: 0.5rem;
+    margin-top: -3px;
+    max-height: 200px;
+    width: auto;
+}	
