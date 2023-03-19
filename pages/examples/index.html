@@ -26,6 +26,8 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="../../dist/css/kosty.css">
   <script src="../../dist/js/sliderjs.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <style>
     *,
     *::before,
@@ -117,7 +119,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                <li class="nav-item">
                 <a href="#" class="nav-link active">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <ion-icon name="home-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
                   <p>
                     Главная
                   </p>
@@ -125,7 +127,7 @@
               </li>
               <li class="nav-item">
                 <a href="profile.html" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <ion-icon name="person-circle-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
                   <p>Профиль</p>
                 </a>
               </li>
@@ -133,7 +135,7 @@
 
           <li id='zakazi' style="display: block;" class="nav-item">
             <a href="order.html" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <ion-icon name="clipboard-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
               <p>
                 Заказы
                 <i class="right fas fa-angle-left"></i>
@@ -169,7 +171,7 @@
           
           <li id='uslugi' style="display: block;" class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <ion-icon name="reader-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
               <p>
                 Услуги
                 <i class="right fas fa-angle-left"></i>
@@ -218,7 +220,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Главная</h1>
+            <h1><ion-icon name="home-outline"></ion-icon>Главная</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -417,7 +419,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Наши лучшие специалисты!</h3>
+                <h3 class="card-title"><ion-icon name="ribbon-outline"></ion-icon> Наши лучшие специалисты!</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

@@ -33,8 +33,6 @@
       if (x.checked) o.style.display = "block";
       else o.style.display = "none";
       if (x.checked) t.style.display = "none";
-
-
       if (x.checked) ysluga.style.display = "none";
       if (x.checked) zakaz.style.display = "block";
       else zakaz.style.display = "none";
@@ -55,19 +53,13 @@
       if (x.checked) z.checked = false;
       if (x.checked) t.style.display = "none";
       if (x.checked) g.style.display = "none";
-      if (x.checked) p.style.display = "none";
-
-      
+      if (x.checked) p.style.display = "none";    
       if (x.checked) zakaz.style.display = "none";
       if (x.checked) ysluga.style.display = "block";
       else ysluga.style.display = "none";
-
       // if (x.checked) ysluga.style.display = "none";
       // if (x.checked) zakaz.style.display = "block";
-      // else zakaz.style.display = "none";
-
-      
-
+      // else zakaz.style.display = "none";    
     }
 
     function stateInput(x, y, z) {
@@ -83,8 +75,12 @@
       if (z.checked) y.checked = false;
       if (z.checked) x.checked = false;
     }
-    
   </script>
+
+
+<!-- КОСТЯ Я ВЫТАЩИЛ ВСЮ ТВОЮЮ КАКАХУ В ВИДЕ CSS ОТСЮДА В ФАЙЛ ALEX.CSS ТАМ ЭТО И ИЩИ  -->
+
+
 
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -92,146 +88,8 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/alex.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
-  <style>
-    body {
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.5;
-      color: #292b2c;
-      background-color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* свойства модального окна по умолчанию */
-    .modal {
-      position: fixed;
-      /* фиксированное положение */
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.5);
-      /* цвет фона */
-      z-index: 1050;
-      opacity: 0;
-      /* по умолчанию модальное окно прозрачно */
-      -webkit-transition: opacity 400ms ease-in;
-      -moz-transition: opacity 400ms ease-in;
-      transition: opacity 400ms ease-in;
-      /* анимация перехода */
-      pointer-events: none;
-      /* элемент невидим для событий мыши */
-    }
-
-    /* при отображении модального окно */
-    .modal:target {
-      opacity: 1;
-      pointer-events: auto;
-      overflow-y: auto;
-    }
-
-    /* ширина модального окна и его отступы от экрана */
-    .modal-dialog {
-      position: relative;
-      width: auto;
-      margin: 10px;
-    }
-
-    @media (min-width: 576px) {
-      .modal-dialog {
-        max-width: 500px;
-        margin: 30px auto;
-      }
-    }
-
-    /* свойства для блока, содержащего контент модального окна */
-    .modal-content {
-      position: relative;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      background-color: #fff;
-      -webkit-background-clip: padding-box;
-      background-clip: padding-box;
-      border: 1px solid rgba(0, 0, 0, .2);
-      border-radius: .3rem;
-      outline: 0;
-    }
-
-    @media (min-width: 768px) {
-      .modal-content {
-        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-      }
-    }
-
-    /* свойства для заголовка модального окна */
-    .modal-header {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      padding: 15px;
-      border-bottom: 1px solid #eceeef;
-    }
-
-    .modal-title {
-      margin-top: 0;
-      margin-bottom: 0;
-      line-height: 1.5;
-      font-size: 1.25rem;
-      font-weight: 500;
-    }
-
-    /* свойства для кнопки "Закрыть" */
-    .close {
-      float: right;
-      font-family: sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 1;
-      color: #000;
-      text-shadow: 0 1px 0 #fff;
-      opacity: .5;
-      text-decoration: none;
-    }
-
-    /* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
-    .close:focus,
-    .close:hover {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-      opacity: .75;
-    }
-
-    /* свойства для блока, содержащего основное содержимое окна */
-    .modal-body {
-      position: relative;
-      -webkit-box-flex: 1;
-      -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
-      flex: 1 1 auto;
-      padding: 15px;
-      overflow: auto;
-    }
-  </style>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -259,7 +117,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                <li class="nav-item">
                 <a href="index.html" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <ion-icon name="home-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
                   <p>
                     Главная
                   </p>
@@ -267,7 +125,7 @@
               </li>
               <li class="nav-item">
                 <a href="profile.html" class="nav-link active">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <ion-icon name="person-circle-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
                   <p>Профиль</p>
                 </a>
               </li>
@@ -275,7 +133,7 @@
 
           <li id='zakazi' style="display: none;" class="nav-item">
             <a href="order.html" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <ion-icon name="clipboard-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
               <p>
                 Заказы
                 <i class="right fas fa-angle-left"></i>
@@ -311,7 +169,7 @@
           
           <li id='uslugi' style="display: none;" class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <ion-icon name="reader-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
               <p>
                 Услуги
                 <i class="right fas fa-angle-left"></i>
@@ -360,7 +218,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Профиль</h1>
+            <h1><ion-icon name="person-circle-outline" ></ion-icon>Профиль</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
