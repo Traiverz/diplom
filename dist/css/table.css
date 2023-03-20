@@ -1,0 +1,33 @@
+.openzakazst{
+    /* background-color: aqua; */
+    min-height: 85vh; 
+}
+
+.openzakaztable{
+    /* border: 1px solid grey; */
+    border-collapse: separate;
+    width: 100%;
+    text-align: left;
+    border-spacing: 10px;
+    
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
+}
+
+th, td {
+    /* border: 1px solid grey; */
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    /* padding: 3px; */
+    padding-left: 15px;
+}
+
+.th, td:last-child{
+    background-color: silver;
+}
+
+.zakazbtn{
+    background-color: inherit;
+    border: 1px solid green;
+    border-radius: 10px;
+    text-decoration:none;
+}
