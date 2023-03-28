@@ -1,3 +1,37 @@
+<?php require_once("connection.php"); ?>
+<?php
+	
+	if(isset($_POST["register"])){
+	
+	if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+  $username= htmlspecialchars($_POST['name']);
+	$email=htmlspecialchars($_POST['email']);
+  $password=htmlspecialchars($_POST['password']);
+  $query=mysqli_query($conn, "SELECT * FROM person WHERE name_person ='".$username."'");
+  $numrows=mysqli_num_rows($query);
+if($numrows==0)
+   {
+	$sql="INSERT INTO person
+  (name_person, mail_person, password_person)
+	VALUES('$username','$email', '$password')";
+  $result=mysqli_query($conn, $sql);
+ if($result){
+	$message = "Account Successfully Created";
+} else {
+ $message = "Failed to insert data information!";
+  }
+	} else {
+	$message = "That username already exists! Please try another one!";
+   }
+	} else {
+	$message = "All fields are required!";
+	}
+	}
+	?>
+
+	<?php if (!empty($message)) {echo "". $message . "</p>";} ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +56,9 @@
     <div class="card-body">
       <p class="login-box-msg">Регистрация нового пользователя</p>
 
-      <form action="profile.html" method="post">
+      <form action="" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Полное имя">
+          <input type="name" name="name" class="form-control" placeholder="Полное имя">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -32,7 +66,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" name="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -40,7 +74,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Пароль">
+          <input type="password" name="password" class="form-control" placeholder="Пароль">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -48,7 +82,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Повторите пароль">
+          <input type="password_G" name="password_G" class="form-control" placeholder="Повторите пароль">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -66,14 +100,14 @@
         </div>
 
         <div>
-          <button type="submit" class="btn btn-primary btn-block">Регистрация</button>
+          <button type="register" name="register" class="btn btn-primary btn-block">Регистрация</button>
         </div>
       </div>
       </form>
 
 
 
-      <a href="login.html" class="text-center">Забыли пароль</a>
+      <a href="login.php" class="text-center">Забыли пароль</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

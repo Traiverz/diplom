@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MaterialAdminLTE 3 | Recover Password (v2)</title>
+  <title>MaterialAdminLTE 3 | Forgot Password (v2)</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -23,34 +23,25 @@
       <a href="../../index2.html" class="h1"><b>Only</b>Freelance</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Вы можете задать новый пароль.</p>
-      <form action="login.html" method="post">
+      <p class="login-box-msg">Введите почту для восстановления пароля</p>
+      <form action="recover-password.php" method="post">
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Новый пароль">
+          <input type="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Повторите новый пароль">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Изменить пароль</button>
+            <button type="submit" class="btn btn-primary btn-block">Восстановить пароль</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
       <p class="mt-3 mb-1">
-        <a href="login.html">Войти</a>
+        <a href="login.php">Войти</a>
       </p>
     </div>
     <!-- /.login-card-body -->

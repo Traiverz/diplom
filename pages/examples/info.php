@@ -34,7 +34,7 @@
 
     <a href="../../index3.html" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">OnlyFreelance</span>
+      <span class="brand-text font-weight-light">Jumıs Izdep</span>
     </a>
 
     <div class="sidebar">
@@ -52,7 +52,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="index.php" class="nav-link">
                   <ion-icon name="home-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
                   <p>
                     Главная
@@ -60,7 +60,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="profile.html" class="nav-link">
+                <a href="profile.php" class="nav-link">
                   <ion-icon name="person-circle-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
                   <p>Профиль</p>
                 </a>
@@ -68,7 +68,7 @@
 
 
           <li id='zakazi' style="display: block;" class="nav-item">
-            <a href="order.html" class="nav-link">
+            <a href="order.php" class="nav-link">
               <ion-icon name="clipboard-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
               <p>
                 Заказы
@@ -77,25 +77,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="order.html" class="nav-link">
+                <a href="order.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Открытые заказы</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="orderwork.html" class="nav-link">
+                <a href="orderwork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Заказы в работе</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="myorder.html" class="nav-link">
+                <a href="myorder.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Мои заказы</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="arhiv.html" class="nav-link">
+                <a href="arhiv.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Архив</p>
                 </a>
@@ -113,13 +113,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="mywork.html" class="nav-link">
+                <a href="mywork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Мои услуги</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="otherwork.html" class="nav-link">
+                <a href="otherwork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Услуги других</p>
                 </a>
@@ -129,13 +129,13 @@
 
 
           <li class="nav-item">
-            <a href="chat.html" class="nav-link">
+            <a href="chat.php" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>Чаты</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="forum.html" class="nav-link">
+            <a href="forum.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>Форум</p>
             </a>
@@ -169,7 +169,7 @@
     <section class="content">
       <div class="container-fluid" style="display: flex;">
         <div class="o-saite-main">
-          Сайт OnlyFreelance.org разработан для поддержания спроса на услуги фрилансеров и заказчиков. На нашем сайте вы можете размещать свои заказы по вашим потребностям если вы являетесь заказчиком или выбрать для себя работу если вы фрилансер. Наш сайт дает возможность контакта между фрилансером и разработчиком для полной достоверности и полноты получаемой информации. Все выполненные работы хранятся и записываются в портфолио фрилансеров. Вы можете подобрать себе отдельного работника на основании необходимых вам работ а так же по его общему комплексному рейтингу на сайте который высчитывается по оценкам пользователей, проценту успешно выполненных работ от общего количества взятых заказов и прочих вещей. 
+          Сайт Jumıs Izdep.org разработан для поддержания спроса на услуги фрилансеров и заказчиков. На нашем сайте вы можете размещать свои заказы по вашим потребностям если вы являетесь заказчиком или выбрать для себя работу если вы фрилансер. Наш сайт дает возможность контакта между фрилансером и разработчиком для полной достоверности и полноты получаемой информации. Все выполненные работы хранятся и записываются в портфолио фрилансеров. Вы можете подобрать себе отдельного работника на основании необходимых вам работ а так же по его общему комплексному рейтингу на сайте который высчитывается по оценкам пользователей, проценту успешно выполненных работ от общего количества взятых заказов и прочих вещей. 
           <h3><ion-icon name="checkmark-outline"></ion-icon>Достоинства сайта для заказчика</h3>
           <ul>
             <li>Быстрый подбор работников по категориям</li>
@@ -322,7 +322,7 @@
     <div class="float-right d-none d-sm-block">
       
     </div>
-    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">OnlyFreelance</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">Jumıs Izdep</a>.</strong> All rights reserved.
   </footer>
 
   <aside class="control-sidebar control-sidebar-dark">

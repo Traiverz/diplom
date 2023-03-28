@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Добро пожаловать</title>
+  <title>MaterialAdminLTE 3 | Recover Password (v2)</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -18,25 +18,23 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="profile.html" class="h1"><b>Only</b>Freelance</a>
+      <a href="../../index2.html" class="h1"><b>Only</b>Freelance</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Войдите  в систему</p>
-
-      <form action="profile.html" method="post">
+      <p class="login-box-msg">Вы можете задать новый пароль.</p>
+      <form action="login.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Логин">
+          <input type="password" class="form-control" placeholder="Новый пароль">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Пароль">
+          <input type="password" class="form-control" placeholder="Повторите новый пароль">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -44,33 +42,19 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Запомнить меня
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Войти</button>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Изменить пароль</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
-
-      <p class="mb-1">
-        <a href="forgot-password.html">Забыли пароль</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Зарегестрироваться</a>
+      <p class="mt-3 mb-1">
+        <a href="login.php">Войти</a>
       </p>
     </div>
-    <!-- /.card-body -->
+    <!-- /.login-card-body -->
   </div>
-  <!-- /.card -->
 </div>
 <!-- /.login-box -->
 

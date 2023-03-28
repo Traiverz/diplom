@@ -100,7 +100,7 @@
 
     <a href="../../index3.html" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">OnlyFreelance</span>
+      <span class="brand-text font-weight-light">Jumıs Izdep</span>
     </a>
 
     <div class="sidebar">
@@ -126,7 +126,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="profile.html" class="nav-link">
+                <a href="profile.php" class="nav-link">
                   <ion-icon name="person-circle-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
                   <p>Профиль</p>
                 </a>
@@ -134,7 +134,7 @@
 
 
           <li id='zakazi' style="display: block;" class="nav-item">
-            <a href="order.html" class="nav-link">
+            <a href="order.php" class="nav-link">
               <ion-icon name="clipboard-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
               <p>
                 Заказы
@@ -143,25 +143,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="order.html" class="nav-link">
+                <a href="order.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Открытые заказы</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="orderwork.html" class="nav-link">
+                <a href="orderwork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Заказы в работе</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="myorder.html" class="nav-link">
+                <a href="myorder.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Мои заказы</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="arhiv.html" class="nav-link">
+                <a href="arhiv.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Архив</p>
                 </a>
@@ -179,13 +179,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="mywork.html" class="nav-link">
+                <a href="mywork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Мои услуги</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="otherwork.html" class="nav-link">
+                <a href="otherwork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Услуги других</p>
                 </a>
@@ -195,19 +195,19 @@
 
 
           <li class="nav-item">
-            <a href="chat.html" class="nav-link">
+            <a href="chat.php" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>Чаты</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="forum.html" class="nav-link">
+            <a href="forum.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>Форум</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="info.html" class="nav-link">
+            <a href="info.php" class="nav-link">
               <i class="nav-icon fas fa-search"></i>
               <p>О сайте</p>
             </a>
@@ -245,8 +245,8 @@
                 <div class="card-tools">
               
                   <div class="btn-group" id="realtime" data-toggle="btn-toggle">
-                    <button type="button" class="btn btn-default btn-sm " data-toggle="on" ><a href="myorder.html">Сделать Заказ</a></button>
-                    <button type="button" class="btn btn-default btn-sm" data-toggle="off"><a href="profile.html">Стать фрилансером</a></button>
+                    <button type="button" class="btn btn-default btn-sm " data-toggle="on" ><a href="myorder.php">Сделать Заказ</a></button>
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="off"><a href="profile.php">Стать фрилансером</a></button>
                   </div>
                 </div>
               </div>
@@ -605,7 +605,7 @@
     <div class="float-right d-none d-sm-block">
       
     </div>
-    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">OnlyFreelance</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">Jumıs Izdep</a>.</strong> All rights reserved.
   </footer>
 
   <aside class="control-sidebar control-sidebar-dark">

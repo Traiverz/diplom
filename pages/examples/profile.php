@@ -1,3 +1,38 @@
+<?php
+require_once("connection.php");
+
+session_start();
+
+if(!isset($_SESSION["session_username"]))
+header("location:login.php");
+if (!$conn) {
+  die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
+}
+$mysql = mysqli_query($conn, "SELECT * FROM person WHERE name_person ='".$_SESSION["session_username"]."'");
+if(mysqli_num_rows($mysql) > 0) {
+    $a = mysqli_fetch_array($mysql);
+    $mysql1 = mysqli_query($conn, "SELECT * FROM customer_person WHERE id_customer  ='".$a["id_customer"]."'");
+    if(mysqli_num_rows($mysql1) > 0) {
+      $b = mysqli_fetch_array($mysql1);
+    } else {
+      echo "Нет данных";
+  }
+    $mysql2 = mysqli_query($conn, "SELECT * FROM executor_person WHERE id_executor  ='".$a["id_executor"]."'");
+    if(mysqli_num_rows($mysql2) > 0) {
+      $c = mysqli_fetch_array($mysql2);
+    } else {
+      echo "Нет данных";
+  }
+} else {
+    echo "Нет данных";
+}
+
+
+$_SESSION['ispolnitel'] = $ispolnitel;
+$_SESSION['zakazchik'] = $zakazchik;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,13 +111,6 @@
       if (z.checked) x.checked = false;
     }
   </script>
-
-
-<!-- КОСТЯ Я ВЫТАЩИЛ ВСЮ ТВОЮЮ КАКАХУ В ВИДЕ CSS ОТСЮДА В ФАЙЛ ALEX.CSS ТАМ ЭТО И ИЩИ  -->
-
-
-
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
@@ -98,7 +126,7 @@
 
     <a href="../../index3.html" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">OnlyFreelance</span>
+      <span class="brand-text font-weight-light">Jumıs Izdep</span>
     </a>
 
     <div class="sidebar">
@@ -107,8 +135,8 @@
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Администратор</a>
-          <a href="#" class="d-block">Баланс: 0₸</a>
+          <a href="#" class="d-block"><?= $a['name_person']?></a>
+          <a href="#" class="d-block">Баланс: <?= $a['balance']?>₸</a>
 
         </div>
       </div>
@@ -116,7 +144,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="index.php" class="nav-link">
                   <ion-icon name="home-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
                   <p>
                     Главная
@@ -124,7 +152,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="profile.html" class="nav-link active">
+                <a href="profile.php" class="nav-link active">
                   <ion-icon name="person-circle-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
                   <p>Профиль</p>
                 </a>
@@ -132,7 +160,7 @@
 
 
           <li id='zakazi' style="display: none;" class="nav-item">
-            <a href="order.html" class="nav-link">
+            <a href="order.php" class="nav-link">
               <ion-icon name="clipboard-outline" style="font-size: 21px; margin-right: 8px; padding-left: 1px;"></ion-icon>
               <p>
                 Заказы
@@ -141,25 +169,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="order.html" class="nav-link">
+                <a href="order.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Открытые заказы</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="orderwork.html" class="nav-link">
+                <a href="orderwork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Заказы в работе</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="myorder.html" class="nav-link">
+                <a href="myorder.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Мои заказы</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="arhiv.html" class="nav-link">
+                <a href="arhiv.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Архив</p>
                 </a>
@@ -177,13 +205,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="mywork.html" class="nav-link">
+                <a href="mywork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Мои услуги</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="otherwork.html" class="nav-link">
+                <a href="otherwork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Услуги других</p>
                 </a>
@@ -193,19 +221,19 @@
 
 
           <li class="nav-item">
-            <a href="chat.html" class="nav-link">
+            <a href="chat.php" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>Чаты</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="forum.html" class="nav-link">
+            <a href="forum.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>Форум</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="info.html" class="nav-link">
+            <a href="info.php" class="nav-link">
               <i class="nav-icon fas fa-search"></i>
               <p>О сайте</p>
             </a>
@@ -241,18 +269,18 @@
                        src="../../dist/img/user4-128x128.jpg"
                        alt="User profile picture">
                 </div>
-                <h3 class="profile-username text-center">Константин Одарич</h3>
-                <p class="text-muted text-center">Software Engineer</p>
+                <h3 class="profile-username text-center"><?= $a['name_person']?></h3>
+                <p class="text-muted text-center"><?= $c['decription']?></p>
                   <div id='statusRazrab' style="display: none;">
                     <ul class="list-group list-group-unbordered mb-3">
                       <li class="list-group-item">
-                        <b>Оценки</b> <a class="float-right">12</a>
+                        <b>Оценки</b> <a class="float-right">Нет в базе</a>
                       </li>
                       <li class="list-group-item">
-                        <b>Рейтинг</b> <a class="float-right">3/5</a>
+                        <b>Рейтинг</b> <a class="float-right"><?= $c['grade']?></a>
                       </li>
                       <li class="list-group-item">
-                        <b>Статус</b> <a class="float-right">В активном поиске</a>
+                        <b>Статус</b> <a class="float-right"><?= $a['status']?></a>
                       </li>
 
                       </li>
@@ -317,6 +345,7 @@
                   <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Обо мне</a></li>
                   <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Архив</a></li>
                   <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Настройки</a></li>
+                  <li class="nav-item"><a class="nav-link" href="logout.php">Выйти</a></li>
                 </ul>
               </div>
               <div class="card-body">
@@ -426,7 +455,7 @@
 
 
                       <br>
-                      <form action="handler.php">
+                      <form method="POST" action="handler.php">
                         <p><b>Кто вы?</b></p>
                          <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis("type11", "ispol", "stataIsp", "statusRazrab", "type12", 
                          "stataZakaz", "uslugi", "zakazi");'>                             Фрилансер</p>
@@ -750,7 +779,7 @@
     <div class="float-right d-none d-sm-block">
       
     </div>
-    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">OnlyFreelance</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">Jumıs Izdep</a>.</strong> All rights reserved.
   </footer>
 
   <aside class="control-sidebar control-sidebar-dark">

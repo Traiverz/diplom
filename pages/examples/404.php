@@ -191,7 +191,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="../../index.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v1</p>
                 </a>
@@ -502,7 +502,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/profile.html" class="nav-link">
+                <a href="../examples/profile.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profile</p>
                 </a>
@@ -576,25 +576,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../examples/login.html" class="nav-link">
+                    <a href="../examples/login.php" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Login v1</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../examples/register.html" class="nav-link">
+                    <a href="../examples/register.php" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Register v1</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../examples/forgot-password.html" class="nav-link">
+                    <a href="../examples/forgot-password.php" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Forgot Password v1</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../examples/recover-password.html" class="nav-link">
+                    <a href="../examples/recover-password.php" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Recover Password v1</p>
                     </a>
@@ -655,7 +655,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/404.html" class="nav-link active">
+                <a href="../examples/404.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Error 404</p>
                 </a>
@@ -836,7 +836,7 @@
 
           <p>
             We could not find the page you were looking for.
-            Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.
+            Meanwhile, you may <a href="../../index.php">return to dashboard</a> or try using the search form.
           </p>
 
           <form class="search-form">
@@ -862,7 +862,7 @@
     <div class="float-right d-none d-sm-block">
       
     </div>
-    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">OnlyFreelance</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">Jumıs Izdep</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
