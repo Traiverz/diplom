@@ -71,6 +71,10 @@ $_SESSION['zakazchik'] = $zakazchik;
       if (x.checked) ysluga.style.display = "none";
       if (x.checked) zakaz.style.display = "block";
       else zakaz.style.display = "none";
+      <?php
+      $sql = "UPDATE person SET ispolnitel = 1, zakazchik = 0 WHERE id_person ='".$a["id_person"]."' ";
+      mysqli_query($conn, $sql);
+      ?>
     }
 
     function showVis1(x, y, z, t, g, p, ysluga, zakaz) {
@@ -92,9 +96,10 @@ $_SESSION['zakazchik'] = $zakazchik;
       if (x.checked) zakaz.style.display = "none";
       if (x.checked) ysluga.style.display = "block";
       else ysluga.style.display = "none";
-      // if (x.checked) ysluga.style.display = "none";
-      // if (x.checked) zakaz.style.display = "block";
-      // else zakaz.style.display = "none";    
+      <?php
+      $sql = "UPDATE person SET ispolnitel = 0, zakazchik = 1 WHERE id_person ='".$a["id_person"]."' ";
+      mysqli_query($conn, $sql);
+      ?>
     }
 
     function stateInput(x, y, z) {
@@ -110,6 +115,17 @@ $_SESSION['zakazchik'] = $zakazchik;
       if (z.checked) y.checked = false;
       if (z.checked) x.checked = false;
     }
+
+    function loadbody(x, y){
+      x = document.getElementById(x);
+      y = document.getElementById(y);
+      if (<?= $a['ispolnitel']?>==1) x.checked = true ; 
+      else x.checked = false;
+      if (<?= $a['ispolnitel']?>==1) showVis("type11", "ispol", "stataIsp", "statusRazrab", "type12", "stataZakaz", "uslugi", "zakazi");
+      if (<?= $a['zakazchik']?>==1) y.checked = true;
+      else y.checked = false;
+      if (<?= $a['zakazchik']?>==1) showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", "stataIsp", "zakazi", "uslugi")
+    }
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
@@ -119,7 +135,7 @@ $_SESSION['zakazchik'] = $zakazchik;
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" onload="loadbody('type11', 'type12');">
 <div class="wrapper">
   
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed;">
@@ -458,12 +474,12 @@ $_SESSION['zakazchik'] = $zakazchik;
                       <form method="POST" action="handler.php">
                         <p><b>Кто вы?</b></p>
                          <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis("type11", "ispol", "stataIsp", "statusRazrab", "type12", 
-                         "stataZakaz", "uslugi", "zakazi");'>                             Фрилансер</p>
+                         "stataZakaz", "uslugi", "zakazi");'>Фрилансер</p>
 
-                         <p><input id='type12' name="zakazchik" type="checkbox" value="zakazchik" onchange='showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", 
-                         "stataIsp", "zakazi", "uslugi");'> Заказчик</p>
+                         <p><input id='type12' name="zakazchik" data="0" type="checkbox" value="zakazchik" onchange='showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", 
+                         "stataIsp", "zakazi", "uslugi");' > Заказчик</p>
                        </form> 
-                      <br>
+                      <br>  
 
                         <div id = 'ispol' style="display: none;">
                           <h3>Вы можете указать свои навыки</h3>
