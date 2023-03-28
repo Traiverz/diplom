@@ -51,6 +51,11 @@ $_SESSION['zakazchik'] = $zakazchik;
 
     function showVis(x, y, z, o, u, t, zakaz, ysluga) {
       // исполнитель
+      <?php
+      $sql = "UPDATE person SET zakazchik = 0, ispolnitel = 1  WHERE id_person ='".$a["id_person"]."' ";
+      mysqli_query($conn, $sql);
+      ?>
+
       x = document.getElementById(x);
       y = document.getElementById(y);
       z = document.getElementById(z);
@@ -71,14 +76,15 @@ $_SESSION['zakazchik'] = $zakazchik;
       if (x.checked) ysluga.style.display = "none";
       if (x.checked) zakaz.style.display = "block";
       else zakaz.style.display = "none";
-      <?php
-      $sql = "UPDATE person SET ispolnitel = 1, zakazchik = 0 WHERE id_person ='".$a["id_person"]."' ";
-      mysqli_query($conn, $sql);
-      ?>
+
     }
 
     function showVis1(x, y, z, t, g, p, ysluga, zakaz) {
       // заказчик
+      <?php
+      $sql = "UPDATE person SET ispolnitel = 0, zakazchik = 1 WHERE id_person ='".$a["id_person"]."' ";
+      mysqli_query($conn, $sql);
+      ?>
       x = document.getElementById(x);
       y = document.getElementById(y);
       z = document.getElementById(z);
@@ -96,10 +102,7 @@ $_SESSION['zakazchik'] = $zakazchik;
       if (x.checked) zakaz.style.display = "none";
       if (x.checked) ysluga.style.display = "block";
       else ysluga.style.display = "none";
-      <?php
-      $sql = "UPDATE person SET ispolnitel = 0, zakazchik = 1 WHERE id_person ='".$a["id_person"]."' ";
-      mysqli_query($conn, $sql);
-      ?>
+
     }
 
     function stateInput(x, y, z) {
@@ -126,6 +129,8 @@ $_SESSION['zakazchik'] = $zakazchik;
       else y.checked = false;
       if (<?= $a['zakazchik']?>==1) showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", "stataIsp", "zakazi", "uslugi")
     }
+
+
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
@@ -809,24 +814,6 @@ $_SESSION['zakazchik'] = $zakazchik;
 <script src="../../dist/js/bootstrap-material-design.min.js"></script>
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 <script src="../../dist/js/demo.js"></script>
-<div class="container">
-  <div style="text-align: center;">
-    <a href="#openModal">Открыть модальное окно</a>
-  </div>
-  <div id="openModal" class="modal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title">Название</h3>
-          <a href="#close" title="Close" class="close">×</a>
-        </div>
-        <div class="modal-body">
-          Содержимое модального окна...
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {

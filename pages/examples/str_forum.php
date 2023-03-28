@@ -32,13 +32,12 @@ $_SESSION['ispolnitel'] = $ispolnitel;
 $_SESSION['zakazchik'] = $zakazchik;
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>О сайте</title>
+  <title>Мои услуги</title>
   
   
   <script type="text/javascript">
@@ -56,8 +55,6 @@ $_SESSION['zakazchik'] = $zakazchik;
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="../../dist/css/alex.css">
-  <link rel="stylesheet" href="../../dist/css/kosty.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -170,7 +167,7 @@ $_SESSION['zakazchik'] = $zakazchik;
             </a>
           </li>
           <li class="nav-item">
-            <a href="forum.php" class="nav-link active">
+            <a href="forum.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>Форум</p>
             </a>
@@ -189,12 +186,13 @@ $_SESSION['zakazchik'] = $zakazchik;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><ion-icon name="earth-outline"></ion-icon>Форум</h1>
+            <h1>Тема форума ____</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Домой</a></li>
-              <li class="breadcrumb-item active">Форум</li>
+              <li class="breadcrumb-item"><a href="index.php">Домой</a></li>
+              <li class="breadcrumb-item"><a href="forum.php">Форум</a></li>
+              <li class="breadcrumb-item active">Тема форума ____</li>
             </ol>
           </div>
         </div>
@@ -202,139 +200,6 @@ $_SESSION['zakazchik'] = $zakazchik;
     </section>
 
 
-
-
-
-    <section class="content-header">
-      <div class="container-fluid">
-        <h3 class="nav-icon fas fa-search">Тематики форума</h3>
-        <button class="vopros">Тематика номер 1 <div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-          <ul>
-            <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 2 <div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 3<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 4<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 5<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 6<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 7<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 8<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-<script>
-  let coll = document.getElementsByClassName('vopros');
-  for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener('click', function(){
-      this.classList.toggle('active-vopros');
-      let content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + 'px';
-      }
-    })
-  }
-</script>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
