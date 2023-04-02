@@ -122,12 +122,10 @@ $_SESSION['zakazchik'] = $zakazchik;
     function loadbody(x, y){
       x = document.getElementById(x);
       y = document.getElementById(y);
-      if (<?= $a['ispolnitel']?>==1) x.checked = true ; 
+      if (<?= $a['ispolnitel']?>==1) x.checked = true ;
       else x.checked = false;
       if (<?= $a['ispolnitel']?>==1) showVis("type11", "ispol", "stataIsp", "statusRazrab", "type12", "stataZakaz", "uslugi", "zakazi");
-      if (<?= $a['zakazchik']?>==1) y.checked = true;
-      else y.checked = false;
-      if (<?= $a['zakazchik']?>==1) showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", "stataIsp", "zakazi", "uslugi")
+
     }
 
 
@@ -476,12 +474,12 @@ $_SESSION['zakazchik'] = $zakazchik;
 
 
                       <br>
-                      <form method="POST" action="handler.php">
+                      <form method="POST">
                         <p><b>Кто вы?</b></p>
                          <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis("type11", "ispol", "stataIsp", "statusRazrab", "type12", 
                          "stataZakaz", "uslugi", "zakazi");'>Фрилансер</p>
 
-                         <p><input id='type12' name="zakazchik" data="0" type="checkbox" value="zakazchik" onchange='showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", 
+                         <p><input id='type12' name="zakazchik" type="checkbox" value="zakazchik" onchange='showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", 
                          "stataIsp", "zakazi", "uslugi");' > Заказчик</p>
                        </form> 
                       <br>  
