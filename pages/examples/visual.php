@@ -25,17 +25,10 @@ session_start();
     zakaz = document.getElementById(zakaz);
     zakaz.style.display = "none";
     ysluga.style.display = "block";
-
+    var active = document.getElementById("chat");
+    active.className = "nav-link active";
   }
 
-  function loadbody() {
-  if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {
-        showVis2("uslugi", "zakazi");
-      } else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {
-        showVis1("zakazi", "uslugi");
-      } else {
-        console.log("LOL");
-    }
-  }
+
 
 </script>
