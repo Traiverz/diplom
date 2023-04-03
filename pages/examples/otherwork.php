@@ -37,7 +37,7 @@ $_SESSION['zakazchik'] = $zakazchik;
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Услуги других</title>
+  <title>Услуги</title>
   
   
   <script type="text/javascript">
@@ -55,6 +55,7 @@ $_SESSION['zakazchik'] = $zakazchik;
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/service.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -186,18 +187,166 @@ $_SESSION['zakazchik'] = $zakazchik;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Услуги других</h1>
+            <h1>Услуги</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Домой</a></li>
-              <li class="breadcrumb-item active">Услуги других</li>
+              <li class="breadcrumb-item active">Услуги</li>
             </ol>
           </div>
         </div>
       </div>
     </section>
 
+    
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="field-for-service">
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_сайта.jpg);">
+              <div class="service-data">
+                <a href="uslugi.php">Доработка сайта</a>
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/настройка_сайта.jpg);">
+              <div class="service-data">
+                Настройка сайта
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/защита_лечение_сайта.jpg);">
+              <div class="service-data">
+                Защита и лечение сайта
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/ускорение_сайта.png);">
+              <div class="service-data">
+                Ускорение сайта
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/плагины_и_темы.jpg);">
+              <div class="service-data">
+                Плагины и темы
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/исправление_ошибки.jpg);">
+              <div class="service-data">
+                Исправление ошибок сайта
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/новый_сайт.png);">
+              <div class="service-data">
+                Новый сайт
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/копия_сайта.jpg);">
+              <div class="service-data">
+                Копия сайта
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/вёрстка_по_макету.jpg);">
+              <div class="service-data">
+                Вёрстка по макету
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_вёрстки.jpg);">
+              <div class="service-data">
+                Доработка вёрстки
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/макро_офис.jpg);">
+              <div class="service-data">
+                Макросы для Office
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/1s.jpg);">
+              <div class="service-data">
+                1С
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/готовые_программы.jpg);">
+              <div class="service-data">
+                Готовые программы
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);">
+              <div class="service-data">
+                Программы на заказ
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/скрипты.png);">
+              <div class="service-data">
+                Скрипты
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/парсеры.jpg);">
+              <div class="service-data">
+                Парсеры
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/чат_бот.jpg);">
+              <div class="service-data">
+                Чат боты
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/ios.jpg);">
+              <div class="service-data">
+                IOS
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/android.jpg);">
+              <div class="service-data">
+                Android
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/разработка_игр.jpg);">
+              <div class="service-data">
+                Разработка игр
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/игровой_сервер.jpg);">
+              <div class="service-data">
+                Игровой сервер
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/готовые_игры.png);">
+              <div class="service-data">
+                Готовые игры
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/администр_серверов.jpg);">
+              <div class="service-data">
+                Администрирование сервера
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/домены.jpg);">
+              <div class="service-data">
+                Домены
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/хостинг.jpg);">
+              <div class="service-data">
+                Хостинг
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/юзабилити.jpg);">
+              <div class="service-data">
+                Юзабилити-аудит
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/тестирование.jpg);">
+              <div class="service-data">
+                Тестирование на ошибки
+              </div>
+            </div>
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/помощь.jpg);">
+              <div class="service-data">
+                Компьютерная и IT помощь
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
 
     <!-- /.content -->
   </div>

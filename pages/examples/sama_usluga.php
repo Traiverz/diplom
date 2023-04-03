@@ -37,7 +37,7 @@ $_SESSION['zakazchik'] = $zakazchik;
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Мои услуги</title>
+  <title>Выбор услуг</title>
   
   
   <script type="text/javascript">
@@ -55,8 +55,8 @@ $_SESSION['zakazchik'] = $zakazchik;
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/service.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
-
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
@@ -146,7 +146,7 @@ $_SESSION['zakazchik'] = $zakazchik;
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="mywork.php" class="nav-link active">
+                <a href="mywork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Мои услуги</p>
                 </a>
@@ -154,7 +154,7 @@ $_SESSION['zakazchik'] = $zakazchik;
               <li class="nav-item">
                 <a href="otherwork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Услуги других</p>
+                  <p>Услуги</p>
                 </a>
               </li>
             </ul>
@@ -179,7 +179,7 @@ $_SESSION['zakazchik'] = $zakazchik;
               <p>О сайте</p>
             </a>
           </li>
-
+  </div>
 </aside>
 
   <div class="content-wrapper">
@@ -187,19 +187,29 @@ $_SESSION['zakazchik'] = $zakazchik;
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Мои услуги</h1>
+            <h1>Выбор услуг</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Домой</a></li>
-              <li class="breadcrumb-item active">Мои услуги</li>
+              <li class="breadcrumb-item"><a href="otherwork.php">Услуги</a></li>
+              <li class="breadcrumb-item active">Выбор услуг</li>
             </ol>
           </div>
         </div>
       </div>
     </section>
- 
 
+    
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="field-for-service">
+           
+            
+        </div>
+      </div>
+    </section>
 
     <!-- /.content -->
   </div>
