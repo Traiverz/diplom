@@ -28,8 +28,7 @@ if(mysqli_num_rows($mysql) > 0) {
 }
 
 
-$_SESSION['ispolnitel'] = $ispolnitel;
-$_SESSION['zakazchik'] = $zakazchik;
+ 
 
 ?>
 

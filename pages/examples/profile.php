@@ -11,6 +11,11 @@ if (!$conn) {
 $mysql = mysqli_query($conn, "SELECT * FROM person WHERE name_person ='".$_SESSION["session_username"]."'");
 if(mysqli_num_rows($mysql) > 0) {
     $a = mysqli_fetch_array($mysql);
+    $_SESSION["online"] = $a["online"];
+    $_SESSION["user_role"] = $a["user_role"];
+    $query = "UPDATE person SET online='offline' WHERE name_person ='".$_SESSION["session_username"]."'";
+    mysqli_query($conn, $query);
+
     $mysql1 = mysqli_query($conn, "SELECT * FROM customer_person WHERE id_customer  ='".$a["id_customer"]."'");
     if(mysqli_num_rows($mysql1) > 0) {
       $b = mysqli_fetch_array($mysql1);
@@ -26,11 +31,6 @@ if(mysqli_num_rows($mysql) > 0) {
 } else {
     echo "Нет данных";
 }
-
-
-$_SESSION['ispolnitel'] = $ispolnitel;
-$_SESSION['zakazchik'] = $zakazchik;
-
 ?>
 
 <!DOCTYPE html>
@@ -49,13 +49,12 @@ $_SESSION['zakazchik'] = $zakazchik;
       else cat.style.display = "none";
     }
 
-    function showVis(x, y, z, o, u, t, zakaz, ysluga) {
+    function showVis2(x, y, z, o, u, t, zakaz, ysluga) {
       // исполнитель
       <?php
-      $sql = "UPDATE person SET zakazchik = 0, ispolnitel = 1  WHERE id_person ='".$a["id_person"]."' ";
-      mysqli_query($conn, $sql);
+      $query = "UPDATE person SET user_role = 'ispolnitel' WHERE name_person ='".$_SESSION["session_username"]."'";
+      mysqli_query($conn, $query);
       ?>
-
       x = document.getElementById(x);
       y = document.getElementById(y);
       z = document.getElementById(z);
@@ -82,8 +81,8 @@ $_SESSION['zakazchik'] = $zakazchik;
     function showVis1(x, y, z, t, g, p, ysluga, zakaz) {
       // заказчик
       <?php
-      $sql = "UPDATE person SET ispolnitel = 0, zakazchik = 1 WHERE id_person ='".$a["id_person"]."' ";
-      mysqli_query($conn, $sql);
+      $query = "UPDATE person SET user_role = 'zakazchik' WHERE name_person ='".$_SESSION["session_username"]."'";
+      mysqli_query($conn, $query);
       ?>
       x = document.getElementById(x);
       y = document.getElementById(y);
@@ -105,27 +104,20 @@ $_SESSION['zakazchik'] = $zakazchik;
 
     }
 
-    function stateInput(x, y, z) {
-      x = document.getElementById(x);
-      y = document.getElementById(y);
-      z = document.getElementById(z);
-      if (x.checked) y.checked = false;
-      if (x.checked) z.checked = false;
-
-      if (y.checked) x.checked = false;
-      if (y.checked) z.checked = false;
-
-      if (z.checked) y.checked = false;
-      if (z.checked) x.checked = false;
-    }
-
-    function loadbody(x, y){
-      x = document.getElementById(x);
-      y = document.getElementById(y);
-      if (<?= $a['ispolnitel']?>==1) x.checked = true ;
-      else x.checked = false;
-      if (<?= $a['ispolnitel']?>==1) showVis("type11", "ispol", "stataIsp", "statusRazrab", "type12", "stataZakaz", "uslugi", "zakazi");
-
+    function loadbody(x, y) {
+    x = document.getElementById(x);
+    y = document.getElementById(y);
+    if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {
+          x.checked = true;
+          y.checked = false;
+          showVis2("type11", "ispol", "stataIsp", "statusRazrab", "type12", "stataZakaz", "uslugi", "zakazi");
+        } else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {
+          y.checked = true;
+          x.checked = false;
+          showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", "stataIsp", "zakazi", "uslugi");
+        } else {
+          console.log("LOL");
+      }
     }
 
 
@@ -476,8 +468,8 @@ $_SESSION['zakazchik'] = $zakazchik;
                       <br>
                       <form method="POST">
                         <p><b>Кто вы?</b></p>
-                         <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis("type11", "ispol", "stataIsp", "statusRazrab", "type12", 
-                         "stataZakaz", "uslugi", "zakazi");'>Фрилансер</p>
+                         <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis2("type11", "ispol", "stataIsp", "statusRazrab", "type12", 
+                         "stataZakaz", "uslugi", "zakazi");'> Фрилансер</p>
 
                          <p><input id='type12' name="zakazchik" type="checkbox" value="zakazchik" onchange='showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", 
                          "stataIsp", "zakazi", "uslugi");' > Заказчик</p>

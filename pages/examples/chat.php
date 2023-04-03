@@ -27,10 +27,6 @@ if(mysqli_num_rows($mysql) > 0) {
     echo "Нет данных";
 }
 
-
-$_SESSION['ispolnitel'] = $ispolnitel;
-$_SESSION['zakazchik'] = $zakazchik;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
