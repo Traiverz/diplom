@@ -1,6 +1,5 @@
 <?php
 require_once("connection.php");
-
 session_start();
 
 if(!isset($_SESSION["session_username"]))
@@ -103,8 +102,6 @@ if(mysqli_num_rows($mysql) > 0) {
       else ysluga.style.display = "none";
 
     }
-
-<<<<<<< HEAD
     function loadbody(x, y) {
     x = document.getElementById(x);
     y = document.getElementById(y);
@@ -119,17 +116,6 @@ if(mysqli_num_rows($mysql) > 0) {
         } else {
           console.log("LOL");
       }
-=======
-
-
-    function loadbody(x, y){
-      x = document.getElementById(x);
-      y = document.getElementById(y);
-      if (<?= $a['ispolnitel']?>==1) x.checked = true ;
-      else x.checked = false;
-      if (<?= $a['ispolnitel']?>==1) showVis("type11", "ispol", "stataIsp", "statusRazrab", "type12", "stataZakaz", "uslugi", "zakazi");
-
->>>>>>> 6fb87f5af5bbf619e2b379ff01ad4a4ba509dae9
     }
 
 

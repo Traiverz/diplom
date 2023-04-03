@@ -1,3 +1,33 @@
+<?php
+require_once("connection.php");
+
+session_start();
+
+if(!isset($_SESSION["session_username"]))
+header("location:login.php");
+if (!$conn) {
+  die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
+}
+$mysql = mysqli_query($conn, "SELECT * FROM person WHERE name_person ='".$_SESSION["session_username"]."'");
+if(mysqli_num_rows($mysql) > 0) {
+    $a = mysqli_fetch_array($mysql);
+    $mysql1 = mysqli_query($conn, "SELECT * FROM customer_person WHERE id_customer  ='".$a["id_customer"]."'");
+    if(mysqli_num_rows($mysql1) > 0) {
+      $b = mysqli_fetch_array($mysql1);
+    } else {
+      echo "Нет данных";
+  }
+    $mysql2 = mysqli_query($conn, "SELECT * FROM executor_person WHERE id_executor  ='".$a["id_executor"]."'");
+    if(mysqli_num_rows($mysql2) > 0) {
+      $c = mysqli_fetch_array($mysql2);
+    } else {
+      echo "Нет данных";
+  }
+} else {
+    echo "Нет данных";
+}
+require_once("visual.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +55,7 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" onload="loadbody();">
 <div class="wrapper">
   
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed;">

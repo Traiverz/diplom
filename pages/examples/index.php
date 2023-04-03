@@ -28,7 +28,7 @@ if(mysqli_num_rows($mysql) > 0) {
 }
 
 
- 
+require_once("visual.php");
 
 ?>
 
@@ -48,7 +48,7 @@ if(mysqli_num_rows($mysql) > 0) {
       else cat.style.display = "none";
     } 
 
-    
+
   </script>
 
 
@@ -127,7 +127,7 @@ if(mysqli_num_rows($mysql) > 0) {
     }
   </style>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" onload="loadbody();">
 <div class="wrapper">
   
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed;">

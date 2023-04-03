@@ -26,7 +26,7 @@ if(mysqli_num_rows($mysql) > 0) {
 } else {
     echo "Нет данных";
 }
-
+require_once("visual.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +53,7 @@ if(mysqli_num_rows($mysql) > 0) {
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" onload="loadbody();">
 <div class="wrapper">
   
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed;">
