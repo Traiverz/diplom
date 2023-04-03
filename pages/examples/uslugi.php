@@ -28,7 +28,8 @@ if(mysqli_num_rows($mysql) > 0) {
 }
 
 
- 
+$_SESSION['ispolnitel'] = $ispolnitel;
+$_SESSION['zakazchik'] = $zakazchik;
 
 ?>
 <!DOCTYPE html>
@@ -36,7 +37,7 @@ if(mysqli_num_rows($mysql) > 0) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Услуги</title>
+  <title>Выбор услуг</title>
   
   
   <script type="text/javascript">
@@ -151,9 +152,9 @@ if(mysqli_num_rows($mysql) > 0) {
                 </a>
               </li>
               <li class="nav-item">
-                <a href="otherwork.php" class="nav-link active">
+                <a href="otherwork.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Услуги других</p>
+                  <p>Услуги</p>
                 </a>
               </li>
             </ul>
@@ -186,12 +187,13 @@ if(mysqli_num_rows($mysql) > 0) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Услуги</h1>
+            <h1>Выбор услуг</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Домой</a></li>
-              <li class="breadcrumb-item active">Услуги</li>
+              <li class="breadcrumb-item"><a href="otherwork.php">Услуги</a></li>
+              <li class="breadcrumb-item active">Выбор услуг</li>
             </ol>
           </div>
         </div>
@@ -203,146 +205,83 @@ if(mysqli_num_rows($mysql) > 0) {
     <section class="content">
       <div class="container-fluid">
         <div class="field-for-service">
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_сайта.jpg);">
-              <div class="service-data">
-                <a href="uslugi.php">Доработка сайта</a>
+           <div class="it_is_service">
+              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);"></div>
+              <div class="it_is_service_data">
+                <b><a href="sama_usluga.php">Качественно напишу сайт</a></b>
+                <div class="service_price">1 тг</div>
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/настройка_сайта.jpg);">
-              <div class="service-data">
-                Настройка сайта
+              <div class="it_is_service_ispol">
+                123
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/защита_лечение_сайта.jpg);">
-              <div class="service-data">
-                Защита и лечение сайта
+           </div>
+
+           <div class="it_is_service">
+              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/чат_бот.jpg);"></div>
+              <div class="it_is_service_data">
+                <b>Чат-бот для телеги любой сложности</b>
+                <div class="service_price">10 000 тг</div>
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/ускорение_сайта.png);">
-              <div class="service-data">
-                Ускорение сайта
+              <div class="it_is_service_ispol">
+                123
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/плагины_и_темы.jpg);">
-              <div class="service-data">
-                Плагины и темы
+           </div>
+
+           <div class="it_is_service">
+              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/тестирование.jpg);"></div>
+              <div class="it_is_service_data">
+                <b>Протестирую ваш сайт и сделаю полный отчёт</b>
+                <div class="service_price">5 000 тг</div>
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/исправление_ошибки.jpg);">
-              <div class="service-data">
-                Исправление ошибок сайта
+              <div class="it_is_service_ispol">
+                123
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/новый_сайт.png);">
-              <div class="service-data">
-                Новый сайт
+           </div>
+
+           <div class="it_is_service">
+              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/вёрстка_по_макету.jpg);"></div>
+              <div class="it_is_service_data">
+                <b>Сверстаю сайт по макету любой сложности</b>
+                <div class="service_price">2 500 тг</div>
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/копия_сайта.jpg);">
-              <div class="service-data">
-                Копия сайта
+              <div class="it_is_service_ispol">
+                123
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/вёрстка_по_макету.jpg);">
-              <div class="service-data">
-                Вёрстка по макету
+           </div>
+
+           <div class="it_is_service">
+              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/защита_лечение_сайта.jpg);"></div>
+              <div class="it_is_service_data">
+                <b>Вылечу любой сайт от любых угроз</b>
+                <div class="service_price">500 тг</div>
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_вёрстки.jpg);">
-              <div class="service-data">
-                Доработка вёрстки
+              <div class="it_is_service_ispol">
+                123
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/макро_офис.jpg);">
-              <div class="service-data">
-                Макросы для Office
+           </div>
+
+           <div class="it_is_service">
+              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/скрипты.png);"></div>
+              <div class="it_is_service_data">
+                <b>Помогу со скриптами для сайта</b>
+                <div class="service_price">500 тг</div>
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/1s.jpg);">
-              <div class="service-data">
-                1С
+              <div class="it_is_service_ispol">
+                123
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/готовые_программы.jpg);">
-              <div class="service-data">
-                Готовые программы
+           </div>
+
+           <div class="it_is_service">
+              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/макро_офис.jpg);"></div>
+              <div class="it_is_service_data">
+                <b>Макросы для программ Office любой сложности</b>
+                <div class="service_price">1 000 тг</div>
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);">
-              <div class="service-data">
-                Программы на заказ
+              <div class="it_is_service_ispol">
+                123
               </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/скрипты.png);">
-              <div class="service-data">
-                Скрипты
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/парсеры.jpg);">
-              <div class="service-data">
-                Парсеры
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/чат_бот.jpg);">
-              <div class="service-data">
-                Чат боты
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/ios.jpg);">
-              <div class="service-data">
-                IOS
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/android.jpg);">
-              <div class="service-data">
-                Android
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/разработка_игр.jpg);">
-              <div class="service-data">
-                Разработка игр
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/игровой_сервер.jpg);">
-              <div class="service-data">
-                Игровой сервер
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/готовые_игры.png);">
-              <div class="service-data">
-                Готовые игры
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/администр_серверов.jpg);">
-              <div class="service-data">
-                Администрирование сервера
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/домены.jpg);">
-              <div class="service-data">
-                Домены
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/хостинг.jpg);">
-              <div class="service-data">
-                Хостинг
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/юзабилити.jpg);">
-              <div class="service-data">
-                Юзабилити-аудит
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/тестирование.jpg);">
-              <div class="service-data">
-                Тестирование на ошибки
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/помощь.jpg);">
-              <div class="service-data">
-                Компьютерная и IT помощь
-              </div>
-            </div>
+           </div>
+            
         </div>
       </div>
     </section>

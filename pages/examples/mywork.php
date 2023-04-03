@@ -53,6 +53,7 @@ print_r($_SESSION);
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
+
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
@@ -175,7 +176,7 @@ print_r($_SESSION);
               <p>О сайте</p>
             </a>
           </li>
-  </div>
+
 </aside>
 
   <div class="content-wrapper">
@@ -194,6 +195,7 @@ print_r($_SESSION);
         </div>
       </div>
     </section>
+ 
 
 
     <!-- /.content -->
