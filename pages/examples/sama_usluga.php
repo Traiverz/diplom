@@ -48,6 +48,21 @@ require_once("visual.php");
     var active = document.getElementById("chat");
     active.className = "nav-link";
   }
+
+    function btn_buy_click(){
+      var btn = document.getElementById("stop_btn");
+      if (btn.innerHTML === "ЗАКАЗАТЬ ЗА 500 ТГ") {
+        btn.innerHTML = "ЗАКАЗАНО";
+      } else if (btn.innerHTML === "ЗАКАЗАНО") {
+        alert("Вы уже заказали данную услугу!!!");
+      }
+    }
+
+    function btn_buy_click1(){
+      window.location.href = "chat.php";
+      
+    }
+
   </script>
 
 
@@ -69,7 +84,7 @@ require_once("visual.php");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Выбор услуг</h1>
+            <h1>Описание услуги</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -88,10 +103,55 @@ require_once("visual.php");
       <div class="container-fluid">
         <div class="field-for-service">
           <div class="show_info_for_service">
+            <div class="service_name_ji">Напишу чат бота для любой платформы быстро и не дорого</div>
+            <div class=service_img></div>
+            <div class="info_for_service">
+            Описание:<br>
+            (описываем конкретно что ваще за услуга что включает и тд)<br>
+            <br>
+            Нужно для заказа:<br>
+            (тут то что нужно для заказа)<br>
+            <br>
+            Объем работы: 5 часов<br>
+            Срок выполнения: 30 дней<br>
+            CMS: Wordpress<br>
+            Язык разработки: PHP<br>
+            Фреймворк PHP: Без фреймворка<br>
+            Интерфейс на JavaScript: Нет<br>
+            Используется CSS: Да<br>
+            Фреймворк CSS: Без фреймворка, Bootstrap, Pure, UIKit<br>
+            База данных: Предусмотрена<br>
+            Тип БД: MySQL<br>
+            </div>
+          </div>
+
+          <div class="show_price_for_service">
+            <div class="avtor_data0">
+              500 ₽<br>
+              Детали заказа<br>
+              2 дня на выполнение<br>
+              Доработка до 100% результата<br>
+              Обычно выполняет за 1 день<br>
+              <button class="btn_buy_service" id="stop_btn" onclick="btn_buy_click();">ЗАКАЗАТЬ ЗА 500 ТГ</button>
+            </div>
+
+            <div class="avtor_data">
+              <table style="width: 95%; margin-bottom: -15px; margin-left: 5%;">
+                <tr>
+                  <td style="width: 20%;"><div class="sadasd"></div></td>
+                  <td style="width: 80%;"><div class="sadasd1">Ivan</div></td>
+                </tr>
+              </table>
+              <button class="btn_buy_service" onclick="btn_buy_click1();">НАПИСАТЬ АВТОРУ</button>
+              <div class="infa">
+                <div class="repa">Рейтинг: <b>красивый</b></div>
+                <div class="vipoln_zakazi">Выполнено заказов: <b>0</b></div>
+                <div class="zakazi_v_rabote">Заказов в работе: <b>1</b></div>
+                <div class="ochenki"><b>155 оценок в заказах</b></div>
+              </div>
+            </div>
 
           </div>
-          <div class=""></div>
-            
         </div>
       </div>
     </section>

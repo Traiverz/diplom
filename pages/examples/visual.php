@@ -36,6 +36,7 @@ session_start();
     $query = "UPDATE person SET user_role = 'zakazchik' WHERE name_person ='".$_SESSION["session_username"]."'";
     mysqli_query($conn, $query);
     ?>
+
     x = document.getElementById(x);
     y = document.getElementById(y);
     t = document.getElementById(t);
@@ -48,6 +49,7 @@ session_start();
     b.style.display = "block";
     u.style.display = "none";
     i.style.display = "block";
+
   }
 
   function showVis0(x, y, t, b, u, i, chat) {

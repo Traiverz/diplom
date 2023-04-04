@@ -97,7 +97,8 @@ require_once("visual.php");
                 123
               </div>
            </div>
-
+           
+           
            <div class="it_is_service">
               <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/чат_бот.jpg);"></div>
               <div class="it_is_service_data">

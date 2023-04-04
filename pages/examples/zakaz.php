@@ -49,8 +49,9 @@ require_once("visual.php");
     }
 
     function loadbody() {
-    var active = document.getElementById("chat");
-    active.className = "nav-link";
+    if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {showVis2("uslugi", "zakazi");} 
+    else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {showVis1("zakazi", "uslugi");} 
+    else {console.log("LOL");}
     }
   </script>
 
