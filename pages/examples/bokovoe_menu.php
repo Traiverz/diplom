@@ -40,7 +40,7 @@
       <a href="#" class="d-block">Баланс: <?= $a['balance']?>₸</a>
     </div>
     <?php else: ?>
-      <a href="index.php" class="nav-lin1k">
+      <a href="login.php" class="nav-lin1k">
               <p>Авторизация</p>
       </a>
     <?php endif; ?>
