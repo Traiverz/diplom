@@ -20,16 +20,16 @@ if(mysqli_num_rows($mysql) > 0) {
     if(mysqli_num_rows($mysql1) > 0) {
       $b = mysqli_fetch_array($mysql1);
     } else {
-      echo "Нет данных";
+       error_log("Нет данных");
   }
     $mysql2 = mysqli_query($conn, "SELECT * FROM executor_person WHERE id_executor  ='".$a["id_executor"]."'");
     if(mysqli_num_rows($mysql2) > 0) {
       $c = mysqli_fetch_array($mysql2);
     } else {
-      echo "Нет данных";
+       error_log("Нет данных");
   }
 } else {
-    echo "Нет данных";
+     error_log("Нет данных");
 }
 ?>
 
@@ -49,7 +49,7 @@ if(mysqli_num_rows($mysql) > 0) {
       else cat.style.display = "none";
     }
 
-    function showVis2(x, y, z, o, u, t, zakaz, ysluga) {
+    function showVis2(x, y, z, o, u, t, ysluga, moi_zakazi) {
       // исполнитель
       <?php
       $query = "UPDATE person SET user_role = 'ispolnitel' WHERE name_person ='".$_SESSION["session_username"]."'";
@@ -61,7 +61,7 @@ if(mysqli_num_rows($mysql) > 0) {
       o = document.getElementById(o);
       u = document.getElementById(u);
       t = document.getElementById(t)
-      zakaz = document.getElementById(zakaz);
+      moi_zakazi = document.getElementById(moi_zakazi);
       ysluga = document.getElementById(ysluga);
       if (x.checked) u.checked = false;
       if (u.checked) x.checked = false;
@@ -72,14 +72,13 @@ if(mysqli_num_rows($mysql) > 0) {
       if (x.checked) o.style.display = "block";
       else o.style.display = "none";
       if (x.checked) t.style.display = "none";
-      if (x.checked) ysluga.style.display = "none";
-      if (x.checked) zakaz.style.display = "block";
-      else zakaz.style.display = "none";
-// <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis2("type11", "ispol", "stataIsp", "statusRazrab", "type12", 
-// "stataZakaz", "uslugi", "zakazi");'> Фрилансер</p>
+      if (x.checked) ysluga.style.display = "block";
+      if (x.checked) moi_zakazi.style.display = "none";
+      else moi_zakazi.style.display = "none";
+
     }
 
-    function showVis1(x, y, z, t, g, p, ysluga, zakaz) {
+    function showVis1(x, y, z, t, g, p, otkritie_zakazi, my_uslygi, zakazi_v_rabote) {
       // заказчик
       <?php
       $query = "UPDATE person SET user_role = 'zakazchik' WHERE name_person ='".$_SESSION["session_username"]."'";
@@ -91,21 +90,19 @@ if(mysqli_num_rows($mysql) > 0) {
       t = document.getElementById(t);
       g = document.getElementById(g);
       p = document.getElementById(p);
-      ysluga = document.getElementById(ysluga);
-      zakaz = document.getElementById(zakaz);
+      otkritie_zakazi = document.getElementById(otkritie_zakazi);
+      my_uslygi = document.getElementById(my_uslygi);
+      zakazi_v_rabote = document.getElementById(zakazi_v_rabote);
       if (x.checked) y.style.display = "block";
       else y.style.display = "none";
       if (x.checked) z.checked = false;
       if (x.checked) t.style.display = "none";
       if (x.checked) g.style.display = "none";
       if (x.checked) p.style.display = "none";    
-      if (x.checked) zakaz.style.display = "none";
-      if (x.checked) ysluga.style.display = "block";
-      else ysluga.style.display = "none";
-
-
-      //                    <p><input id='type12' name="zakazchik" type="checkbox" value="zakazchik" onchange='showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", 
-      //                    "stataIsp", "zakazi", "uslugi");' > Заказчик</p>
+      if (x.checked) otkritie_zakazi.style.display = "none";
+      if (x.checked) my_uslygi.style.display = "none";
+      if (x.checked) zakazi_v_rabote.style.display = "none";
+      else otkritie_zakazi.style.display = "none";
     }
 
     function loadbody(x, y) {
@@ -114,11 +111,11 @@ if(mysqli_num_rows($mysql) > 0) {
     if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {
           x.checked = true;
           y.checked = false;
-          showVis2("type11", "ispol", "stataIsp", "statusRazrab", "type12", "stataZakaz", "uslugi", "zakazi");
+          showVis2("type11", "ispol", "stataIsp", "statusRazrab", "type12", "stataZakaz", "uslugi", "moi_zakazi");
         } else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {
           y.checked = true;
           x.checked = false;
-          showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", "stataIsp", "zakazi", "uslugi");
+          showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", "stataIsp", "otkritie_zakazi", "my_uslygi", "zakazi_v_rabote");
         } else {
           console.log("LOL");
       }

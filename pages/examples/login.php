@@ -9,7 +9,6 @@ if (isset($_SESSION["session_username"])) {
   // вывод "Session is set"; // в целях проверки
   header("Location: profile.php");
 }
-print_r($_SESSION);
 
 if (isset($_POST["login"])) {
 

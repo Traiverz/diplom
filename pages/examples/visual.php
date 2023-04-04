@@ -1,34 +1,73 @@
 <?php
 session_start();
 ?>
+
 <script type="text/javascript">
-  function showVis2(zakaz, ysluga) {
+  
+    function loadbody111() {
+    if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {showVis2("otkritie_zakazi","zakazi_v_rabote","moi_zakazi","arhiv", "my_uslygi","uslugi_drugih");} 
+    else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {showVis1("otkritie_zakazi","zakazi_v_rabote","moi_zakazi","arhiv", "my_uslygi","uslugi_drugih");} 
+    else {showVis0("zakazi","profile","moi_zakazi","arhiv", "my_uslygi","uslugi_drugih","chat");}
+  }
+  
+  function showVis2(x, y, t, b, u, i) {
     // исполнитель
     <?php
     $query = "UPDATE person SET user_role = 'ispolnitel' WHERE name_person ='".$_SESSION["session_username"]."'";
-    mysqli_query($conn, $query);
+    mysqli_query($conn, $query);  
     ?>
-    zakaz = document.getElementById(zakaz);
-    ysluga = document.getElementById(ysluga);
-    ysluga.style.display = "none";
-    zakaz.style.display = "block";
-
+    x = document.getElementById(x);
+    y = document.getElementById(y);
+    t = document.getElementById(t);
+    b = document.getElementById(b);
+    u = document.getElementById(u);
+    i = document.getElementById(i);
+    x.style.display = "block";
+    y.style.display = "block";
+    t.style.display = "none";
+    b.style.display = "block";
+    u.style.display = "block";
+    i.style.display = "block";
   }
 
-  function showVis1(ysluga, zakaz) {
+  function showVis1(x, y, t, b, u, i) {
     // заказчик
     <?php
     $query = "UPDATE person SET user_role = 'zakazchik' WHERE name_person ='".$_SESSION["session_username"]."'";
     mysqli_query($conn, $query);
     ?>
-    ysluga = document.getElementById(ysluga);
-    zakaz = document.getElementById(zakaz);
-    zakaz.style.display = "none";
-    ysluga.style.display = "block";
-    var active = document.getElementById("chat");
-    active.className = "nav-link active";
+    x = document.getElementById(x);
+    y = document.getElementById(y);
+    t = document.getElementById(t);
+    b = document.getElementById(b);
+    u = document.getElementById(u);
+    i = document.getElementById(i);
+    x.style.display = "none";
+    y.style.display = "none";
+    t.style.display = "block";
+    b.style.display = "block";
+    u.style.display = "none";
+    i.style.display = "block";
   }
 
+  function showVis0(x, y, t, b, u, i, chat) {
+    // не зареганное
+    x = document.getElementById(x);
+    y = document.getElementById(y);
+    t = document.getElementById(t);
+    b = document.getElementById(b);
+    u = document.getElementById(u);
+    i = document.getElementById(i);
+    chat = document.getElementById(chat);
+    x.style.display = "none";
+    y.style.display = "none";
+    t.style.display = "block";
+    b.style.display = "block";
+    u.style.display = "none";
+    i.style.display = "block";
+    chat.style.display = "none";
+
+  }
 
 
 </script>

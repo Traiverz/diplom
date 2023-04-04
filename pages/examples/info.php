@@ -3,8 +3,6 @@ require_once("connection.php");
 
 session_start();
 
-if(!isset($_SESSION["session_username"]))
-header("location:login.php");
 if (!$conn) {
   die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
 }
@@ -15,16 +13,16 @@ if(mysqli_num_rows($mysql) > 0) {
     if(mysqli_num_rows($mysql1) > 0) {
       $b = mysqli_fetch_array($mysql1);
     } else {
-      echo "Нет данных";
+       error_log("Нет данных");
   }
     $mysql2 = mysqli_query($conn, "SELECT * FROM executor_person WHERE id_executor  ='".$a["id_executor"]."'");
     if(mysqli_num_rows($mysql2) > 0) {
       $c = mysqli_fetch_array($mysql2);
     } else {
-      echo "Нет данных";
+       error_log("Нет данных");
   }
 } else {
-    echo "Нет данных";
+     error_log("Нет данных");
 }
 
 require_once("visual.php");
@@ -49,9 +47,6 @@ require_once("visual.php");
     }
 
     function loadbody() {
-    if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {showVis2("uslugi", "zakazi");} 
-    else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {showVis1("zakazi", "uslugi");} 
-    else {console.log("LOL");}
     var active5 = document.getElementById("o_saite");
     active5.className = "nav-link active";
     var passive = document.getElementById("chat");
@@ -69,7 +64,7 @@ require_once("visual.php");
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="hold-transition sidebar-mini" onload="loadbody();">
+<body class="hold-transition sidebar-mini" onload="loadbody(); loadbody111();">
 <div class="wrapper">
   
 <?php include('bokovoe_menu.php'); ?>
