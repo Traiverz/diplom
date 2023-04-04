@@ -12,6 +12,6 @@ $mysql = mysqli_query($conn, "SELECT * FROM person WHERE name_person ='".$_SESSI
 if(mysqli_num_rows($mysql) > 0) {
     $a = mysqli_fetch_array($mysql);
 } else {
-    echo "Нет данных";
+     error_log("Нет данных");
 }
 
