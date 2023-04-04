@@ -53,6 +53,16 @@ require_once("visual.php");
     var active = document.getElementById("chat");
     active.className = "nav-link";
   }
+
+    function btn_buy_click(){
+      var btn = document.getElementById("stop_btn");
+      if (btn.innerHTML === "ЗАКАЗАТЬ ЗА 500 ТГ") {
+        btn.innerHTML = "ЗАКАЗАНО";
+      } else if (btn.innerHTML === "ЗАКАЗАНО") {
+        alert("Вы уже заказали данную услугу!!!");
+      }
+    }
+
   </script>
 
 
@@ -74,7 +84,7 @@ require_once("visual.php");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Выбор услуг</h1>
+            <h1>Описание услуги</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -93,10 +103,39 @@ require_once("visual.php");
       <div class="container-fluid">
         <div class="field-for-service">
           <div class="show_info_for_service">
-
+            <div class="service_name_ji">Напишу чат бота для любой платформы быстро и не дорого</div>
+            <div class=service_img></div>
+            <div class="info_for_service">
+            Описание:<br>
+            (описываем конкретно что ваще за услуга что включает и тд)<br>
+            <br>
+            Нужно для заказа:<br>
+            (тут то что нужно для заказа)<br>
+            <br>
+            Объем работы: 5 часов<br>
+            Срок выполнения: 30 дней<br>
+            CMS: Wordpress<br>
+            Язык разработки: PHP<br>
+            Фреймворк PHP: Без фреймворка<br>
+            Интерфейс на JavaScript: Нет<br>
+            Используется CSS: Да<br>
+            Фреймворк CSS: Без фреймворка, Bootstrap, Pure, UIKit<br>
+            База данных: Предусмотрена<br>
+            Тип БД: MySQL<br>
+            </div>
           </div>
-          <div class=""></div>
+          <div class="show_price_for_service">
+            500 ₽<br>
+            Детали заказа<br>
+            2 дня на выполнение<br>
+            Доработка до 100% результата<br>
+            Обычно выполняет за 1 день<br>
+            <div class="buttons">
+              <button class="btn_buy_service" id="stop_btn" onclick="btn_buy_click();">ЗАКАЗАТЬ ЗА 500 ТГ</button>
+              <button class="btn_buy_service">НАПИСАТЬ</button>
+            </div>
             
+          </div>
         </div>
       </div>
     </section>

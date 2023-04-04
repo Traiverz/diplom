@@ -25,8 +25,6 @@ session_start();
     zakaz = document.getElementById(zakaz);
     zakaz.style.display = "none";
     ysluga.style.display = "block";
-    var active = document.getElementById("chat");
-    active.className = "nav-link active";
   }
 
 
