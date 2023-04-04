@@ -65,7 +65,7 @@ if(mysqli_num_rows($mysql) > 0) {
       ysluga = document.getElementById(ysluga);
       if (x.checked) u.checked = false;
       if (u.checked) x.checked = false;
-            if (x.checked) y.style.display = "block";
+      if (x.checked) y.style.display = "block";
       else y.style.display = "none";
       if (x.checked) z.style.display = "block";
       else z.style.display = "none";
@@ -75,7 +75,8 @@ if(mysqli_num_rows($mysql) > 0) {
       if (x.checked) ysluga.style.display = "none";
       if (x.checked) zakaz.style.display = "block";
       else zakaz.style.display = "none";
-
+// <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis2("type11", "ispol", "stataIsp", "statusRazrab", "type12", 
+// "stataZakaz", "uslugi", "zakazi");'> Фрилансер</p>
     }
 
     function showVis1(x, y, z, t, g, p, ysluga, zakaz) {
@@ -102,6 +103,9 @@ if(mysqli_num_rows($mysql) > 0) {
       if (x.checked) ysluga.style.display = "block";
       else ysluga.style.display = "none";
 
+
+      //                    <p><input id='type12' name="zakazchik" type="checkbox" value="zakazchik" onchange='showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", 
+      //                    "stataIsp", "zakazi", "uslugi");' > Заказчик</p>
     }
 
     function loadbody(x, y) {

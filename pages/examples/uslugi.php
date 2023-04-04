@@ -50,8 +50,8 @@ require_once("visual.php");
     if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {showVis2("uslugi", "zakazi");} 
     else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {showVis1("zakazi", "uslugi");} 
     else {console.log("LOL");}
-    // var active = document.getElementById("chat");
-    // active.className = "nav-link active";
+    var active = document.getElementById("chat");
+    active.className = "nav-link";
   }
   </script>
 
