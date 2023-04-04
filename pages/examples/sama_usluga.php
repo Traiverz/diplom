@@ -58,6 +58,11 @@ require_once("visual.php");
       }
     }
 
+    function btn_buy_click1(){
+      window.location.href = "chat.php";
+      
+    }
+
   </script>
 
 
@@ -119,17 +124,33 @@ require_once("visual.php");
             Тип БД: MySQL<br>
             </div>
           </div>
+
           <div class="show_price_for_service">
-            500 ₽<br>
-            Детали заказа<br>
-            2 дня на выполнение<br>
-            Доработка до 100% результата<br>
-            Обычно выполняет за 1 день<br>
-            <div class="buttons">
+            <div class="avtor_data0">
+              500 ₽<br>
+              Детали заказа<br>
+              2 дня на выполнение<br>
+              Доработка до 100% результата<br>
+              Обычно выполняет за 1 день<br>
               <button class="btn_buy_service" id="stop_btn" onclick="btn_buy_click();">ЗАКАЗАТЬ ЗА 500 ТГ</button>
-              <button class="btn_buy_service">НАПИСАТЬ</button>
             </div>
-            
+
+            <div class="avtor_data">
+              <table style="width: 95%; margin-bottom: -15px; margin-left: 5%;">
+                <tr>
+                  <td style="width: 20%;"><div class="sadasd"></div></td>
+                  <td style="width: 80%;"><div class="sadasd1">Ivan</div></td>
+                </tr>
+              </table>
+              <button class="btn_buy_service" onclick="btn_buy_click1();">НАПИСАТЬ АВТОРУ</button>
+              <div class="infa">
+                <div class="repa">Рейтинг: <b>красивый</b></div>
+                <div class="vipoln_zakazi">Выполнено заказов: <b>0</b></div>
+                <div class="zakazi_v_rabote">Заказов в работе: <b>1</b></div>
+                <div class="ochenki"><b>155 оценок в заказах</b></div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

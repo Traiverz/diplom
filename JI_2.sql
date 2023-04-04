@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 03 2023 г., 15:04
+-- Время создания: Апр 04 2023 г., 16:06
 -- Версия сервера: 5.6.51
 -- Версия PHP: 7.2.34
 
@@ -199,7 +199,7 @@ CREATE TABLE `person` (
 --
 
 INSERT INTO `person` (`id_person`, `name_person`, `mail_person`, `password_person`, `user_role`, `person_description`, `online`, `id_executor`, `id_customer`, `balance`, `data_reg`, `kol_vo_violat`, `city`, `contact_1`, `contact_2`, `photo`, `company`, `git`) VALUES
-(1, 'Ivan', 'Ivanov@mail.ru', '1234567890', 'ispolnitel', NULL, 'offline', 1, 1, 5000, '2023-01-18', 2, 'Moscow', '88005553535', 'Ivanov@mail.ru', '', 'Arida', 'netu'),
+(1, 'Ivan', 'Ivanov@mail.ru', '1234567890', 'zakazchik', NULL, 'offline', 1, 1, 5000, '2023-01-18', 2, 'Moscow', '88005553535', 'Ivanov@mail.ru', '', 'Arida', 'netu'),
 (2, 'Petya', 'Petrov@gmail.com', '098089', 'zakazchik', NULL, 'offline', 2, 2, 0, '2022-08-01', 7, 'Petropavlovsk', '87775553535', 'Petrov@gmail.com', '', 'Integro', 'Petrov.git'),
 (3, 'Алекс228', 'alex2786W@mail.ru', '12121212', 'ispolnitel', NULL, 'offline', 0, 0, 0, '0000-00-00', 0, '', '', '', '', '', '');
 
@@ -308,6 +308,23 @@ CREATE TABLE `technology` (
 INSERT INTO `technology` (`id_technology`, `name_technology`, `id_path`) VALUES
 (1, 'PHP', 1),
 (2, 'Java', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `uslygi`
+--
+
+CREATE TABLE `uslygi` (
+  `id_uslygi` int(10) NOT NULL,
+  `author_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `technology` int(20) NOT NULL,
+  `price` int(8) NOT NULL,
+  `header` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` int(11) NOT NULL,
+  `data` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='таблица услуг';
 
 -- --------------------------------------------------------
 
