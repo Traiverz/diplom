@@ -78,6 +78,7 @@ require_once("visual.php");
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Домой</a></li>
               <li class="breadcrumb-item active">Мои услуги</li>
+              <li class="breadcrumb-item"><a href="myuslugicreate.php">Создать услугу</a></li>
             </ol>
           </div>
         </div>

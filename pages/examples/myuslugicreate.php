@@ -27,6 +27,28 @@ if(mysqli_num_rows($mysql) > 0) {
      error_log("Нет данных");
 }
 
+// Обработка отправки формы
+if (isset($_POST['submit'])) {
+  // Получение значений полей из формы
+  $author = $a['name_person'];  
+  $header = $_POST['header'];
+  $oblojka = "Нет";
+  $technology = "1";
+  $description = $_POST['description'];
+  $date = date('Y-m-d', strtotime('today'));
+  $price = $_POST['price'];
+  $status = ($_POST['submit'] == "buttonPublic") ? "Опубликовано" : "Черновик";
+  
+  // Запись данных в базу
+  $query = "INSERT INTO uslygi (author_name, technology, price, header, description, picture, data, status) VALUES ('$author', '$technology', '$price','$header', '$description', '$oblojka', '$date', '$status')";
+  
+  if (mysqli_query($conn, $query)) {
+    echo "<script>alert('Данные успешно сохранены в базу!');</script>";
+  } else {
+    $error_message = mysqli_error($conn);
+    echo "<script>alert('" . addslashes($error_message) . "');</script>";
+  }
+}
 
 require_once("visual.php");
 
@@ -48,12 +70,9 @@ require_once("visual.php");
     }
 
 
-    function loadbody() {
-    var active6 = document.getElementById("moi_zakazi");
-    active6.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
-  }
+      function loadbody() {
+
+    }
 
 
     function primary() {
@@ -94,20 +113,31 @@ require_once("visual.php");
 
 
     <section class="content">
+    <form method="POST">
       <div class="container-fluid">
         <table class="mytable1">
           <tr>
-            <td colspan="4"><div class="colrowTable1">Заказ</div></td>
+            <td colspan="4"><div class="colrowTable1">Услуга</div></td>
           </tr>
+
           <tr>
-            <td><input type="header" name="header" class="form-control" placeholder="Название вашей услуги"></td>
-            <td><a type="status" name="status" class="form-control">Создание</a></td>
+            <td colspan="2"><input type="text" name="header" class="form-control" placeholder="Заголовок для вашей услуги"></td>
+            <td colspan="2"><a type="text" name="status">Процесс: Создание</a></td>
           </tr>
+<!-- 
           <tr>
-            <td><a type="author" name="author" class="form-control"><?= $a['name_person']?></a></td>
-         </tr>
+            
+          </tr> -->
+
           <tr>
-            <td colspan="2" >Описание</td>
+            <td colspan="2"><a type="text" name="oblojka">
+              <button type="button" name="oblojkadown" class="btn btn-primary btn-block" onclick="primary4()">Загрузить обложку</button>
+            </td>
+            <td colspan="2"><a type="text" name="author"><?= $a['name_person']?></a></td>
+          </tr>
+
+          <tr>
+            <td colspan="2" ><input type="text" name="description" class="form-control" placeholder="Описание"></td>
             <td colspan="2" style="text-align: left; width: 50%;">
               <div class="technologies">
                 Какие технологии используются: <br>
@@ -391,15 +421,19 @@ require_once("visual.php");
               <input type = 'checkbox'/>Администрация серверов
               </div>
             </td>
+          </tr>
 
-          </tr>
           <tr>
-            <td colspan="2" rowspan="2">Прикрепить файлы</td>
-            <td colspan="2">Цена</td>
+            <td colspan="2" rowspan="2">
+            <button type="button" name="file" class="btn btn-primary btn-block" onclick="primary3()">Прикрепить файлы</button>
+            </td>
+            <td colspan="2"><input type="number" name="price" class="form-control" placeholder="Цена"></td>
           </tr>
+
           <tr>
             <td colspan="2">
-                <button type="button" class="btn btn-primary btn-block" onclick="primary()">Создать новый заказ</button>
+                <button type="submit" name="submit" class="btn btn-primary btn-block" value="buttonPublic">Создать и опубликовать</button>
+                <button type="submit" name="submit" class="btn btn-primary btn-block" value="buttonBlackHol">Сохранить в черновики </button>
             </td>
           </tr>
 
@@ -411,6 +445,7 @@ require_once("visual.php");
 
 
       </div>
+      </form>
     </section>
 
     <!-- /.content -->
