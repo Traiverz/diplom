@@ -1,8 +1,6 @@
 <?php
 require_once("connection.php");
-
 session_start();
-
 if (!$conn) {
   die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
 }
@@ -24,10 +22,9 @@ if(mysqli_num_rows($mysql) > 0) {
 } else {
      error_log("Нет данных");
 }
-
 require_once("visual.php");
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,36 +33,63 @@ require_once("visual.php");
   <title>Выбор услуг</title>
   
   
-  <script type="text/javascript">
-    function showOrHide(bloggood, cat) {
-      bloggood = document.getElementById(bloggood);
-      cat = document.getElementById(cat);
-      if (bloggood.checked) cat.style.display = "block";
-      else cat.style.display = "none";
-    }
 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======================================================вот тут не работает======================================================= -->
+  <script type="text/javascript">
+    var id_uslygi1;
     function loadbody() {
     var active = document.getElementById("chat");
     active.className = "nav-link";
+    id_uslygi1 = localStorage.getItem('id_uslygi');
+    id_uslygi1 = parseInt(id_uslygi1);
+    // id_uslygi1 = id_uslygi1 + 2;
+    // alert('Я ВИЖУ ТВОЮ ПЕРЕМЕННУЮ, айди услуги которую нужно вывести на эту страницу=' + id_uslygi1);
   }
-
+    
     function btn_buy_click(){
       var btn = document.getElementById("stop_btn");
-      if (btn.innerHTML === "ЗАКАЗАТЬ ЗА 500 ТГ") {
-        btn.innerHTML = "ЗАКАЗАНО";
-      } else if (btn.innerHTML === "ЗАКАЗАНО") {
+      if (btn.innerHTML === "ЗАКАЗАНО") {
         alert("Вы уже заказали данную услугу!!!");
+      } else {
+        btn.innerHTML = "ЗАКАЗАНО";
       }
     }
 
     function btn_buy_click1(){
       window.location.href = "chat.php";
-      
     }
-
-    
-
   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -99,17 +123,51 @@ require_once("visual.php");
       </div>
     </section>
 
-    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======================================================вот тут не работает======================================================= -->
+    <?php  $id_uslygi2 = $_POST['id_uslygi1'];
+        echo "My age is: " . $id_uslygi2;
+        $sql5 = "SELECT * FROM uslygi WHERE id_uslygi = '".$id_uslygi2."'";
+        $result5 = mysqli_query($conn, $sql5);
+        $row5 = mysqli_fetch_assoc($result5);    
+    ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <section class="content">
       <div class="container-fluid">
         <div class="field-for-service">
           <div class="show_info_for_service">
-            <div class="service_name_ji">Напишу чат бота для любой платформы быстро и не дорого</div>
+            <div class="service_name_ji"><?= $row5['header']?></div>
             <div class=service_img></div>
             <div class="info_for_service">
             Описание:<br>
-            (описываем конкретно что ваще за услуга что включает и тд)<br>
+            <?= $row5['description']?><br>
             <br>
             Нужно для заказа:<br>
             (тут то что нужно для заказа)<br>
@@ -129,19 +187,19 @@ require_once("visual.php");
 
           <div class="show_price_for_service">
             <div class="avtor_data0">
-              500 ₽<br>
+              <?= $row5['price']?> тг<br>
               Детали заказа<br>
               2 дня на выполнение<br>
               Доработка до 100% результата<br>
               Обычно выполняет за 1 день<br>
-              <button class="btn_buy_service" id="stop_btn" onclick="btn_buy_click();">ЗАКАЗАТЬ ЗА 500 ТГ</button>
+              <button class="btn_buy_service" id="stop_btn" onclick="btn_buy_click();">ЗАКАЗАТЬ ЗА <?= $row5['price']?> ТГ</button>
             </div>
 
             <div class="avtor_data">
               <table style="width: 95%; margin-bottom: -15px; margin-left: 5%;">
                 <tr>
                   <td style="width: 20%;"><div class="sadasd"></div></td>
-                  <td style="width: 80%;"><div class="sadasd1">Ivan</div></td>
+                  <td style="width: 80%;"><div class="sadasd1"><?= $row5['author_name']?></div></td>
                 </tr>
               </table>
               <button class="btn_buy_service" onclick="btn_buy_click1();">НАПИСАТЬ АВТОРУ</button>

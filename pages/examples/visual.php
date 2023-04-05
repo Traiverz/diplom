@@ -31,11 +31,13 @@ session_start();
   }
 
 
-    function take_service_id(id_uslygi) {
+  function take_service_id(id_uslygi) {
       var id_uslygi = id_uslygi;
-      alert('JavaScript-код был запущен! и вы выбрали переменную:' + id_uslygi);
-
+      // alert('JavaScript-код был запущен! и вы выбрали переменную:' + id_uslygi);
+      localStorage.setItem('id_uslygi', id_uslygi);
+      // download_id_service(id_uslygi);
     }
+    
 
 
   function showVis1(x, y, t, b, u, i) {
