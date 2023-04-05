@@ -30,6 +30,14 @@ session_start();
     i.style.display = "block";
   }
 
+
+    function privetAndrey(x) {
+      alert('JavaScript-код был запущен!');
+      <?= $_SESSION['service_location']?> = x;
+      alert(<?= $_SESSION['service_location']?>);
+    }
+
+
   function showVis1(x, y, t, b, u, i) {
     // заказчик
     <?php

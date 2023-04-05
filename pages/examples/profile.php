@@ -47,6 +47,7 @@ if(mysqli_num_rows($mysql) > 0) {
       cat = document.getElementById(cat);
       if (bloggood.checked) cat.style.display = "block";
       else cat.style.display = "none";
+
     }
 
     function showVis2(x, y, z, o, u, t, ysluga, moi_zakazi) {
