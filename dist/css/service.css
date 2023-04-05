@@ -2,14 +2,14 @@
 .field-for-service{
     display: flex;
     flex-direction: row;
-    width: 100%;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .one-more-service{
     background-color: beige;
-    width: 283px;
-    height: 160px;
+    width: 362px;
+    height: 200px;
     background-color: inherit;
     background-size:cover;
     background-repeat: no-repeat;

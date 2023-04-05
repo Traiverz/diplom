@@ -45,8 +45,12 @@ require_once("visual.php");
     }
 
     function loadbody() {
-    var active = document.getElementById("chat");
-    active.className = "nav-link";
+      var active = document.getElementById("chat");
+      active.className = "nav-link";
+
+      <?php 
+
+      ?>
   }
   </script>
 
@@ -87,83 +91,25 @@ require_once("visual.php");
     <section class="content">
       <div class="container-fluid">
         <div class="field-for-service">
-           <div class="it_is_service">
-              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);"></div>
-              <div class="it_is_service_data">
-                <b><a href="sama_usluga.php">Качественно напишу сайт</a></b>
-                <div class="service_price">1 тг</div>
-              </div>
-              <div class="it_is_service_ispol">
-                123
-              </div>
-           </div>
-           
-           
-           <div class="it_is_service">
-              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/чат_бот.jpg);"></div>
-              <div class="it_is_service_data">
-                <b>Чат-бот для телеги любой сложности</b>
-                <div class="service_price">10 000 тг</div>
-              </div>
-              <div class="it_is_service_ispol">
-                123
-              </div>
-           </div>
-
-           <div class="it_is_service">
-              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/тестирование.jpg);"></div>
-              <div class="it_is_service_data">
-                <b>Протестирую ваш сайт и сделаю полный отчёт</b>
-                <div class="service_price">5 000 тг</div>
-              </div>
-              <div class="it_is_service_ispol">
-                123
-              </div>
-           </div>
-
-           <div class="it_is_service">
-              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/вёрстка_по_макету.jpg);"></div>
-              <div class="it_is_service_data">
-                <b>Сверстаю сайт по макету любой сложности</b>
-                <div class="service_price">2 500 тг</div>
-              </div>
-              <div class="it_is_service_ispol">
-                123
-              </div>
-           </div>
-
-           <div class="it_is_service">
-              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/защита_лечение_сайта.jpg);"></div>
-              <div class="it_is_service_data">
-                <b>Вылечу любой сайт от любых угроз</b>
-                <div class="service_price">500 тг</div>
-              </div>
-              <div class="it_is_service_ispol">
-                123
-              </div>
-           </div>
-
-           <div class="it_is_service">
-              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/скрипты.png);"></div>
-              <div class="it_is_service_data">
-                <b>Помогу со скриптами для сайта</b>
-                <div class="service_price">500 тг</div>
-              </div>
-              <div class="it_is_service_ispol">
-                123
-              </div>
-           </div>
-
-           <div class="it_is_service">
-              <div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/макро_офис.jpg);"></div>
-              <div class="it_is_service_data">
-                <b>Макросы для программ Office любой сложности</b>
-                <div class="service_price">1 000 тг</div>
-              </div>
-              <div class="it_is_service_ispol">
-                123
-              </div>
-           </div>
+          
+           <? $sql25 = "SELECT * FROM uslygi";
+              $result = mysqli_query($conn, $sql25);
+              
+              while ($row25 = mysqli_fetch_assoc($result)) {
+                echo '<div class="it_is_service">';
+                echo '<div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);"></div>';
+                echo '<div class="it_is_service_data">';
+                echo '<b><a href="sama_usluga.php">' . $row25['header'] . '</a></b>';
+                echo '<div class="service_price">' . $row25['price'] . 'тг </div>';
+                echo '</div>';
+                echo '<div class="it_is_service_ispol">';
+                echo 'Автор: ' . $row25['author_name'];
+                echo '</div>';
+                echo '</div>';
+              }
+            
+            
+            ?>
             
         </div>
       </div>

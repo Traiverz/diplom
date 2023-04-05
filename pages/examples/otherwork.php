@@ -89,59 +89,36 @@ require_once("visual.php");
     <section class="content">
       <div class="container-fluid">
         <div class="field-for-service">
+          
             <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_сайта.jpg);">
               <div class="service-data">
-                <a href="uslugi.php">Доработка сайта</a>
+                <a href="uslugi.php">Дизайн</a>
               </div>
             </div>
+
             <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/настройка_сайта.jpg);">
               <div class="service-data">
-                Настройка сайта
+                Доработка сайта
               </div>
             </div>
             <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/защита_лечение_сайта.jpg);">
               <div class="service-data">
-                Защита и лечение сайта
+                Создание сайта
               </div>
             </div>
             <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/ускорение_сайта.png);">
               <div class="service-data">
-                Ускорение сайта
+                Дэсктоп
               </div>
             </div>
             <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/плагины_и_темы.jpg);">
               <div class="service-data">
-                Плагины и темы
+                Мобильные приложения
               </div>
             </div>
             <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/исправление_ошибки.jpg);">
               <div class="service-data">
-                Исправление ошибок сайта
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/новый_сайт.png);">
-              <div class="service-data">
-                Новый сайт
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/копия_сайта.jpg);">
-              <div class="service-data">
-                Копия сайта
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/вёрстка_по_макету.jpg);">
-              <div class="service-data">
-                Вёрстка по макету
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_вёрстки.jpg);">
-              <div class="service-data">
-                Доработка вёрстки
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/макро_офис.jpg);">
-              <div class="service-data">
-                Макросы для Office
+                Доработка программ
               </div>
             </div>
             <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/1s.jpg);">
@@ -149,84 +126,44 @@ require_once("visual.php");
                 1С
               </div>
             </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/готовые_программы.jpg);">
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/копия_сайта.jpg);">
               <div class="service-data">
-                Готовые программы
+                Парсер
               </div>
             </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);">
-              <div class="service-data">
-                Программы на заказ
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/скрипты.png);">
-              <div class="service-data">
-                Скрипты
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/парсеры.jpg);">
-              <div class="service-data">
-                Парсеры
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/чат_бот.jpg);">
-              <div class="service-data">
-                Чат боты
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/ios.jpg);">
-              <div class="service-data">
-                IOS
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/android.jpg);">
-              <div class="service-data">
-                Android
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/разработка_игр.jpg);">
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/вёрстка_по_макету.jpg);">
               <div class="service-data">
                 Разработка игр
               </div>
             </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/игровой_сервер.jpg);">
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_вёрстки.jpg);">
               <div class="service-data">
-                Игровой сервер
+                Php и js
               </div>
             </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/готовые_игры.png);">
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/макро_офис.jpg);">
               <div class="service-data">
-                Готовые игры
+                C#
               </div>
             </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/администр_серверов.jpg);">
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/готовые_программы.jpg);">
               <div class="service-data">
-                Администрирование сервера
+                C, C++
               </div>
             </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/домены.jpg);">
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);">
               <div class="service-data">
-                Домены
+                Тестирование
               </div>
             </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/хостинг.jpg);">
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/скрипты.png);">
               <div class="service-data">
                 Хостинг
               </div>
             </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/юзабилити.jpg);">
+            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/парсеры.jpg);">
               <div class="service-data">
-                Юзабилити-аудит
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/тестирование.jpg);">
-              <div class="service-data">
-                Тестирование на ошибки
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/помощь.jpg);">
-              <div class="service-data">
-                Компьютерная и IT помощь
+                Администрирование серверов
               </div>
             </div>
         </div>
