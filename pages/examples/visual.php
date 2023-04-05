@@ -31,10 +31,10 @@ session_start();
   }
 
 
-    function privetAndrey(x) {
-      alert('JavaScript-код был запущен!');
-      <?= $_SESSION['service_location']?> = x;
-      alert(<?= $_SESSION['service_location']?>);
+    function take_service_id(id_uslygi) {
+      var id_uslygi = id_uslygi;
+      alert('JavaScript-код был запущен! и вы выбрали переменную:' + id_uslygi);
+
     }
 
 
