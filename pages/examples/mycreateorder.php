@@ -27,7 +27,29 @@ if(mysqli_num_rows($mysql) > 0) {
      error_log("Нет данных");
 }
 
-
+// Обработка отправки формы
+if (isset($_POST['submit'])) {
+  // Получение значений полей из формы
+  $author = $a['name_person'];  
+  $header = $_POST['name_zakaz'];
+  $data1 = $_POST['data1'];
+  $data2 = $_POST['data2'];
+  $oblojka = "Нет";
+  $technology = "1";
+  $description = $_POST['description'];
+  $date = date('Y-m-d', strtotime('today'));
+  $price = $_POST['price'];
+  $status = ($_POST['submit'] == "buttonPublic") ? "Опубликовано" : ($_POST['submit'] == "buttonLS") ? "Рассмотрение" : "Черновик";
+  // Запись данных в базу
+  $query = "INSERT INTO zadanie (name_customer, technology, price, name_order, decription, picture, data_add, data_start, data_end, status) VALUES ('$author', '$technology', '$price','$header', '$description', '$oblojka', '$date', '$data1', '$data2', '$status')";
+  
+  if (mysqli_query($conn, $query)) {
+    echo "<script>alert('Данные успешно сохранены в базу!');</script>";
+  } else {
+    $error_message = mysqli_error($conn);
+    echo "<script>alert('" . addslashes($error_message) . "');</script>";
+  }
+}
 require_once("visual.php");
 
 ?>
@@ -94,30 +116,28 @@ require_once("visual.php");
 
 
     <section class="content">
+    <form method="POST">
       <div class="container-fluid">
         <table class="mytable1">
           <tr>
             <td colspan="4"><div class="colrowTable1">Заказ</div></td>
           </tr>
           <tr>
-            <td>Название заказа</td>
-            <td>Статус</td>
-            <td><a href="#">С какого</a></td>
-            <td><a href="#">По какое</a></td>
-          </tr>
-          <tr>
-            <td>Заказчик</td>
-            <td>Дата заказа</td>
-            <td colspan="2">Дата начала выполнения</td>
+            <td><?= $a['name_person']?></td>
+            <td><?=date('Y-m-d', strtotime('today'))?></td>
+            <td colspan="2">Сроки</td>
             
           </tr>
           <tr>
-            <td colspan="2">Исполнитель</td>
-            
-            <td colspan="2">Дата окончания</td>
+            <td><input type="text" name="name_zakaz" class="form-control" placeholder="Назание заказа"></td>
+            <td><a type="text" name="status">Статус: Создание</a></td>
+            <td>С<input type="date" name="data1" class="form-control" placeholder="Срок с какое"></td>
+            <td>До<input type="date" name="data2" class="form-control" placeholder="по какое"></td>
+
           </tr>
+
           <tr>
-            <td colspan="2" >Описание</td>
+            <td colspan="2" ><input type="text" name="description" class="form-control" placeholder="Описание"></td>
             <td colspan="2" style="text-align: left; width: 50%;">
               <div class="technologies">
                 Какие технологии используются: <br>
@@ -405,11 +425,13 @@ require_once("visual.php");
           </tr>
           <tr>
             <td colspan="2" rowspan="2">Прикрепить файлы</td>
-            <td colspan="2">Цена</td>
+            <td colspan="2"><input type="text" name="price" class="form-control" placeholder="Укажите максимальну цену, которую, вы готовы предложить"></td>
           </tr>
           <tr>
-            <td colspan="2">
-                <button type="button" class="btn btn-primary btn-block" onclick="primary()">Создать новый заказ</button>
+            <td colspan="3" class = "">
+                <button type="submit" name="submit" class="btn_tub_created" value="buttonLS">Отправить лично</button>
+                <button type="submit" name="submit" class="btn_tub_created" value="buttonBlackHol">В черновики</button>
+                <button type="submit" name="submit" class="btn_tub_created" value="buttonPublic">Опубликовать для всех</button>
             </td>
           </tr>
 
@@ -421,6 +443,7 @@ require_once("visual.php");
 
 
       </div>
+    </form>
     </section>
 
     <!-- /.content -->
