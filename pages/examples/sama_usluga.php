@@ -39,15 +39,15 @@ require_once("visual.php");
   <script type="text/javascript">
 
     function loadbody() {
-
+      
   }
     
     function btn_buy_click(){
       var btn = document.getElementById("stop_btn");
-      if (btn.innerHTML === "ЗАКАЗАНО") {
+      if (btn.innerHTML === "ЗАКАЗАНО✔✔✔") {
         alert("Вы уже заказали данную услугу!!!");
       } else {
-        btn.innerHTML = "ЗАКАЗАНО";
+        btn.innerHTML = "ЗАКАЗАНО✔✔✔";
       }
     }
 
@@ -68,7 +68,12 @@ require_once("visual.php");
 <div class="wrapper">
   
 <?php include('bokovoe_menu.php'); ?>
+<?php  
+        $sql5 = "SELECT * FROM uslygi WHERE id_uslygi = '".$_SESSION['location_servis']."'";
+        $result5 = mysqli_query($conn, $sql5);
+        $row5 = mysqli_fetch_assoc($result5);
 
+    ?>
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
@@ -79,26 +84,23 @@ require_once("visual.php");
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Домой</a></li>
-              <li class="breadcrumb-item"><a href="otherwork.php">Услуги</a></li>
-              <li class="breadcrumb-item active">Выбор услуг</li>
+              <li class="breadcrumb-item">Услуги</li>
+              <li class="breadcrumb-item">Выбор услуг</li>
+              <li class="breadcrumb-item active"><?= $row5['header']?></li>
             </ol>
           </div>
         </div>
       </div>
     </section>
 
-    <?php  
-        $sql5 = "SELECT * FROM uslygi WHERE id_uslygi = '".$_SESSION['location_servis']."'";
-        $result5 = mysqli_query($conn, $sql5);
-        $row5 = mysqli_fetch_assoc($result5);    
-    ?>
+    
 
     <section class="content">
       <div class="container-fluid">
         <div class="field-for-service">
           <div class="show_info_for_service">
-            <div class="service_name_ji"><?= $row5['header']?></div>
-            <div class=service_img></div>
+            <div class="service_name_ji"><?= $row5['header']?></div><br>
+            <div class=service_img style="background-image: url(<?= $row5['img']?>);"></div>
             <div class="info_for_service">
             Описание:<br>
             <?= $row5['description']?><br>
@@ -126,7 +128,12 @@ require_once("visual.php");
               2 дня на выполнение<br>
               Доработка до 100% результата<br>
               Обычно выполняет за 1 день<br>
-              <button class="btn_buy_service" id="stop_btn" onclick="btn_buy_click();">ЗАКАЗАТЬ ЗА <?= $row5['price']?> ТГ</button>
+
+              <?php 
+                  if (!($_SESSION["session_username"] === $row5['author_name'])){
+                    echo '<button class="btn_buy_service" id="stop_btn" onclick="btn_buy_click();">ЗАКАЗАТЬ ЗА ' . $row5['price'] . ' ТГ</button>'; 
+                  } 
+              ?>
             </div>
 
             <div class="avtor_data">
@@ -136,7 +143,13 @@ require_once("visual.php");
                   <td style="width: 80%;"><div class="sadasd1"><?= $row5['author_name']?></div></td>
                 </tr>
               </table>
-              <button class="btn_buy_service" onclick="btn_buy_click1();">НАПИСАТЬ АВТОРУ</button>
+              <?php 
+                  if (!($_SESSION["session_username"] === $row5['author_name'])){
+                    echo '<button class="btn_buy_service" id="take_message_avtor" onclick="btn_buy_click1();">НАПИСАТЬ АВТОРУ</button>'; 
+                  } 
+              ?>
+
+              
               <div class="infa">
                 <div class="repa">Рейтинг: <b>красивый</b></div>
                 <div class="vipoln_zakazi">Выполнено заказов: <b>0</b></div>

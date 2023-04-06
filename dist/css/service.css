@@ -14,7 +14,7 @@
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
-    border: 2px solid red;
+    border: 2px solid black;
     border-radius: 15px;
     margin: 15px;
     position: relative;
@@ -26,15 +26,36 @@
     position: absolute;
     bottom: 0;
     bottom: 0px;
-    background-color: white;
-    opacity: 0.75;
+    background-color: silver;
+    color: black;
+    opacity: 1;
+    text-shadow:
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
     width: 100%;
     text-align: center;
+    font-size: 25px;
+    
 }
 
 .one-more-service:hover{
-    transform: scale(1.15);
+    transform: scale(1.05);
+    border: 2px solid red;
+    box-shadow: 2px 8px 16px 2px rgba(0,0,0,0.5);
 }
+
+.service-data:hover{
+    text-decoration: none;
+    color: red;
+}
+
+.one-more-service:hover .service-data{
+    text-decoration: none;
+    color: red;
+}
+
 
 /* ====================================uslugi.php=========================================== */
 .it_is_service{
@@ -44,13 +65,25 @@
     background-color: silver;
     border-radius: 15px;
     overflow: hidden;
-    border: 2px solid red;
+    border: 2px solid black;
     transition: transform 0.2s ease-in-out;
 }
 
 .it_is_service:hover{
+    transform: scale(1.05);
+    border: 2px solid red;
     box-shadow: 2px 8px 16px 2px rgba(0,0,0,0.5);
-    transform: scale(1.075);
+}
+
+.href_hdr{
+    text-decoration: none;
+    color: black;
+
+}
+
+.href_hdr:hover{
+    text-decoration: none;
+    color: black;
 }
 
 .it_is_service_ava{
@@ -106,10 +139,11 @@
 }
 
 .service_name_ji{
-    margin-left: 50px;
+    /* margin-left: 50px; */
     font-size: 30px;
     color: black;
-
+    text-align: center;
+    margin-top: 20px;
 }
 
 .service_img{
@@ -144,7 +178,7 @@
 }
 
 .btn_buy_service:hover{
-    transform: scale(1.1);
+    transform: scale(1.09);
 }
 
 
@@ -183,3 +217,25 @@
 }
 
 
+/* ===================================================mywork.php================================================================== */
+.it_is_service123{
+    display: none;
+}
+
+.button_in_mywork{
+    
+    border: none;
+    color: red;
+    background-color: inherit;
+    margin: 10px;
+    transition: transform 0.3s ease-in;
+    border: 2px dotted red;
+    border-radius: 15px;
+}
+.button_in_mywork:hover{
+    transform: scale(1.05);
+}
+
+.it_is_service:hover .it_is_service123{
+    display: block;
+}

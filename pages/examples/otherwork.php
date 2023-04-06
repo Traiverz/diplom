@@ -91,97 +91,19 @@ require_once("visual.php");
         <div class="field-for-service">
           
 
-        <?    $sql255 = "SELECT * FROM technology";
-              $result7 = mysqli_query($conn, $sql255);
-              
-              while ($row7 = mysqli_fetch_assoc($result7)) {
-
-                echo '<div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_сайта.jpg);">';
+        <? $sql25 = "SELECT * FROM technology";
+              $result = mysqli_query($conn, $sql25);
+              while ($row25 = mysqli_fetch_assoc($result)) {
+                echo '<a href="uslugi.php?id_service_tab=' . $row25['id_path'] . '">';
+                echo '<div class="one-more-service" style="background-image: url(' . $row25['img'] . ');">';
                 echo '<div class="service-data">';
-                echo '<a href="uslugi.php">Дизайн</a>';
+                echo $row25['name_technology'];
                 echo '</div>';
-                echo '</div>';
+                echo '</div></a>';
               }
-              
-              
-            
-            ?>
-            
-              
-                
-              
-            
 
-            <!-- <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/настройка_сайта.jpg);">
-              <div class="service-data">
-                Доработка сайта
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/защита_лечение_сайта.jpg);">
-              <div class="service-data">
-                Создание сайта
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/ускорение_сайта.png);">
-              <div class="service-data">
-                Дэсктоп
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/плагины_и_темы.jpg);">
-              <div class="service-data">
-                Мобильные приложения
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/исправление_ошибки.jpg);">
-              <div class="service-data">
-                Доработка программ
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/1s.jpg);">
-              <div class="service-data">
-                1С
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/копия_сайта.jpg);">
-              <div class="service-data">
-                Парсер
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/вёрстка_по_макету.jpg);">
-              <div class="service-data">
-                Разработка игр
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_вёрстки.jpg);">
-              <div class="service-data">
-                Php и js
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/макро_офис.jpg);">
-              <div class="service-data">
-                C#
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/готовые_программы.jpg);">
-              <div class="service-data">
-                C, C++
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);">
-              <div class="service-data">
-                Тестирование
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/скрипты.png);">
-              <div class="service-data">
-                Хостинг
-              </div>
-            </div>
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/парсеры.jpg);">
-              <div class="service-data">
-                Администрирование серверов
-              </div>
-            </div> -->
+            ?>
+  
         </div>
       </div>
     </section>

@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
   $status = ($_POST['submit'] == "buttonPublic") ? "Опубликовано" : "Черновик";
   
   // Запись данных в базу
-  $query = "INSERT INTO uslygi (author_name, technology, price, header, description, picture, data, status) VALUES ('$author', '$technology', '$price','$header', '$description', '$oblojka', '$date', '$status')";
+  $query = "INSERT INTO uslygi (author_name, technology, price, header, description, img, data, status) VALUES ('$author', '$technology', '$price','$header', '$description', '$oblojka', '$date', '$status')";
   
   if (mysqli_query($conn, $query)) {
     echo "<script>alert('Данные успешно сохранены в базу!');</script>";

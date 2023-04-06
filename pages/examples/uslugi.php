@@ -48,7 +48,7 @@ require_once("visual.php");
     }
 
     function loadbody() {
-      alert('Привет, вы выбрали: <?php echo $_SESSION['serv_id']; ?>');
+
   }
   </script>
 
@@ -90,20 +90,21 @@ require_once("visual.php");
       <div class="container-fluid">
         <div class="field-for-service">
         
-           <? $sql25 = "SELECT * FROM uslygi WHERE technology = '2'";
+           <? $sql25 = "SELECT * FROM uslygi WHERE technology = '".$_SESSION['serv_id']."'";
               $result = mysqli_query($conn, $sql25);
               
               while ($row25 = mysqli_fetch_assoc($result)) {
+                echo '<a class="href_hdr" href="sama_usluga.php?id_uslygi=' . $row25['id_uslygi'] . '">';
                 echo '<div class="it_is_service">';
-                echo '<div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);"></div>';
+                echo '<div class="it_is_service_ava" style="background-image: url(' . $row25['img'] . ');"></div>';
                 echo '<div class="it_is_service_data">';
-                echo '<b><a href="sama_usluga.php?id_uslygi=' . $row25['id_uslygi'] . '">' . $row25['header'] . '</a></b>';
+                echo '<b>' . $row25['header'] . '</b>';
                 echo '<div class="service_price">' . $row25['price'] . 'тг </div>';
                 echo '</div>';
                 echo '<div class="it_is_service_ispol">';
                 echo 'Автор: ' . $row25['author_name'];
                 echo '</div>';
-                echo '</div>';
+                echo '</div></a>';
               }
               
               
