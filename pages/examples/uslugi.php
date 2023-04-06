@@ -99,7 +99,7 @@ require_once("visual.php");
                 echo '<div class="it_is_service">';
                 echo '<div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);"></div>';
                 echo '<div class="it_is_service_data">';
-                echo '<b><a href="sama_usluga.php" onclick="take_service_id(' . $row25['id_uslygi'] . ');">' . $row25['header'] . '</a></b>';
+                echo '<b><a href="sama_usluga.php?id_uslygi=' . $row25['id_uslygi'] . '">' . $row25['header'] . '</a></b>';
                 echo '<div class="service_price">' . $row25['price'] . 'тг </div>';
                 echo '</div>';
                 echo '<div class="it_is_service_ispol">';
@@ -107,6 +107,7 @@ require_once("visual.php");
                 echo '</div>';
                 echo '</div>';
               }
+              
             
             
             ?>

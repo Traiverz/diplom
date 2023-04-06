@@ -1,6 +1,8 @@
 <?php
 require_once("connection.php");
 session_start();
+$id_uslygi = $_GET['id_uslygi'];
+$_SESSION['location_servis'] = $id_uslygi;
 if (!$conn) {
   die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
 }
@@ -49,15 +51,9 @@ require_once("visual.php");
 <!-- ======================================================вот тут не работает======================================================= -->
 
   <script type="text/javascript">
-    var id_uslygi1;
+
     function loadbody() {
-    var active = document.getElementById("chat");
-    active.className = "nav-link";
-    id_uslygi1 = localStorage.getItem('id_uslygi');
-    id_uslygi1 = parseInt(id_uslygi1);
-    // тут я получаю значение в переменную
-    // id_uslygi1 = id_uslygi1 + 2;
-    // alert('Я ВИЖУ ТВОЮ ПЕРЕМЕННУЮ, айди услуги которую нужно вывести на эту страницу=' + id_uslygi1);
+
   }
     
     function btn_buy_click(){
@@ -73,26 +69,6 @@ require_once("visual.php");
       window.location.href = "chat.php";
     }
   </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
@@ -125,42 +101,11 @@ require_once("visual.php");
       </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-    <!-- ======================================================вот тут не работает======================================================= -->
-    <!-- а тут мне надо чтобы запрос сравнивал с моей переменной которая появилась выше в скрипте -->
     <?php  $id_uslygi2 = $_POST['id_uslygi1'];
-        echo "My age is: " . $id_uslygi2;
-        $sql5 = "SELECT * FROM uslygi WHERE id_uslygi = '".$id_uslygi2."'";
+        $sql5 = "SELECT * FROM uslygi WHERE id_uslygi = '".$_SESSION['location_servis']."'";
         $result5 = mysqli_query($conn, $sql5);
         $row5 = mysqli_fetch_assoc($result5);    
     ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <section class="content">
       <div class="container-fluid">
