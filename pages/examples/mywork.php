@@ -57,6 +57,7 @@ require_once("visual.php");
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/service.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -85,7 +86,31 @@ require_once("visual.php");
       </div>
     </section>
  
-
+    <section class="content">
+      <div class="container-fluid">
+        <div class="field-for-service">
+            <? $sql25 = "SELECT * FROM uslygi WHERE author_name = '".$_SESSION['session_username']."'";
+                  $result = mysqli_query($conn, $sql25);
+                  while ($row25 = mysqli_fetch_assoc($result)) {
+                    echo '<a class="href_hdr" href="sama_usluga.php?id_uslygi=' . $row25['id_uslygi'] . '"><div class="it_is_service">';
+                    echo '<div class="it_is_service_ava" style="background-image: url(' . $row25['img'] . ');"></div>';
+                    echo '<div class="it_is_service_data">';
+                    echo '<b>' . $row25['header'] . '</b>';
+                    echo '<div class="service_price">' . $row25['price'] . 'тг </div>';
+                    echo '</div>';
+                    echo '<div class="it_is_service_ispol">';
+                    echo 'Автор: ' . $row25['author_name'] . '<br>';
+                    echo '<div class="it_is_service123"></a>';
+                    echo '<button class="button_in_mywork">Удалить</button>';
+                    echo '<button class="button_in_mywork">Изменить</button>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                  }
+                ?>
+        </div>
+      </div>
+    </section>
 
     <!-- /.content -->
   </div>

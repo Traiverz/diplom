@@ -32,13 +32,19 @@
 <div class="sidebar">
   <div id='info_ac' class="user-panel mt-3 pb-3 mb-3 d-flex">
     <?php if(isset($_SESSION["session_username"])): ?>
-      <div class="my_sidebar_img"  >
+    
+    
+    <div class="my_sidebar_img">
       <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" style="position: relative; top: 7px; width: 40px; height: 40px;" alt="User Image">
     </div>
     <div class="info">
       <a href="#" class="d-block"><?= $a['name_person']?></a>
       <a href="#" class="d-block">Баланс: <?= $a['balance']?>₸</a>
     </div>
+
+
+
+
     <?php else: ?>
       <a href="login.php" class="nav-lin1k">
               <p>Авторизация</p>

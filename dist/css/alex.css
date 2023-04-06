@@ -47,13 +47,10 @@ th, td {
   color: #4682b4;
 }
 
-.zakaz:active{
+.zakaz:hover{
   background-color: aqua;
 }
 
-.zakaz:visited{
-  background-color: beige;
-}
 
 .chat_list{
 

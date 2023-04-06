@@ -2,6 +2,9 @@
 require_once("connection.php");
 
 session_start();
+$id_service_tab = $_GET['id_service_tab'];
+$_SESSION['serv_id'] = $id_service_tab;
+
 
 if (!$conn) {
   die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
@@ -45,12 +48,7 @@ require_once("visual.php");
     }
 
     function loadbody() {
-      var active = document.getElementById("chat");
-      active.className = "nav-link";
 
-      <?php 
-
-      ?>
   }
   </script>
 
@@ -91,24 +89,25 @@ require_once("visual.php");
     <section class="content">
       <div class="container-fluid">
         <div class="field-for-service">
-          
-           <? $sql25 = "SELECT * FROM uslygi WHERE technology = '1'";
+        
+           <? $sql25 = "SELECT * FROM uslygi WHERE technology = '".$_SESSION['serv_id']."'";
               $result = mysqli_query($conn, $sql25);
               
               while ($row25 = mysqli_fetch_assoc($result)) {
+                echo '<a class="href_hdr" href="sama_usluga.php?id_uslygi=' . $row25['id_uslygi'] . '">';
                 echo '<div class="it_is_service">';
-                echo '<div class="it_is_service_ava" style="background-image: url(../../dist/img/img_for_service/программы_на_заказ.jpg);"></div>';
+                echo '<div class="it_is_service_ava" style="background-image: url(' . $row25['img'] . ');"></div>';
                 echo '<div class="it_is_service_data">';
-                echo '<b><a href="sama_usluga.php?id_uslygi=' . $row25['id_uslygi'] . '">' . $row25['header'] . '</a></b>';
+                echo '<b>' . $row25['header'] . '</b>';
                 echo '<div class="service_price">' . $row25['price'] . 'тг </div>';
                 echo '</div>';
                 echo '<div class="it_is_service_ispol">';
                 echo 'Автор: ' . $row25['author_name'];
                 echo '</div>';
-                echo '</div>';
+                echo '</div></a>';
               }
               
-            
+              
             
             ?>
             
