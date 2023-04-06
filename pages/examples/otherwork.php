@@ -90,13 +90,29 @@ require_once("visual.php");
       <div class="container-fluid">
         <div class="field-for-service">
           
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_сайта.jpg);">
-              <div class="service-data">
-                <a href="uslugi.php">Дизайн</a>
-              </div>
-            </div>
 
-            <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/настройка_сайта.jpg);">
+        <?    $sql255 = "SELECT * FROM technology";
+              $result7 = mysqli_query($conn, $sql255);
+              
+              while ($row7 = mysqli_fetch_assoc($result7)) {
+
+                echo '<div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/доработка_сайта.jpg);">';
+                echo '<div class="service-data">';
+                echo '<a href="uslugi.php">Дизайн</a>';
+                echo '</div>';
+                echo '</div>';
+              }
+              
+              
+            
+            ?>
+            
+              
+                
+              
+            
+
+            <!-- <div class="one-more-service" style="background-image: url(../../dist/img/img_for_service/настройка_сайта.jpg);">
               <div class="service-data">
                 Доработка сайта
               </div>
@@ -165,7 +181,7 @@ require_once("visual.php");
               <div class="service-data">
                 Администрирование серверов
               </div>
-            </div>
+            </div> -->
         </div>
       </div>
     </section>

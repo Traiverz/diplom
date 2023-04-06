@@ -2,6 +2,9 @@
 require_once("connection.php");
 
 session_start();
+$id_service_tab = $_GET['id_service_tab'];
+$_SESSION['serv_id'] = $id_service_tab;
+
 
 if (!$conn) {
   die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
@@ -45,12 +48,7 @@ require_once("visual.php");
     }
 
     function loadbody() {
-      var active = document.getElementById("chat");
-      active.className = "nav-link";
-
-      <?php 
-
-      ?>
+      alert('Привет, вы выбрали: <?php echo $_SESSION['serv_id']; ?>');
   }
   </script>
 
@@ -91,8 +89,8 @@ require_once("visual.php");
     <section class="content">
       <div class="container-fluid">
         <div class="field-for-service">
-          
-           <? $sql25 = "SELECT * FROM uslygi WHERE technology = '1'";
+        
+           <? $sql25 = "SELECT * FROM uslygi WHERE technology = '2'";
               $result = mysqli_query($conn, $sql25);
               
               while ($row25 = mysqli_fetch_assoc($result)) {
@@ -108,7 +106,7 @@ require_once("visual.php");
                 echo '</div>';
               }
               
-            
+              
             
             ?>
             

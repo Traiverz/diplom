@@ -1,8 +1,10 @@
 <?php
 require_once("connection.php");
+
 session_start();
 $id_uslygi = $_GET['id_uslygi'];
 $_SESSION['location_servis'] = $id_uslygi;
+
 if (!$conn) {
   die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
 }
@@ -33,22 +35,6 @@ require_once("visual.php");
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Выбор услуг</title>
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ======================================================вот тут не работает======================================================= -->
 
   <script type="text/javascript">
 
@@ -101,7 +87,7 @@ require_once("visual.php");
       </div>
     </section>
 
-    <?php  $id_uslygi2 = $_POST['id_uslygi1'];
+    <?php  
         $sql5 = "SELECT * FROM uslygi WHERE id_uslygi = '".$_SESSION['location_servis']."'";
         $result5 = mysqli_query($conn, $sql5);
         $row5 = mysqli_fetch_assoc($result5);    
