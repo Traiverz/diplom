@@ -123,7 +123,7 @@ require_once("visual.php");
 
           <div class="show_price_for_service">
             <div class="avtor_data0">
-              <?= $row5['price']?> тг<br>
+              <?= $row5['price']?> ₸<br>
               Детали заказа<br>
               2 дня на выполнение<br>
               Доработка до 100% результата<br>
@@ -131,7 +131,7 @@ require_once("visual.php");
 
               <?php 
                   if (!($_SESSION["session_username"] === $row5['author_name'])){
-                    echo '<button class="btn_buy_service" id="stop_btn" onclick="btn_buy_click();">ЗАКАЗАТЬ ЗА ' . $row5['price'] . ' ТГ</button>'; 
+                    echo '<button class="btn_buy_service" id="stop_btn" onclick="btn_buy_click();">ЗАКАЗАТЬ ЗА ' . $row5['price'] . ' ₸</button>'; 
                   } 
               ?>
             </div>

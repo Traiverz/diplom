@@ -2,6 +2,18 @@
 require_once("connection.php");
 
 session_start();
+$my_role = $_GET['my_role'];
+$_SESSION['my_role'] = $my_role;
+
+if ($_SESSION['my_role'] === 'ispolnitel'){
+  $query = "UPDATE person SET user_role = 'ispolnitel' WHERE name_person ='".$_SESSION["session_username"]."'";
+  mysqli_query($conn, $query);
+}
+elseif ($_SESSION['my_role'] === 'zakazchik'){
+  $query = "UPDATE person SET user_role = 'zakazchik' WHERE name_person ='".$_SESSION["session_username"]."'";
+  mysqli_query($conn, $query);
+}
+
 
 if(!isset($_SESSION["session_username"]))
 header("location:login.php");
@@ -50,81 +62,84 @@ if(mysqli_num_rows($mysql) > 0) {
 
     }
 
-    function showVis2(x, y, z, o, u, t, ysluga, moi_zakazi) {
+    function showVis2() {
       // исполнитель
-      <?php
-      $query = "UPDATE person SET user_role = 'ispolnitel' WHERE name_person ='".$_SESSION["session_username"]."'";
-      mysqli_query($conn, $query);
-      ?>
-      x = document.getElementById(x);
-      y = document.getElementById(y);
-      z = document.getElementById(z);
-      o = document.getElementById(o);
-      u = document.getElementById(u);
-      t = document.getElementById(t)
-      moi_zakazi = document.getElementById(moi_zakazi);
-      ysluga = document.getElementById(ysluga);
-      if (x.checked) u.checked = false;
-      if (u.checked) x.checked = false;
-      if (x.checked) y.style.display = "block";
-      else y.style.display = "none";
-      if (x.checked) z.style.display = "block";
-      else z.style.display = "none";
-      if (x.checked) o.style.display = "block";
-      else o.style.display = "none";
-      if (x.checked) t.style.display = "none";
-      if (x.checked) ysluga.style.display = "block";
-      if (x.checked) moi_zakazi.style.display = "none";
-      else moi_zakazi.style.display = "none";
-
+      var chkbox_ispol = document.getElementById('type11');
+      var chkbox_zakaz = document.getElementById('type12');
+      var mini_state_of_ispol = document.getElementById('statusRazrab');
+      var state_of_ispol = document.getElementById('stataIsp');
+      var state_of_zakaz = document.getElementById('stataZakaz');
+      var my_skills = document.getElementById('ispol');
+      var sidebar_zakaz_1 = document.getElementById('otkritie_zakazi');
+      var sidebar_zakaz_2 = document.getElementById('zakazi_v_rabote');
+      var sidebar_zakaz_3 = document.getElementById('moi_zakazi');
+      var sidebar_zakaz_4 = document.getElementById('arhiv');
+      var sidebar_usluga_1 = document.getElementById('my_uslygi');
+      var sidebar_usluga_2 = document.getElementById('uslugi_drugih');
+      chkbox_ispol.checked = true;
+      chkbox_zakaz.checked = false;
+      state_of_zakaz.style.display = "none"
+      sidebar_zakaz_3.style.display = "none"
+      window.location.href = "profile.php?my_role=ispolnitel";
     }
 
-    function showVis1(x, y, z, t, g, p, otkritie_zakazi, my_uslygi, zakazi_v_rabote) {
+    function showVis1() {
       // заказчик
-      <?php
-      $query = "UPDATE person SET user_role = 'zakazchik' WHERE name_person ='".$_SESSION["session_username"]."'";
-      mysqli_query($conn, $query);
-      ?>
-      x = document.getElementById(x);
-      y = document.getElementById(y);
-      z = document.getElementById(z);
-      t = document.getElementById(t);
-      g = document.getElementById(g);
-      p = document.getElementById(p);
-      otkritie_zakazi = document.getElementById(otkritie_zakazi);
-      my_uslygi = document.getElementById(my_uslygi);
-      zakazi_v_rabote = document.getElementById(zakazi_v_rabote);
-      if (x.checked) y.style.display = "block";
-      else y.style.display = "none";
-      if (x.checked) z.checked = false;
-      if (x.checked) t.style.display = "none";
-      if (x.checked) g.style.display = "none";
-      if (x.checked) p.style.display = "none";    
-      if (x.checked) otkritie_zakazi.style.display = "none";
-      if (x.checked) my_uslygi.style.display = "none";
-      if (x.checked) zakazi_v_rabote.style.display = "none";
-      else otkritie_zakazi.style.display = "none";
+      var chkbox_ispol = document.getElementById('type11');
+      var chkbox_zakaz = document.getElementById('type12');
+      var mini_state_of_ispol = document.getElementById('statusRazrab');
+      var state_of_ispol = document.getElementById('stataIsp');
+      var state_of_zakaz = document.getElementById('stataZakaz');
+      var my_skills = document.getElementById('ispol');
+      var sidebar_zakaz_1 = document.getElementById('otkritie_zakazi');
+      var sidebar_zakaz_2 = document.getElementById('zakazi_v_rabote');
+      var sidebar_zakaz_3 = document.getElementById('moi_zakazi');
+      var sidebar_zakaz_4 = document.getElementById('arhiv');
+      var sidebar_usluga_1 = document.getElementById('my_uslygi');
+      var sidebar_usluga_2 = document.getElementById('uslugi_drugih');
+      chkbox_ispol.checked = false;
+      chkbox_zakaz.checked = true;
+      sidebar_zakaz_1.style.display = "none";
+      sidebar_zakaz_2.style.display = "none";
+      sidebar_usluga_1.style.display = "none";
+      my_skills.style.display = "none";
+      mini_state_of_ispol.style.display = "none";
+      state_of_ispol.style.display = "none";
+      window.location.href = "profile.php?my_role=zakazchik";
     }
 
-    function loadbody(x, y) {
-    x = document.getElementById(x);
-    y = document.getElementById(y);
-    if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {
-          x.checked = true;
-          y.checked = false;
-          showVis2("type11", "ispol", "stataIsp", "statusRazrab", "type12", "stataZakaz", "uslugi", "moi_zakazi");
-        } else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {
-          y.checked = true;
-          x.checked = false;
-          showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", "stataIsp", "otkritie_zakazi", "my_uslygi", "zakazi_v_rabote");
-        } else {
-          console.log("LOL");
-      }
+    function loadbody() {
+      var chkbox_ispol = document.getElementById('type11');
+      var chkbox_zakaz = document.getElementById('type12');
+      var mini_state_of_ispol = document.getElementById('statusRazrab');
+      var state_of_ispol = document.getElementById('stataIsp');
+      var state_of_zakaz = document.getElementById('stataZakaz');
+      var my_skills = document.getElementById('ispol');
+      var sidebar_zakaz_1 = document.getElementById('otkritie_zakazi');
+      var sidebar_zakaz_2 = document.getElementById('zakazi_v_rabote');
+      var sidebar_zakaz_3 = document.getElementById('moi_zakazi');
+      var sidebar_zakaz_4 = document.getElementById('arhiv');
+      var sidebar_usluga_1 = document.getElementById('my_uslygi');
+      var sidebar_usluga_2 = document.getElementById('uslugi_drugih');
+      if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {
+        chkbox_ispol.checked = true;
+        chkbox_zakaz.checked = false;
+        state_of_zakaz.style.display = "none"
+        sidebar_zakaz_3.style.display = "none"
+      } 
+      else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {
+        chkbox_ispol.checked = false;
+        chkbox_zakaz.checked = true;
+        sidebar_zakaz_1.style.display = "none";
+        sidebar_zakaz_2.style.display = "none";
+        sidebar_usluga_1.style.display = "none";
+        my_skills.style.display = "none";
+        mini_state_of_ispol.style.display = "none";
+        state_of_ispol.style.display = "none";
+      } 
 
       var active11 = document.getElementById("profile");
       active11.className = "nav-link active";
-      var passive = document.getElementById("chat");
-      passive.className = "nav-link";
     }
 
 
@@ -137,10 +152,11 @@ if(mysqli_num_rows($mysql) > 0) {
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="hold-transition sidebar-mini" onload="loadbody('type11', 'type12');">
+<body class="hold-transition sidebar-mini" onload="loadbody();">
 <div class="wrapper">
   
 <?php include('bokovoe_menu.php'); ?>
+
 
   <div class="content-wrapper">
     <section class="content-header">
@@ -172,7 +188,7 @@ if(mysqli_num_rows($mysql) > 0) {
                 </div>
                 <h3 class="profile-username text-center"><?= $a['name_person']?></h3>
                 <p class="text-muted text-center"><?= $c['decription']?></p>
-                  <div id='statusRazrab' style="display: none;">
+                  <div id='statusRazrab'>
                     <ul class="list-group list-group-unbordered mb-3">
                       <li class="list-group-item">
                         <b>Оценки</b> <a class="float-right">Нет в базе</a>
@@ -192,7 +208,7 @@ if(mysqli_num_rows($mysql) > 0) {
 
             <div class="card card-primary">
             
-                    <div id='stataIsp' style="display: none;">
+                    <div id='stataIsp'>
                         <div class="card-header">
                           <h3 class="card-title">Статистика исполнителя</h3>
                         </div>
@@ -214,7 +230,7 @@ if(mysqli_num_rows($mysql) > 0) {
                         </div>
                     </div>
                     
-                    <div id='stataZakaz' style="display: none;">
+                    <div id='stataZakaz'>
                       <br>
                       <div class="card-header">
                         <h3 class="card-title">Статистика заказчика</h3>
@@ -358,15 +374,12 @@ if(mysqli_num_rows($mysql) > 0) {
                       <br>
                       <form method="POST">
                         <p><b>Кто вы?</b></p>
-                         <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis2("type11", "ispol", "stataIsp", "statusRazrab", "type12", 
-                         "stataZakaz", "uslugi", "zakazi");'> Фрилансер</p>
-
-                         <p><input id='type12' name="zakazchik" type="checkbox" value="zakazchik" onchange='showVis1("type12", "stataZakaz", "type11", "statusRazrab", "ispol", 
-                         "stataIsp", "zakazi", "uslugi");' > Заказчик</p>
+                         <p><input id='type11' name="ispolnitel" type="checkbox" value="ispolnitel" onchange='showVis2();'>Фрилансер</p>
+                         <p><input id='type12' name="zakazchik" type="checkbox" value="zakazchik" onchange='showVis1();' >Заказчик</p>
                        </form> 
                       <br>  
 
-                        <div id = 'ispol' style="display: none;">
+                        <div id = 'ispol'>
                           <h3>Вы можете указать свои навыки</h3>
                           <h6>Благодаря ним мы сможем помочь вам с подбором заказа и показывать предложения</h6>
                           <div >
