@@ -93,116 +93,37 @@ require_once("visual.php");
     <section class="content-header">
       <div class="container-fluid">
         <h3 class="nav-icon fas fa-search">Тематики форума</h3>
-        <button class="vopros">Тематика номер 1 <div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-          <ul>
-            <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
 
 
-        <button class="vopros">Тематика номер 2 <div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
+        <? $sql25 = "SELECT * FROM tema";
+              $result = mysqli_query($conn, $sql25);
+              while ($row25 = mysqli_fetch_assoc($result)) {
+                echo '<button class="vopros">' . $row25['name_tema'] . '<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>';
+                echo '<div class="otvet"><ul>';
+                echo '<li> <a href="str_forum.php">Первая тема</a><br></li>';
+                echo '<li> <a href="str_forum.php">Вторая тема</a><br></li>';
+                echo '<li> <a href="str_forum.php">Третья тема</a><br></li>';
+                echo '<li> <a href="str_forum.php">Четвертая тема</a><br></li>';
+                echo '<li> <a href="str_forum.php">Пятая тема</a><br></li>';
+                echo '<li> <a href="str_forum.php">Шестая тема</a><br></li>';
+                echo '<li> <a href="str_forum.php">Седьмая тема</a><br></li></ul></div>';
+              }
+
+            ?>
+
+        
+        
+            
+            
+            
+            
+            
+            
+            
 
 
-        <button class="vopros">Тематика номер 3<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
 
-
-        <button class="vopros">Тематика номер 4<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 5<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 6<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 7<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
-
-
-        <button class="vopros">Тематика номер 8<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>
-        <div class="otvet">
-        <ul>
-        <li> <a href="str_forum.php">Первая тема</a><br></li>
-            <li> <a href="str_forum.php">Вторая тема</a><br></li>
-            <li> <a href="str_forum.php">Третья тема</a><br></li>
-            <li> <a href="str_forum.php">Четвертая тема</a><br></li>
-            <li> <a href="str_forum.php">Пятая тема</a><br></li>
-            <li> <a href="str_forum.php">Шестая тема</a><br></li>
-            <li> <a href="str_forum.php">Седьмая тема</a><br></li>
-          </ul>
-        </div>
+        
       </div>
     </section>
 
