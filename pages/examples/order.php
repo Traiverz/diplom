@@ -435,12 +435,21 @@ require_once("visual.php");
               $result = mysqli_query($conn, $sql100);
               
               while ($row100 = mysqli_fetch_assoc($result)) {
+<<<<<<< HEAD
                 echo '<div class="zakaz"><a href="zakaz.php?id_order=' . $row25['id_order'] . '"><table class="mytable2"> ';
                 echo '<tr><td rowspan="3" style="width: 8%;">' . $row100['picture'] . '</td>';
                 echo '<td colspan="2">' . $row100["name_customer"] . '</td><td style="width: 12%;"colspan="2" >Заявлено</td></tr>';
                 echo '<tr><td colspan="2"> ' . $row100['name_order'] . '</td>';
                 echo '<td style="width: 12%;"colspan="2"> ' . $row100['technology'] . '</td></tr>';
                 echo '<tr><td style="width: 33%;">' . $row100['data_start'] . '</td><td colspan="2" style="width: 32%;"> ' . $row100['data_end'] . '</td>';
+=======
+                echo '<div class="zakaz"><a href="zakaz.php"><table class="mytable2"> ';
+                echo '<tr><td rowspan="3" style="width: 8%;">' . $row100['picture'] . '</td>';
+                echo '<td colspan="2">' . $row100["name_customer"] . '</td><td style="width: 12%;"colspan="2" >Заявлено</td></tr>';
+                echo '<tr><td colspan="2"> ' . $row100['decription'] . '</td>';
+                echo '<td style="width: 12%;"colspan="2"> ' . $row100['technology'] . '</td></tr>';
+                echo '<tr><td style="width: 33%;">' . $row100['data_start'] . '</td><td colspan="2" style="width: 32%;"> ' . $row100['deadline'] . '</td>';
+>>>>>>> a7c3eaaef85574f2ea668e4bd6b68fd38d205a65
                 echo '<td colspan="2" style="width: 33%;" class="zakaz_price">' . $row100['price'] . '</td>';
                 echo '</tr></table></a></div>;';
               }
