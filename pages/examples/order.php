@@ -27,6 +27,7 @@ if(mysqli_num_rows($mysql) > 0) {
      error_log("Нет данных");
 }
 
+
 require_once("visual.php");
  
 
@@ -429,89 +430,24 @@ require_once("visual.php");
               </div>
             </div>
           </div>
-          <div class="zakaz" >
-            <a href="zakaz.php">
-              <table class="mytable2"> 
-                <tr>
-                  <td rowspan="3" style="width: 8%;"> Аватар</td>
-                  <td colspan="2">Тема</td>
-                  <td style="width: 12%;"> Статус заказа</td>
-                </tr>
-                <tr>
-                  <td colspan="2"> Краткое описание проекта</td>
-                  <td style="width: 12%;"> Технологии</td>
-                </tr>
-                <tr>
-                  <td style="width: 46%;"> Дата начала </td>
-                  <td colspan="2" style="width: 46%;"> Дата закрытия</td>
-                </tr>
-              </table>
-            </a>
-          </div>
-
-          <div class="zakaz" >
-            <a href="zakaz.php">
-              <table class="mytable2"> 
-                <tr>
-                  <td rowspan="3" style="width: 8%;"> Аватар</td>
-                  <td colspan="2">Тема</td>
-                  <td style="width: 12%;"> Статус заказа</td>
-                </tr>
-                <tr>
-                  <td colspan="2"> Краткое описание проекта</td>
-                  <td style="width: 12%;"> Технологии</td>
-                </tr>
-                <tr>
-                  <td style="width: 46%;"> Дата начала </td>
-                  <td colspan="2" style="width: 46%;"> Дата закрытия</td>
-                </tr>
-              </table>
-            </a>
-          </div>
-
-          <div class="zakaz" >
-            <a href="zakaz.php">
-              <table class="mytable2"> 
-                <tr>
-                  <td rowspan="3" style="width: 8%;"> Аватар</td>
-                  <td colspan="2">Тема</td>
-                  <td style="width: 12%;"> Статус заказа</td>
-                </tr>
-                <tr>
-                  <td colspan="2"> Краткое описание проекта</td>
-                  <td style="width: 12%;"> Технологии</td>
-                </tr>
-                <tr>
-                  <td style="width: 46%;"> Дата начала </td>
-                  <td colspan="2" style="width: 46%;"> Дата закрытия</td>
-                </tr>
-              </table>
-            </a>
-          </div>
-
-          <div class="zakaz" >
-            <a href="zakaz.php">
-              <table class="mytable2"> 
-                <tr>
-                  <td rowspan="3" style="width: 8%;"> Аватар</td>
-                  <td colspan="2">Тема</td>
-                  <td style="width: 12%;"> Статус заказа</td>
-                </tr>
-                <tr>
-                  <td colspan="2"> Краткое описание проекта</td>
-                  <td style="width: 12%;"> Технологии</td>
-                </tr>
-                <tr>
-                  <td style="width: 46%;"> Дата начала </td>
-                  <td colspan="2" style="width: 46%;"> Дата закрытия</td>
-                </tr>
-              </table>
-            </a>
-          </div>
-
-          
-          
-          
+		  <? 
+			$sql100 = "SELECT * FROM zadanie WHERE status = 'Опубликовано'";
+              $result = mysqli_query($conn, $sql100);
+              
+              while ($row100 = mysqli_fetch_assoc($result)) {
+                echo '<div class="zakaz"><a href="zakaz.php"><table class="mytable2"> ';
+                echo '<tr><td rowspan="3" style="width: 8%;">' . $row100['picture'] . '</td>';
+                echo '<td colspan="2">' . $row100["name_customer"] . '</td><td style="width: 12%;"colspan="2" >Заявлено</td></tr>';
+                echo '<tr><td colspan="2"> ' . $row100['decription'] . '</td>';
+                echo '<td style="width: 12%;"colspan="2"> ' . $row100['technology'] . '</td></tr>';
+                echo '<tr><td style="width: 33%;">' . $row100['data_start'] . '</td><td colspan="2" style="width: 32%;"> ' . $row100['deadline'] . '</td>';
+                echo '<td colspan="2" style="width: 33%;" class="zakaz_price">' . $row100['price'] . '</td>';
+                echo '</tr></table></a></div>;';
+              }
+            
+            ?>
+					
+						
         </div>
       </section>
 

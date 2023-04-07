@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
   $description = $_POST['description'];
   $date = date('Y-m-d', strtotime('today'));
   $price = $_POST['price'];
-  $status = ($_POST['submit'] == "buttonPublic") ? "Опубликовано" : ($_POST['submit'] == "buttonLS") ? "Рассмотрение" : "Черновик";
+  $status = ($_POST['submit'] == "buttonBlackHol") ? "Черновик" :  "Рассмотрение";
   // Запись данных в базу
   $query = "INSERT INTO zadanie (name_customer, technology, price, name_order, decription, picture, data_add, data_start, data_end, status) VALUES ('$author', '$technology', '$price','$header', '$description', '$oblojka', '$date', '$data1', '$data2', '$status')";
   
@@ -429,9 +429,9 @@ require_once("visual.php");
           </tr>
           <tr>
             <td colspan="3" class = "">
-                <button type="submit" name="submit" class="btn_tub_created" value="buttonLS">Отправить лично</button>
+                <button type="submit" name="submit" class="btn_tub_created" value="buttonLS">Отправить</button>
                 <button type="submit" name="submit" class="btn_tub_created" value="buttonBlackHol">В черновики</button>
-                <button type="submit" name="submit" class="btn_tub_created" value="buttonPublic">Опубликовать для всех</button>
+                <button type="submit" name="submit" class="btn_tub_created" value="buttonPublic">Опубликовать</button>
             </td>
           </tr>
 
