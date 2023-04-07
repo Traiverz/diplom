@@ -31,9 +31,9 @@ if(mysqli_num_rows($mysql) > 0) {
 
 require_once("visual.php");
  
- $sql20 = "SELECT * FROM uslygi WHERE id_order = '".$_SESSION['location_order']."'";
- $result20 = mysqli_query($conn, $sql5);
- $row20 = mysqli_fetch_assoc($result5);
+ $sql20 = "SELECT * FROM zadanie WHERE id_order = '".$_SESSION['location_order']."'";
+ $result20 = mysqli_query($conn, $sql20);
+ $row20 = mysqli_fetch_assoc($result20);
 
 
 ?>
