@@ -35,7 +35,7 @@
     
     
     <div class="my_sidebar_img">
-      <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" style="position: relative; top: 7px; width: 40px; height: 40px;" alt="User Image">
+      <img src="<?= $a['photo']?>" class="img-circle elevation-2" style="position: relative; top: 7px; width: 40px; height: 40px;" alt="User Image">
     </div>
     <div class="info">
       <a href="#" class="d-block"><?= $a['name_person']?></a>

@@ -183,7 +183,7 @@ if(mysqli_num_rows($mysql) > 0) {
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="../../dist/img/user4-128x128.jpg"
+                       src="<?= $a['photo']?>"
                        alt="User profile picture">
                 </div>
                 <h3 class="profile-username text-center"><?= $a['name_person']?></h3>

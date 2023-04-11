@@ -207,7 +207,7 @@ require_once("visual.php");
         </div>
         <!-- /.row -->
 
-        
+      
 
       <h5 class="mb-2">Рекомендуем наших специалистов:</h5>
       <div class="row">
@@ -218,7 +218,7 @@ require_once("visual.php");
             <div class="widget-user-header bg-warning">
               <div class="widget-user-image">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="../../dist/img/user4-128x128.jpg"
+                       src="../../dist/img/avatar/avatar3.png"
                        alt="User profile picture">
               </div>
               <!-- /.widget-user-image -->
@@ -259,7 +259,7 @@ require_once("visual.php");
             <div class="widget-user-header bg-warning">
               <div class="widget-user-image">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="../../dist/img/user4-128x128.jpg"
+                       src="../../dist/img/avatar/avatar2.png"
                        alt="User profile picture">
               </div>
               <!-- /.widget-user-image -->
@@ -300,7 +300,7 @@ require_once("visual.php");
             <div class="widget-user-header bg-warning">
               <div class="widget-user-image">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="../../dist/img/user4-128x128.jpg"
+                       src="../../dist/img/avatar/avatar1.png"
                        alt="User profile picture">
               </div>
               <!-- /.widget-user-image -->
@@ -340,7 +340,7 @@ require_once("visual.php");
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title"><ion-icon name="ribbon-outline"></ion-icon> Наши лучшие специалисты!</h3>
+                <h3 class="card-title"><ion-icon name="ribbon-outline"></ion-icon> Десятка наших лучших специалистов!</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -356,22 +356,35 @@ require_once("visual.php");
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>
-                      <div class="widget-user-image01">
-                          <img class="profile-user-img img-fluid img-circle"
-                              src="../../dist/img/user4-128x128.jpg"
-                              alt="User profile picture">
-                      </div>
-                    </td>
 
-                    <td>Иванов Иван
-                    </td>
-                    <td>1С</td>
-                    <td>400</td>
-                    <td>280</td>
-                  </tr>
+
+                  <?  
+                      $sql100 = "SELECT * FROM person";
+                      $result = mysqli_query($conn, $sql100);
+                      for ($i = 0; $i < 10; $i++) {
+                          $row100 = mysqli_fetch_assoc($result);
+                          echo '<tr><td>' . $row100['id_person'] . '</td>';
+                          echo '<td><div class="widget-user-image01"><img class="profile-user-img img-fluid img-circle" src="' . $row100['photo'] . '" alt="User profile picture"></div></td>';
+                          echo '<td>' . $row100['name_person'] . '</td>';
+                            $sql101 = "SELECT * FROM executor_person WHERE WHERE name_executor = '".$row100['name_person']."'";
+                            $result25 = mysqli_query($conn, $sql101);
+                            $row101 = mysqli_fetch_assoc($result25);
+                            echo '<td>' . $row101['services'] . '</td>';
+                          echo '<td>' . $row100['raiting_zakazchiki'] . '</td>';
+                          echo '<td>' . $row100['raiting_saita'] . '</td></tr>';
+                      }
+                  ?>
+
+
+
+
+                  
+                    
+                    
+                    
+                    
+                    
+<!--                   
                   <tr>
                     <td>2</td>
                     <td>
@@ -506,7 +519,7 @@ require_once("visual.php");
                     <td>1С</td>
                     <td>400</td>
                     <td>280</td>
-                  </tr>
+                  </tr> -->
                   
                   </tbody>
                   

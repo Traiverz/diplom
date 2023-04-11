@@ -139,7 +139,13 @@ require_once("visual.php");
             <div class="avtor_data">
               <table style="width: 95%; margin-bottom: -15px; margin-left: 5%;">
                 <tr>
-                  <td style="width: 20%;"><div class="sadasd"></div></td>
+                <?  
+                      $sql98 = "SELECT * FROM person WHERE name_person = '".$row5['author_name']."'";
+                      $result = mysqli_query($conn, $sql98);
+                      $row98 = mysqli_fetch_assoc($result);
+                      echo '<td style="width: 20%;"><div class="sadasd" style="background-image: url(' . $row98['photo'] . ');"></div></td>';
+                  ?>
+                  
                   <td style="width: 80%;"><div class="sadasd1"><?= $row5['author_name']?></div></td>
                 </tr>
               </table>
@@ -151,13 +157,16 @@ require_once("visual.php");
 
               
               <div class="infa">
-                <div class="repa">Рейтинг: <b>красивый</b></div>
-                <div class="vipoln_zakazi">Выполнено заказов: <b>0</b></div>
-                <div class="zakazi_v_rabote">Заказов в работе: <b>1</b></div>
-                <div class="ochenki"><b>155 оценок в заказах</b></div>
+                  <?  
+                      $sql98 = "SELECT * FROM executor_person WHERE name_executor = '".$row5['author_name']."'";
+                      $result = mysqli_query($conn, $sql98);
+                      $row98 = mysqli_fetch_assoc($result);
+                      echo '<div class="repa">Рейтинг: <b>'.$row98['grade'].'</b></div>';
+                      echo '<div class="vipoln_zakazi">Выполнено заказов: <b>'.$row98['success_jobs'].'</b></div>';
+                      echo '<div class="zakazi_v_rabote">Заказов в работе: <b>'.$row98['during_jobs'].'</b></div>';
+                  ?>
               </div>
             </div>
-
           </div>
         </div>
       </div>
