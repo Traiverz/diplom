@@ -435,7 +435,7 @@ require_once("visual.php");
               $result = mysqli_query($conn, $sql100);
               
               while ($row100 = mysqli_fetch_assoc($result)) {
-                echo '<div class="zakaz"><a href="zakaz.php?id_order=' . $row25['id_order'] . '"><table class="mytable2"> ';
+                echo '<div class="zakaz"><a href="zakaz.php?id_order=' . $row100['id_order'] . '"><table class="mytable2"> ';
                 echo '<tr><td rowspan="3" style="width: 8%;">' . $row100['picture'] . '</td>';
                 echo '<td colspan="2">' . $row100["name_customer"] . '</td><td style="width: 12%;"colspan="2" >Заявлено</td></tr>';
                 echo '<tr><td colspan="2"> ' . $row100['name_order'] . '</td>';

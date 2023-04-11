@@ -3,6 +3,9 @@ require_once("connection.php");
 
 session_start();
 
+$id_order = $_GET['id_order'];
+$_SESSION['location_order'] = $id_order;
+
 if(!isset($_SESSION["session_username"]))
 header("location:login.php");
 if (!$conn) {
@@ -29,6 +32,10 @@ if(mysqli_num_rows($mysql) > 0) {
 
 
 require_once("visual.php");
+ 
+$sql20 = "SELECT * FROM zadanie WHERE id_order = '".$_SESSION['location_order']."'";
+$result20 = mysqli_query($conn, $sql20);
+$row20 = mysqli_fetch_assoc($result20);
 
 ?>
 
@@ -37,7 +44,7 @@ require_once("visual.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Заказ ___</title>
+  <title>Заказ  <?= $_SESSION['location_order']?></title>
   
   
   <script type="text/javascript">
@@ -80,7 +87,7 @@ require_once("visual.php");
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Домой</a></li>
               <li class="breadcrumb-item"><a href="order.php">Открытые заказы</a></li>
-              <li class="breadcrumb-item active">Заказ №___</li>
+              <li class="breadcrumb-item active">Заказ №<?= $id_order?></li>
             </ol>
           </div>
         </div>
@@ -92,20 +99,21 @@ require_once("visual.php");
         <div class="openzakazst">
           <table class="openzakaztable">
             <tr>
-              <td style="width: 50%;">Название заказа</td>
-              <td style="width: 10%;" rowspan="2">Статус</td>
+              <td style="width: 50%;">Название заказа: <?= $row20['name_order']?></td>
+              <td style="width: 10%;" rowspan="2">Статус: <?= $row20['status']?></td>
+              <td >Ставка Заказчика: <?= $row20['price']?></td>
+            </tr>
+            <tr>
+              <td>Заказчик: <?= $row20['name_customer']?></td>
+              <td >Дата заказа: <?= $row20['data_add']?></td>
+            </tr>
+            <tr>
+              <td colspan="2">Исполнитель: Не выбран</td>
               <td style="width: 30%;" >Ваша ставка:</td>
+
             </tr>
             <tr>
-              <td>Заказчик</td>
-              <td >Дата заказа</td>
-            </tr>
-            <tr>
-              <td colspan="2">Исполнитель</td>
-              <td >Ставка</td>
-            </tr>
-            <tr>
-              <td colspan="2" style="height: 400px;">Описание</td>
+              <td colspan="2" style="height: 400px;">Описание: <?= $row20['decription']?></td>
               <td >Комментарий</td>
             </tr>
             <tr>

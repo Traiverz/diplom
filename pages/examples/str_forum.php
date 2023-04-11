@@ -95,8 +95,8 @@ require_once("visual.php");
     <section class="content-header">
       <div class="main_str_forum">
         <div class="child_left_forum">
+          <div class=service_img style="background-image: url(<?= $row10['post_pic']?>);"></div>
           <?= $row10['post_description']?>
-          <div class=service_img style="background-image: url(<?= $row10['img']?>);"></div>
           <hr>
           Автор: <?= $row10['name_author']?><br>
           Оценок: <?= $row10['likes']?>

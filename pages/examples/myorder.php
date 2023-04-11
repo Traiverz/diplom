@@ -124,7 +124,9 @@ require_once("visual.php");
             <td colspan="2">Дата окончания</td>
           </tr>
           <tr>
-            <td colspan="2" >Описание</td>
+            <td colspan="2" >Описание
+            <?= $row20['decription']?>
+            </td>
             <td colspan="2" style="text-align: left; width: 50%;">
               <div class="technologies">
                 Какие технологии используются: <br>

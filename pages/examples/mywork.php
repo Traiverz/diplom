@@ -87,29 +87,51 @@ require_once("visual.php");
     </section>
  
     <section class="content">
-      <div class="container-fluid">
+        <div class="container-fluid">
         <div class="field-for-service">
-            <? $sql25 = "SELECT * FROM uslygi WHERE author_name = '".$_SESSION['session_username']."'";
-                  $result = mysqli_query($conn, $sql25);
-                  while ($row25 = mysqli_fetch_assoc($result)) {
-                    echo '<a class="href_hdr" href="sama_usluga.php?id_uslygi=' . $row25['id_uslygi'] . '"><div class="it_is_service">';
-                    echo '<div class="it_is_service_ava" style="background-image: url(' . $row25['img'] . ');"></div>';
-                    echo '<div class="it_is_service_data">';
-                    echo '<b>' . $row25['header'] . '</b>';
-                    echo '<div class="service_price">' . $row25['price'] . 'тг </div>';
-                    echo '</div>';
-                    echo '<div class="it_is_service_ispol">';
-                    echo 'Автор: ' . $row25['author_name'] . '<br>';
-                    echo '<div class="it_is_service123"></a>';
-                    echo '<button class="button_in_mywork">Удалить</button>';
-                    echo '<button class="button_in_mywork">Изменить</button>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                  }
-                ?>
+            <?php
+            $sql25 = "SELECT * FROM uslygi WHERE author_name = '".$_SESSION['session_username']."'";
+            $result = mysqli_query($conn, $sql25);
+            while ($row25 = mysqli_fetch_assoc($result)) {
+                echo '<a class="href_hdr" href="sama_usluga.php?id_uslygi=' . $row25['id_uslygi'] . '">';
+                echo '<div class="it_is_service">';
+                echo '<div class="it_is_service_ava" style="background-image: url(' . $row25['img'] . ');"></div>';
+                echo '<div class="it_is_service_data">';
+                echo '<b>' . $row25['header'] . '</b>';
+                echo '<div class="service_price">' . $row25['price'] . 'тг </div>';
+                echo '</div>';
+                echo '<div class="it_is_service_ispol">';
+                echo 'Автор: ' . $row25['author_name'] . '<br>';
+                echo '<div class="it_is_service123"></a>';
+                echo '<form method="POST">';
+                echo '<input type="hidden" name="id_uslygi" value="'.$row25['id_uslygi'].'">';
+                echo '<button type="submit" name="delete" class="button_in_mywork">Удалить</button>';
+                echo '<button type="submit" name="edit" class="button_in_mywork">Изменить</button>';
+                echo '</form>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
         </div>
-      </div>
+    </div>
+
+
+    <?php
+    if(isset($_POST['delete'])) {
+      $id_uslygi = $_POST['id_uslygi'];
+      $sql = "DELETE FROM uslygi WHERE id_uslygi = '$id_uslygi'";
+      if(mysqli_query($conn, $sql)){
+        echo "<script>alert('Услуга успешно удалена!');</script>";
+        echo("<meta http-equiv='refresh' content='0'>");
+      } else {
+        $error_message = mysqli_error($conn);
+        echo "<script>alert('" . addslashes($error_message) . "');</script>";
+      }
+    }
+    ?>
+
+
     </section>
 
     <!-- /.content -->
