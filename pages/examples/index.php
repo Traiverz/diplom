@@ -366,7 +366,7 @@ require_once("visual.php");
                           echo '<tr><td>' . $row100['id_person'] . '</td>';
                           echo '<td><div class="widget-user-image01"><img class="profile-user-img img-fluid img-circle" src="' . $row100['photo'] . '" alt="User profile picture"></div></td>';
                           echo '<td>' . $row100['name_person'] . '</td>';
-                            $sql101 = "SELECT * FROM executor_person WHERE WHERE name_executor = '".$row100['name_person']."'";
+                            $sql101 = "SELECT * FROM executor_person WHERE name_executor = '".$row100['name_person']."'";
                             $result25 = mysqli_query($conn, $sql101);
                             $row101 = mysqli_fetch_assoc($result25);
                             echo '<td>' . $row101['services'] . '</td>';
