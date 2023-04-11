@@ -100,7 +100,7 @@ require_once("visual.php");
         <div class="field-for-service">
           <div class="show_info_for_service">
             <div class="service_name_ji"><?= $row5['header']?></div><br>
-            <div class=service_img style="background-image: url(<?= $row5['img']?>);"></div>
+            <div class="service_img" style="background-image: url(<?= $row5['img']?>);"></div>
             <div class="info_for_service">
             Описание:<br>
             <?= $row5['description']?><br>

@@ -2,6 +2,9 @@
 require_once("connection.php");
 
 session_start();
+$id_obsyd = $_GET['id_obsyd'];
+$_SESSION['id_obsyd'] = $id_obsyd;
+
 
 if (!$conn) {
   die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
@@ -55,33 +58,83 @@ require_once("visual.php");
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/forum.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 <body class="hold-transition sidebar-mini" onload="loadbody(); loadbody111();">
 <div class="wrapper">
-  
-<?php include('bokovoe_menu.php'); ?>
+
+<?php include('bokovoe_menu.php'); 
+      $sql10 = "SELECT * FROM obsyd WHERE id_obsyd = '".$_SESSION['id_obsyd']."'";
+      $result10 = mysqli_query($conn, $sql10);
+      $row10 = mysqli_fetch_assoc($result10);
+
+
+?>
 
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Тема форума ____</h1>
+            <h1><?= $row10['name_obsyd']?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Домой</a></li>
               <li class="breadcrumb-item"><a href="forum.php">Форум</a></li>
-              <li class="breadcrumb-item active">Тема форума ____</li>
+              <li class="breadcrumb-item active"> Тема #<?= $row10['id_obsyd']?></li>
             </ol>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="content-header">
+      <div class="main_str_forum">
+        <div class="child_left_forum">
+          <?= $row10['post_description']?>
+          <div class=service_img style="background-image: url(<?= $row10['img']?>);"></div>
+          <hr>
+          Автор: <?= $row10['name_author']?><br>
+          Оценок: <?= $row10['likes']?>
+        </div>
+        <div class="child_right_forum">
+
+          <div class="messagies">
+
+            <!-- <div class="message_boxing">
+              <b>Автор:</b><br>
+              Комментарий:
+            </div> -->
+            <? $sql11 = "SELECT * FROM komments WHERE id_obsyd = '".$row10['id_obsyd']."'";
+              $result = mysqli_query($conn, $sql11);
+              if(mysqli_num_rows($result) > 0) {
+                while ($row11 = mysqli_fetch_assoc($result)) {
+                  echo '<div class="message_boxing">';
+                  echo '<b>' . $row11['author_komment'] . '</b><br>';
+                  echo '' . $row11['komment'] . '';
+                  echo '</div>';
+                }
+              } else {
+                echo '<div class="message_boxing">';
+                echo '<b>Оставьте свой комментарий первым!</b>';
+                echo '</div>';
+              }
+            ?>
+
+
+          </div>
+
+          <div class="forum_form">
+            <input type="text" id="message" name="message" class="forum_input">
+            <button class="forum_message_btn">Отправить</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- /.content -->
   </div>

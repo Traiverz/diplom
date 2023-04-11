@@ -58,8 +58,7 @@ require_once("visual.php");
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="../../dist/css/alex.css">
-  <link rel="stylesheet" href="../../dist/css/kosty.css">
+  <link rel="stylesheet" href="../../dist/css/forum.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -95,31 +94,32 @@ require_once("visual.php");
         <h3 class="nav-icon fas fa-search">Тематики форума</h3>
 
 
-        <? $sql25 = "SELECT * FROM tema";
+        <?    $sql25 = "SELECT * FROM tema";
               $result = mysqli_query($conn, $sql25);
               while ($row25 = mysqli_fetch_assoc($result)) {
                 echo '<button class="vopros">' . $row25['name_tema'] . '<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>';
-                echo '<div class="otvet"><ul>';
-                echo '<li> <a href="str_forum.php">Первая тема</a><br></li>';
+                echo '<div class="otvet">';
+                echo '<ul>';
+                  $sql26 = "SELECT * FROM obsyd";
+                  $result2 = mysqli_query($conn, $sql26);
+                  while ($row26 = mysqli_fetch_assoc($result2)){
+                    if ($row25['id_tema'] === $row26['id_tema']){
+                    echo '<li> <a href="str_forum.php?id_obsyd=' . $row26['id_obsyd'] . '">' . $row26['name_obsyd'] . '</a><br></li>';}
+                  }
+                echo '</ul>';
+                echo '</div>';
+              }
+
+            ?>
+
+
+                <!-- echo '<li> <a href="str_forum.php">Первая тема</a><br></li>';
                 echo '<li> <a href="str_forum.php">Вторая тема</a><br></li>';
                 echo '<li> <a href="str_forum.php">Третья тема</a><br></li>';
                 echo '<li> <a href="str_forum.php">Четвертая тема</a><br></li>';
                 echo '<li> <a href="str_forum.php">Пятая тема</a><br></li>';
                 echo '<li> <a href="str_forum.php">Шестая тема</a><br></li>';
-                echo '<li> <a href="str_forum.php">Седьмая тема</a><br></li></ul></div>';
-              }
-
-            ?>
-
-        
-        
-            
-            
-            
-            
-            
-            
-            
+                echo '<li> <a href="str_forum.php">Седьмая тема</a><br></li>'; -->
 
 
 

@@ -1,0 +1,130 @@
+.vopros{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    text-align: left;
+    display: flex;
+    position: relative;
+    font-size: 16px;
+}
+  
+.childe-vopros{
+    position: absolute;
+    right: 15px;
+}
+  
+.active-vopros {
+    background-color: #4682b4; 
+    color: white;
+}
+  
+.vopros:hover{
+    background-color: #F0FFF0; 
+    color: black;
+}
+  
+.otvet{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background-color: floralwhite;
+    border-radius: 10px;
+    padding-left: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 99%;
+    padding-right: 10px;
+    font-size: 16px;
+}
+
+
+.main_str_forum{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+.child_left_forum{
+    width: 59%;
+    margin-right: 5px;
+    background-color: #F8F8FF;
+    box-shadow: 2px 5px 16px 1px rgba(0,0,0,0.5);
+    padding: 20px;
+    font-size: 20px;
+}
+
+.child_right_forum{
+    width: 39%;
+    /* height: calc(100vh - 200px); */
+
+    overflow-y: auto;
+    margin-left: 5px;
+    background-color: #F8F8FF;
+    box-shadow: 2px 5px 16px 1px rgba(0,0,0,0.5);
+    position: relative;
+
+}
+.service_img{
+    width: 100%;
+    height: 420px;
+    background-image: url(../../dist/img/img_for_service/чат_бот.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-style: double;
+    border-color: silver;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in;
+}
+
+.service_img:hover{
+    transform: scale(1.003);
+}
+
+.forum_form{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.forum_input{
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+.forum_message_btn{
+    width: 19%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: double red;
+    color: red;
+    background-color: white;
+}
+
+.messagies{
+    width: 100%;
+    padding: 5px;
+    max-height: 800px;
+    overflow-y: scroll;
+}
+
+.message_boxing{
+    background-color: inherit;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
