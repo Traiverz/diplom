@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
   $header = $_POST['name_zakaz'];
   $data1 = $_POST['data1'];
   $data2 = $_POST['data2'];
-  $oblojka = "Нет";
+  $oblojka = $_POST['file'];
   $technology = "1";
   $description = $_POST['description'];
   $date = date('Y-m-d', strtotime('today'));
@@ -424,7 +424,18 @@ require_once("visual.php");
 
           </tr>
           <tr>
-            <td colspan="2" rowspan="2">Прикрепить файлы</td>
+            <td colspan="2" rowspan="2">
+            <form method="post" enctype="multipart/form-data">
+              <input type="file" name="file" onchange="oblojkaSelected()" />
+            </form>
+            <script>
+              function oblojkaSelected() {
+                var fileInput = document.querySelector('input[name="file"]');
+                var oblojka = fileInput.files[0].path;
+                console.log(oblojka);
+              }
+            </script>
+            </td>
             <td colspan="2"><input type="text" name="price" class="form-control" placeholder="Укажите максимальну цену, которую, вы готовы предложить"></td>
           </tr>
           <tr>

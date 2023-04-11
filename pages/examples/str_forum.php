@@ -30,7 +30,19 @@ if(mysqli_num_rows($mysql) > 0) {
 
 require_once("visual.php");
  
-
+// Обработка отправки формы
+if (isset($_POST['sumbit'])) {
+  // Получение значений полей из формы
+  $author = $a['name_person'];  
+  $message = $_POST['message'];
+  $query = "INSERT INTO komments (komment, author_komment, id_obsyd) VALUES ('$message', '$author', '$id_obsyd')";
+    if (mysqli_query($conn, $query)) {
+    echo "<script>alert('Комментарий оставлен!');</script>";
+  } else {
+    $error_message = mysqli_error($conn);
+    echo "<script>alert('" . addslashes($error_message) . "');</script>";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -127,11 +139,12 @@ require_once("visual.php");
 
 
           </div>
-
+          <form method="POST">
           <div class="forum_form">
             <input type="text" id="message" name="message" class="forum_input">
-            <button class="forum_message_btn">Отправить</button>
+            <button name="sumbit" class="forum_message_btn">Отправить</button>
           </div>
+          </form>
         </div>
       </div>
     </section>
