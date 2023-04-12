@@ -56,12 +56,13 @@
     box-shadow: 2px 5px 16px 1px rgba(0,0,0,0.5);
     padding: 20px;
     font-size: 20px;
+    border-radius: 10px;
 }
 
 .child_right_forum{
     width: 39%;
     /* height: calc(100vh - 200px); */
-
+    border-radius: 10px;
     overflow-y: auto;
     margin-left: 5px;
     background-color: #F8F8FF;
@@ -117,7 +118,8 @@
     width: 100%;
     padding: 5px;
     max-height: 800px;
-    overflow-y: scroll;
+    min-height: 800px;
+    overflow-y: auto;
 }
 
 .message_boxing{
@@ -128,3 +130,50 @@
     border-radius: 10px;
 }
 
+.child_left_content{
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    max-height: calc(100vh - 210px);
+}
+
+.show_info_for_obsyd{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.btn_like{
+    width: 20%;
+    height: 50px;
+    border: none;
+    background-color: inherit;
+    font-size: 20px;
+    color: red;
+    border: 2px dotted red;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in;
+    text-align: center;
+    line-height: 30px;
+}
+
+.btn_like:hover{
+    transform: scale(1.09);
+}
+
+.pochti_knopka{
+    width: 28%;
+    height: 50px;
+    background-color: inherit;
+    font-size: 20px;
+    border: 2px dotted black;
+    border-radius: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

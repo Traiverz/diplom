@@ -107,11 +107,18 @@ if (isset($_POST['sumbit'])) {
     <section class="content-header">
       <div class="main_str_forum">
         <div class="child_left_forum">
-          <div class=service_img style="background-image: url(<?= $row10['post_pic']?>);"></div>
-          <?= $row10['post_description']?>
-          <hr>
-          Автор: <?= $row10['name_author']?><br>
-          Оценок: <?= $row10['likes']?>
+          <div class="child_left_content">
+            <h1 style="text-align:center;"><?= $row10['name_obsyd']?></h1><br>
+            <div class=service_img style="background-image: url(<?= $row10['post_pic']?>);"></div><br>
+            <?= $row10['post_description']?>
+            <hr>
+            <div class="show_info_for_obsyd">
+                <div class="pochti_knopka">Авторство: <b style="display: inline-block; margin: 0;"><?= $row10['name_author']?></b></div>
+                <div class="pochti_knopka">Оценили: <b style="display: inline-block; margin: 0;"><?= $row10['likes']?></b></div>
+                <button class="btn_like" id="give_person_message">Написать автору</button>
+                <button class="btn_like" id="give_like">Мне нравится</button>
+            </div>
+          </div>
         </div>
         <div class="child_right_forum">
 
