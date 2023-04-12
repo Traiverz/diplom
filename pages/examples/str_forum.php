@@ -43,6 +43,16 @@ if (isset($_POST['sumbit'])) {
     echo "<script>alert('" . addslashes($error_message) . "');</script>";
   }
 }
+// Обработка отправки формы
+if (isset($_POST['like'])) {
+  $query = "UPDATE obsyd SET likes = likes + 1 WHERE id_obsyd = '$id_obsyd';";
+    if (mysqli_query($conn, $query)) {
+    echo "<script>alert('Вы поставили посту отметку, Нравиться!');</script>";
+  } else {
+    $error_message = mysqli_error($conn);
+    echo "<script>alert('" . addslashes($error_message) . "');</script>";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,12 +122,14 @@ if (isset($_POST['sumbit'])) {
             <div class=service_img style="background-image: url(<?= $row10['post_pic']?>);"></div><br>
             <?= $row10['post_description']?>
             <hr>
+            <form method="POST">
             <div class="show_info_for_obsyd">
                 <div class="pochti_knopka">Авторство: <b style="display: inline-block; margin: 0;"><?= $row10['name_author']?></b></div>
                 <div class="pochti_knopka">Оценили: <b style="display: inline-block; margin: 0;"><?= $row10['likes']?></b></div>
-                <button class="btn_like" id="give_person_message">Написать автору</button>
-                <button class="btn_like" id="give_like">Мне нравится</button>
+                <button class="btn_like" href="chat.php" id="give_person_message">Написать автору</button>
+                <button class="btn_like" name="like" id="give_like">Мне нравится</button>
             </div>
+          </form>
           </div>
         </div>
         <div class="child_right_forum">
