@@ -79,12 +79,12 @@ require_once("visual.php");
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Открытые заказы</h1>
+              <h1>Заказы в работе</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Домой</a></li>
-                <li class="breadcrumb-item active">Заказы в архиве</li>
+                <li class="breadcrumb-item active">Заказы в работе</li>
               </ol>
             </div>
           </div>
@@ -431,7 +431,7 @@ require_once("visual.php");
             </div>
           </div>
 		  <? 
-			$sql100 = "SELECT * FROM zadanie WHERE status = 'В работе' AND '".$a["user_role"]."' = 'ispolnitel'";
+			$sql100 = "SELECT * FROM zadanie WHERE status = 'В работе' AND 'name_executor' = '".$a["name_person"]."'";
               $result = mysqli_query($conn, $sql100);
               
               while ($row100 = mysqli_fetch_assoc($result)) {

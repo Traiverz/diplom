@@ -79,7 +79,7 @@ require_once("visual.php");
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Открытые заказы</h1>
+              <h1>Архив</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -431,7 +431,7 @@ require_once("visual.php");
             </div>
           </div>
 		  <? 
-			$sql100 = "SELECT * FROM zadanie WHERE status = 'Завершено' AND name_customer= '". $_SESSION["session_username"] . "'";
+			$sql100 = "SELECT * FROM zadanie WHERE status = 'Завершено' AND name_customer= '". $_SESSION["session_username"] ."' AND '".$a["user_role"]."' = 'zakazchik'";
               $result = mysqli_query($conn, $sql100);
               
               while ($row100 = mysqli_fetch_assoc($result)) {
@@ -445,6 +445,19 @@ require_once("visual.php");
                 echo '</tr></table></a></div>;';
               }
             
+      $sql100 = "SELECT * FROM zadanie WHERE status = 'Завершено' AND name_executor= '". $_SESSION["session_username"] ."' AND '".$a["user_role"]."' = 'ispolnitel'";
+              $result = mysqli_query($conn, $sql100);
+              
+              while ($row100 = mysqli_fetch_assoc($result)) {
+                echo '<div class="zakaz"><a href="zakaz.php"><table class="mytable2"> ';
+                echo '<tr><td rowspan="3" style="width: 8%;">' . $row100['picture'] . '</td>';
+                echo '<td colspan="2">' . $row100["name_customer"] . '</td><td style="width: 12%;"colspan="2" >' . $row100['status'] . '</td></tr>';
+                echo '<tr><td colspan="2"> ' . $row100['name_order'] . '</td>';
+                echo '<td style="width: 12%;"colspan="2"> ' . $row100['technology'] . '</td></tr>';
+                echo '<tr><td style="width: 33%;">' . $row100['data_start'] . '</td><td colspan="2" style="width: 32%;"> ' . $row100['data_end'] . '</td>';
+                echo '<td colspan="2" style="width: 33%;" class="zakaz_price">' . $row100['price'] . '</td>';
+                echo '</tr></table></a></div>;';
+              }
             ?>
 					
 						
