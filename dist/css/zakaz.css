@@ -1,0 +1,128 @@
+.dropbtn {
+    background-color: grey;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px;
+    margin-right: 10px;
+    width: 150px;
+  }
+
+.filtr {
+    border-radius: 20px;
+    width: 100%;
+    background-color: darkgrey;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.create_order_btn{
+    border: none;
+    background-color: inherit;
+    font-size: 27px;
+    color: red;
+    border: 2px dotted red;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.create_order_btn:hover{
+    border: 2px outset red;
+}
+
+.order_container{
+    width: 100%;
+    /* background-color: silver; */
+    margin-top: 20px;
+    min-height: 1000px;
+    height: 1000px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.this_is_order{
+    margin: 0 15px 0 15px;
+    width: 283px;
+    height: 320px;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+
+.this_is_order:hover{
+    transform: scale(1.05);
+    border: 2px solid red;
+    box-shadow: 2px 8px 16px 2px rgba(0,0,0,0.5);
+}
+
+.authr{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid gray;
+    padding: 10px 10px 10px 10px;
+}
+
+.author_ava{
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 25px;
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+}
+
+.author_name{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+.name_order{
+    color: red;
+}
+
+.sam_zakaz{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    /* background-color: brown; */
+    font-size: 20px;
+}
+
+.sam_zakaz_left{
+    /* background-color: blue; */
+    margin-right: 5px;
+    width: 65%;
+}
+
+.sam_zakaz_right{
+
+    /* background-color: blueviolet; */
+    width: calc(35% - 5px);
+    display: flex;
+    justify-content: right;
+    color: red;
+    /* font-size: 30px; */
+}
+

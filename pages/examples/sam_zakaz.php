@@ -2,12 +2,9 @@
 require_once("connection.php");
 
 session_start();
+$id_uslygi = $_GET['id_uslygi'];
+$_SESSION['location_servis'] = $id_uslygi;
 
-$id_order = $_GET['id_order'];
-$_SESSION['location_order'] = $id_order;
-
-if(!isset($_SESSION["session_username"]))
-header("location:login.php");
 if (!$conn) {
   die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
 }
@@ -29,14 +26,7 @@ if(mysqli_num_rows($mysql) > 0) {
 } else {
      error_log("Нет данных");
 }
-
-
 require_once("visual.php");
- 
-$sql20 = "SELECT * FROM zadanie WHERE id_order = '".$_SESSION['location_order']."'";
-$result20 = mysqli_query($conn, $sql20);
-$row20 = mysqli_fetch_assoc($result20);
-
 ?>
 
 <!DOCTYPE html>
@@ -44,30 +34,35 @@ $row20 = mysqli_fetch_assoc($result20);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Заказ  <?= $_SESSION['location_order']?></title>
-  
-  
+  <title>Выбор услуг</title>
+
   <script type="text/javascript">
-    function showOrHide(bloggood, cat) {
-      bloggood = document.getElementById(bloggood);
-      cat = document.getElementById(cat);
-      if (bloggood.checked) cat.style.display = "block";
-      else cat.style.display = "none";
-    }
 
     function loadbody() {
-    if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {showVis2("uslugi", "zakazi");} 
-    else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {showVis1("zakazi", "uslugi");} 
-    else {console.log("LOL");}
+      
+  }
+    
+    function btn_buy_click(){
+      var btn = document.getElementById("stop_btn");
+      if (btn.innerHTML === "ЗАКАЗАНО✔✔✔") {
+        alert("Вы уже заказали данную услугу!!!");
+      } else {
+        btn.innerHTML = "ЗАКАЗАНО✔✔✔";
+      }
+    }
+
+    function btn_buy_click1(){
+      window.location.href = "chat.php";
     }
   </script>
-
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/service.css">
+  <link rel="stylesheet" href="../../dist/css/promejbulok.css">
+  <link rel="stylesheet" href="../../dist/css/zakaz.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
-  <link rel="stylesheet" href="../../dist/css/table.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
@@ -75,71 +70,71 @@ $row20 = mysqli_fetch_assoc($result20);
 <div class="wrapper">
   
 <?php include('bokovoe_menu.php'); ?>
+<?php  
+        $sql5 = "SELECT * FROM uslygi WHERE id_uslygi = '".$_SESSION['location_servis']."'";
+        $result5 = mysqli_query($conn, $sql5);
+        $row5 = mysqli_fetch_assoc($result5);
 
+    ?>
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Заказ</h1>
+            <h1>Описание заказа</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Домой</a></li>
-              <li class="breadcrumb-item"><a href="order.php">Открытые заказы</a></li>
-              <li class="breadcrumb-item active">Заказ №<?= $id_order?></li>
+              <li class="breadcrumb-item"><a href="#">Домой</a></li>
+              <li class="breadcrumb-item">Заказы</li>
+              <li class="breadcrumb-item active">Заказ №___</li>
             </ol>
           </div>
         </div>
       </div>
     </section>
+
     
+
     <section class="content">
-      <div class="container-fluid" >
-        <div class="openzakazst">
+      <div class="container-fluid">
+        <div class="field-for-service">
+          <div class="show_info_for_service">
+            <div class="sam_zakaz">
+              <div class="sam_zakaz_left">
+                Название заказа:<br>
+                Заказчик:	<br>
+                Исполнитель:<br>
+                <div class="descript">Описание:</div>
+                Прикреплённые файлы<br>
+              </div>
+              <div class="sam_zakaz_right">
+                  Cтатус: В работе<br>
+                  Cтатус: Опубликован<br>
+                  Cтатус: Закрыт<br>
+                </div>
+            </div>
+          </div>
 
-          <table class="openzakaztable">
-            <tr>
-              <td style="width: 50%;">Название заказа: <?= $row20['name_order']?></td>
-              <td style="width: 10%;" rowspan="2">Статус: <?= $row20['status']?></td>
-              <td >Ставка Заказчика: <?= $row20['price']?></td>
-            </tr>
-            <tr>
-              <td>Заказчик: <?= $row20['name_customer']?></td>
-              <td >Дата заказа: <?= $row20['data_add']?></td>
-            </tr>
-            <tr>
-              <td colspan="2">Исполнитель: Не выбран</td>
-              <td style="width: 30%;">Ваша ставка:</td>
-            </tr>
-            <tr>
-              <td colspan="2" style="height: 400px;">Описание: <?= $row20['decription']?></td>
-              <td >Комментарий</td>
-            </tr>
-            <tr>
-              <td colspan="2">Прикреплённые файлы</td>
-              <td>
-                Просматривают заказ:<br>
-                Приняли заказ:<br>
-                <button type="submit" class="zakazbtn">Участвовать</button>
-              </td>
-            </tr>
-          </table>
-          <hr>
+          <div class="show_price_for_service1">
+            <div class="avtor_data1">
+              
+              Ставка заказа <br> Дата заказа:
+            </div>
 
+            <div class="avtor_data1">
+              Ваша ставка:<br>Комментарий:
+            </div>
 
-          
-
-
+            <div class="avtor_data1">
+              Просматривают заказ:<br>
+              Приняли заказ:<br>
+              Участвовать<br>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
-
-
-
-
-
 
     <!-- /.content -->
   </div>

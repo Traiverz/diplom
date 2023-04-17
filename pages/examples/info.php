@@ -45,6 +45,7 @@ require_once("visual.php");
       if (bloggood.checked) cat.style.display = "block";
       else cat.style.display = "none";
     }
+    
 
     function loadbody() {
     var active5 = document.getElementById("o_saite");

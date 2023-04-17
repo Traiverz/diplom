@@ -4,6 +4,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    display: flex;
+    align-items: stretch;
 }
 
 .one-more-service{

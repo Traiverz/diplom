@@ -436,14 +436,13 @@ require_once("visual.php");
               
               while ($row100 = mysqli_fetch_assoc($result)) {
                 echo '<div class="zakaz"><a href="zakaz.php?id_order=' . $row100['id_order'] . '"><table class="mytable2"> ';
-                echo '<tr><td rowspan="3" style="width: 8%;">' . $row100['picture'] . '</td>';
+                echo '<tr><td rowspan="3" style="width: 8%; background-image: url(' . $row100['picture'] . ');background-size:cover; background-repeat: no-repeat; background-position: center;"></td>';
                 echo '<td colspan="2">' . $row100["name_customer"] . '</td><td style="width: 12%;"colspan="2" >Заявлено</td></tr>';
                 echo '<tr><td colspan="2"> ' . $row100['name_order'] . '</td>';
                 echo '<td style="width: 12%;"colspan="2"> ' . $row100['technology'] . '</td></tr>';
                 echo '<tr><td style="width: 33%;">' . $row100['data_start'] . '</td><td colspan="2" style="width: 32%;"> ' . $row100['data_end'] . '</td>';
-
                 echo '<td colspan="2" style="width: 33%;" class="zakaz_price">' . $row100['price'] . '</td>';
-                echo '</tr></table></a></div>;';
+                echo '</tr></table></a></div>';
               }
             
             ?>

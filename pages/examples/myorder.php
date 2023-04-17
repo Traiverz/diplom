@@ -72,6 +72,7 @@ require_once("visual.php");
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/alex.css">
+  <link rel="stylesheet" href="../../dist/css/zakaz.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -92,7 +93,6 @@ require_once("visual.php");
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Домой</a></li>
               <li class="breadcrumb-item active">Мои заказы</li>
-              <li class="breadcrumb-item"><a href="mycreateorder.php">Создать заказ</a></li>
             </ol>
           </div>
         </div>
@@ -100,7 +100,7 @@ require_once("visual.php");
     </section>
 
 
- <section class="content">
+      <section class="content">
         <div class="container-fluid">
           <div class="filtr">
             <div class="dropdown">
@@ -110,22 +110,6 @@ require_once("visual.php");
                   <input type = 'checkbox' id = 'bloggood1' onchange = 'showOrHide("bloggood1", "cat1");'/> Дизайн
                   <br />
                   <div id = 'cat1' style = 'display: none;'>   
-                    <!-- графдизайн, веб-дизайн, ux-дизайн, дизайн интерфейсов и бренд-дизайн
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">графдизайн
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">веб-дизайн
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">ux-дизайн
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">дизайн интерфейсов
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">бренд-дизайн
-                    </label> -->
                     <ul class="vipad">
                       <li><input type="checkbox" name="languages" value="HTML"> Графдизайн</li>
                       <li><input type="checkbox" name="languages" value="HTML"> Веб-дизайн</li>
@@ -138,19 +122,6 @@ require_once("visual.php");
                   <input type = 'checkbox' id = 'bloggood2' onchange = 'showOrHide("bloggood2", "cat2");' /> Доработка сайта
                   <br />
                   <div id = 'cat2' style = 'display: none;'>
-                    <!-- HTML, CSS, JavaScript и PHP
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">HTML
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">CSS
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">JavaScript
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">PHP
-                    </label> -->
                     <ul class="vipad">
                       <li><input type="checkbox" name="languages" value="HTML"> HTML</li>
                       <li><input type="checkbox" name="languages" value="HTML"> CSS</li>
@@ -162,19 +133,6 @@ require_once("visual.php");
                   <input type = 'checkbox' id = 'bloggood3' onchange = 'showOrHide("bloggood3", "cat3");' /> Создание сайта
                   <br />
                   <div id = 'cat3' style = 'display: none;'>
-                    <!-- HTML, CSS, JavaScript и PHP.
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">HTML 
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">CSS
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">JavaScript
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">PHP
-                    </label> -->
                     <ul class="vipad">
                       <li><input type="checkbox" name="languages" value="HTML"> HTML </li>
                       <li><input type="checkbox" name="languages" value="HTML"> CSS</li>
@@ -186,19 +144,6 @@ require_once("visual.php");
                   <input type = 'checkbox' id = 'bloggood4' onchange = 'showOrHide("bloggood4", "cat4");' /> Desktop
                   <br />
                     <div id = 'cat4' style = 'display: none;'>
-                    <!-- C++, C#, C, Python
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">C++
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">C#
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">C
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Python
-                    </label> -->
                     <ul class="vipad">
                       <li><input type="checkbox" name="languages" value="HTML"> C++</li>
                       <li><input type="checkbox" name="languages" value="HTML"> C#</li>
@@ -210,27 +155,7 @@ require_once("visual.php");
                 <input type = 'checkbox' id = 'bloggood5' onchange = 'showOrHide("bloggood5", "cat5");' /> Мобильные
                   <br />
                   <div id = 'cat5' style = 'display: none;'>
-                    <!-- <label>
-                      <input type="checkbox" name="languages" value="HTML">Swift
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">HTML5
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">JavaScript
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">C++
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">C#
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Objective-C
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Python
-                    </label> -->
+
                     <ul class="vipad">
                       <li><input type="checkbox" name="languages" value="HTML"> Swift</li>
                       <li><input type="checkbox" name="languages" value="HTML"> HTML5</li>
@@ -245,25 +170,6 @@ require_once("visual.php");
                 <input type = 'checkbox' id = 'bloggood6' onchange = 'showOrHide("bloggood6", "cat6");' /> Доработка программ
                   <br />
                   <div id = 'cat6' style = 'display: none;'>
-                    <!-- Swift. HTML5 JavaScript. C# Objective-C
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Swift
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">HTML5
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">JavaScript
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">C++
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">C#
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Objective-C
-                    </label> -->
                     <ul class="vipad">
                       <li><input type="checkbox" name="languages" value="HTML"> Swift</li>
                       <li><input type="checkbox" name="languages" value="HTML"> HTML5</li>
@@ -277,16 +183,6 @@ require_once("visual.php");
                 <input type = 'checkbox' id = 'bloggood7' onchange = 'showOrHide("bloggood7", "cat7");' /> 1С
                   <br />
                   <div id = 'cat7' style = 'display: none;'>
-                    <!-- Бухгалтерия, Предприятие, Фреш
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Бухгалтерия
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Предприятие
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Фреш
-                    </label> -->
                     <ul class="vipad">
                       <li><input type="checkbox" name="languages" value="HTML"> Бухгалтерия</li>
                       <li><input type="checkbox" name="languages" value="HTML"> Предприятие</li>
@@ -297,19 +193,6 @@ require_once("visual.php");
                 <input type = 'checkbox' id = 'bloggood8' onchange = 'showOrHide("bloggood8", "cat8");' /> Парсер
                   <br />
                   <div id = 'cat8' style = 'display: none;'>
-                    <!-- Ruby, PHP, Python, C# 
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Ruby
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">PHP
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Python
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">C#
-                    </label> -->
                     <ul class="vipad">
                       <li><input type="checkbox" name="languages" value="HTML"> Ruby</li>
                       <li><input type="checkbox" name="languages" value="HTML"> PHP</li>
@@ -321,13 +204,6 @@ require_once("visual.php");
                 <input type = 'checkbox' id = 'bloggood9' onchange = 'showOrHide("bloggood9", "cat9");' /> Разработка игр
                   <br />
                   <div id = 'cat9' style = 'display: none;'>
-                    <!-- Swift — игры на iOS или macOS.
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Swift — игры на iOS
-                    </label>
-                    <label>
-                      <input type="checkbox" name="languages" value="HTML">Swift — игры на macOS.
-                    </label> -->
                     <ul class="vipad">
                       <li><input type="checkbox" name="languages" value="HTML"> Swift — игры на iOS</li>
                       <li><input type="checkbox" name="languages" value="HTML"> Swift — игры на macOS.</li>
@@ -428,6 +304,7 @@ require_once("visual.php");
                 </ul>
               </div>
             </div>
+
             <div class="dropdown">
               <button class="dropbtn"> По новизне</button>
               <div class="dropdown-content">
@@ -438,50 +315,56 @@ require_once("visual.php");
                 </ul>
               </div>
             </div>
+            <a href="mycreateorder.php"><button class="create_order_btn"> Создать заказ</button></a>
           </div>
-		  <? 
-			$sql100 = "SELECT * FROM zadanie WHERE status = 'В работе' AND name_customer = '".$a["name_person"]."'";
-              $result = mysqli_query($conn, $sql100);
-              
-              while ($row100 = mysqli_fetch_assoc($result)) {
-                echo '<div class="zakaz"><a href="zakaz.php"><table class="mytable2"> ';
-                echo '<tr><td rowspan="3" style="width: 8%;">' . $row100['picture'] . '</td>';
-                echo '<td colspan="2">' . $row100["name_customer"] . '</td><td style="width: 12%;"colspan="2" >' . $row100['status'] . '</td></tr>';
-                echo '<tr><td colspan="2"> ' . $row100['name_order'] . '</td>';
-                echo '<td style="width: 12%;"colspan="2"> ' . $row100['technology'] . '</td></tr>';
-                echo '<tr><td style="width: 33%;">' . $row100['data_start'] . '</td><td colspan="2" style="width: 32%;"> ' . $row100['data_end'] . '</td>';
-                echo '<td colspan="2" style="width: 33%;" class="zakaz_price">' . $row100['price'] . '</td>';
-                echo '</tr></table></a></div>;';
-			  }
-			  
-			$sql101 = "SELECT * FROM zadanie WHERE status = 'Опубликовано' AND name_customer = '".$a["name_person"]."'";
-              $result = mysqli_query($conn, $sql101);
-              
-              while ($row101 = mysqli_fetch_assoc($result)) {
-                echo '<div class="zakaz"><a href="zakaz.php"><table class="mytable2"> ';
-                echo '<tr><td rowspan="3" style="width: 8%;">' . $row101['picture'] . '</td>';
-                echo '<td colspan="2">' . $row101["name_customer"] . '</td><td style="width: 12%;"colspan="2" >' . $row101['status'] . '</td></tr>';
-                echo '<tr><td colspan="2"> ' . $row101['name_order'] . '</td>';
-                echo '<td style="width: 12%;"colspan="2"> ' . $row101['technology'] . '</td></tr>';
-                echo '<tr><td style="width: 33%;">' . $row101['data_start'] . '</td><td colspan="2" style="width: 32%;"> ' . $row101['data_end'] . '</td>';
-                echo '<td colspan="2" style="width: 33%;" class="zakaz_price">' . $row101['price'] . '</td>';
-                echo '</tr></table></a></div>;';
-              }
 
-      $sql102 = "SELECT * FROM zadanie WHERE status = 'Рассмотрение' AND name_customer = '".$a["name_person"]."'";
-              $result = mysqli_query($conn, $sql102);
-              
-              while ($row101 = mysqli_fetch_assoc($result)) {
-                echo '<div class="zakaz"><a href="zakaz.php"><table class="mytable2"> ';
-                echo '<tr><td rowspan="3" style="width: 8%;">' . $row101['picture'] . '</td>';
-                echo '<td colspan="2">' . $row101["name_customer"] . '</td><td style="width: 12%;"colspan="2" >' . $row101['status'] . '</td></tr>';
-                echo '<tr><td colspan="2"> ' . $row101['name_order'] . '</td>';
-                echo '<td style="width: 12%;"colspan="2"> ' . $row101['technology'] . '</td></tr>';
-                echo '<tr><td style="width: 33%;">' . $row101['data_start'] . '</td><td colspan="2" style="width: 32%;"> ' . $row101['data_end'] . '</td>';
-                echo '<td colspan="2" style="width: 33%;" class="zakaz_price">' . $row101['price'] . '</td>';
-                echo '</tr></table></a></div>;';
-              }
+          <div class="order_container">
+            <!-- <div class="this_is_order">
+              <div class="name_order">Мобильная игра "Змейка"</div><br>
+              <div clas="take_info_order">
+                <b>Технологии</b>: JavaScript, PHP, HTML, CSS<br>
+                <b>Создан:</b> 2023-02-01<br>
+                <b>Закроется:</b> 2023-03-01<br>
+                <b>Цена:</b> 4000₸
+              </div>
+              <div class="authr">
+                <b style="width: 100%;">Заказчик </b><br>
+                <div class="author_ava" style="background-image: url(../../dist/img/avatar/avatar1.png);"></div>
+                <div class="author_name">Odarich</div>
+              </div>
+            </div> -->
+            
+
+            <?php
+            
+
+            // $sql25 = "SELECT * FROM zadanie WHERE name_customer = '".$_SESSION['session_username']."'";
+            $sql25 = "SELECT * FROM zadanie";
+            $result = mysqli_query($conn, $sql25);
+            while ($row25 = mysqli_fetch_assoc($result)) {
+              echo '<div class="this_is_order">';
+              echo '<div class="name_order">' . $row25['name_order'] . '</div><br>';
+              echo '<div clas="take_info_order">';
+              echo '<b>Технологии: </b>' . $row25['technology'] . '<br>';
+              echo '<b>Создан: </b>' . $row25['data_add'] . '<br>';
+              echo '<b>Закроется: </b>' . $row25['data_end'] . '<br>';
+              echo '<b>Цена: </b>' . $row25['price'] . '₸';
+              echo '</div>';
+              echo '<div class="authr">';
+              echo '<b style="width: 100%;">Заказчик </b><br>';
+              echo '<div class="author_ava" style="background-image: url(../../dist/img/avatar/avatar1.png)"></div>';
+              echo '<div class="author_name">' . $row25['name_customer'] . '</div>';
+              echo '</div>';
+              echo '</div>';
+            }
             ?>
+
+
+
+
+
+          </div>
+
 					
 						
         </div>
