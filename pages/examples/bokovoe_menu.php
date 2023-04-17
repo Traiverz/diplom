@@ -130,6 +130,19 @@
         </ul>
       </li>
 
+      <li class="nav-item">
+        <a href="expert.php" class="nav-link" id="expert">
+        <i class="nav-icon fas fa-search"></i>
+          <p>Экспертиза</p>
+        </a>
+      </li>      
+      
+      <li class="nav-item">
+        <a href="adminpanel.php" class="nav-link" id="adminpanel">
+          <i class="nav-icon far fa-envelope"></i>
+          <p>Админ Панель</p>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a href="chat.php" class="nav-link" id="chat">
@@ -145,7 +158,7 @@
       </li>
       <li class="nav-item">
         <a href="info.php" class="nav-link" id="o_saite">
-          <i class="nav-icon fas fa-search"></i>
+          <i class="nav-icon fas fa-table"></i>
           <p>О сайте</p>
         </a>
       </li>

@@ -8,6 +8,11 @@ session_start();
     if ("<?= $_SESSION['user_role']?>" === 'ispolnitel') {showVis2();} 
     else if ("<?= $_SESSION['user_role']?>" === 'zakazchik') {showVis1();} 
     else {showVis0("zakazi","profile","moi_zakazi","arhiv", "my_uslygi","uslugi_drugih","chat");}
+    if ("<?= $c['id_medali'] ?>" == 4) {
+      Vip1();
+    } else if ("<?= $c['id_medali'] ?>" == 5) {
+      Vip2();
+    }
   }
   
   function showVis2() {
@@ -18,7 +23,11 @@ session_start();
     var sidebar_zakaz_4 = document.getElementById('arhiv');
     var sidebar_usluga_1 = document.getElementById('my_uslygi');
     var sidebar_usluga_2 = document.getElementById('uslugi_drugih');
-    sidebar_zakaz_3.style.display = "none"
+    var sidebar_admin = document.getElementById('adminpanel');
+    var sidebar_expert = document.getElementById('expert');
+    sidebar_admin.style.display = "none";
+    sidebar_expert.style.display = "none";
+    sidebar_zakaz_3.style.display = "none";
   }
  
   function showVis1() {
@@ -29,10 +38,25 @@ session_start();
     var sidebar_zakaz_4 = document.getElementById('arhiv');
     var sidebar_usluga_1 = document.getElementById('my_uslygi');
     var sidebar_usluga_2 = document.getElementById('uslugi_drugih');
+    var sidebar_admin = document.getElementById('adminpanel');
+    var sidebar_expert = document.getElementById('expert');
+    sidebar_admin.style.display = "none";
+    sidebar_expert.style.display = "none";
     sidebar_zakaz_1.style.display = "none";
     sidebar_zakaz_2.style.display = "none";
     sidebar_usluga_1.style.display = "none";
 
+  }
+
+  function Vip2() {
+    // админ
+    var sidebar_admin = document.getElementById('adminpanel');
+    sidebar_admin.style.display = "block"
+  }
+  function Vip1() {
+    // эксперт
+    var sidebar_expert = document.getElementById('expert');
+    sidebar_expert.style.display = "block"
   }
 
   function showVis0(x, y, t, b, u, i, chat) {
