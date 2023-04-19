@@ -34,7 +34,7 @@ require_once("visual.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Выбор услуг</title>
+  <title>Заказ</title>
 
   <script type="text/javascript">
 
@@ -106,7 +106,7 @@ require_once("visual.php");
                 Заказчик:	<br>
                 Исполнитель:<br>
                 <div class="descript">Описание:</div>
-                Прикреплённые файлы<br>
+                <div class="fails">Прикреплённые файлы</div><br>
               </div>
               <div class="sam_zakaz_right">
                   Cтатус: В работе<br>
@@ -118,18 +118,42 @@ require_once("visual.php");
 
           <div class="show_price_for_service1">
             <div class="avtor_data1">
-              
               Ставка заказа <br> Дата заказа:
+              
             </div>
 
             <div class="avtor_data1">
               Ваша ставка:<br>Комментарий:
+              <div class = "ispol_content_container">
+                <div class = "sam_ispol">
+                  <div class="sam_ispol_ava" style=""></div>
+                  <div class="sam_ispol_info">
+                    Имя: <br> Рейтинг: 
+                  </div>
+                </div>
+              </div>
+              <div class = "ispol_content_container">
+                <div class = "sam_ispol">
+                  <div class="sam_ispol_ava" style=""></div>
+                  <div class="sam_ispol_info">
+                    Имя: <br> Рейтинг: 
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="avtor_data1">
               Просматривают заказ:<br>
               Приняли заказ:<br>
               Участвовать<br>
+              <div class="btns_zakaz">
+                <button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c заказчиком</button>
+                <button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button>
+              </div>
+              <div class="btns_zakaz">
+                <button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c испоолнителем</button>
+                <button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button>
+              </div>
             </div>
           </div>
         </div>

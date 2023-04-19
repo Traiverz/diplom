@@ -60,6 +60,7 @@ require_once("visual.php");
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/alex.css">
+  <link rel="stylesheet" href="../../dist/css/forum.css">
   <link rel="stylesheet" href="../../dist/css/kosty.css">
   <link rel="stylesheet" href="../../dist/css/forum.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
