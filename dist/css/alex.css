@@ -235,3 +235,8 @@ th, td {
   text-indent: 20px;
   overflow: auto;
 }
+
+.form-check {
+  column-count: 3;
+  margin-bottom: 10px;
+}
