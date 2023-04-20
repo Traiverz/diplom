@@ -196,6 +196,7 @@ require_once("visual.php");
                             $("#techModal").modal('hide');
                             
                             // Записываем выбранные технологии в массив $tex
+                            // помогите
                             var techArr = checkedValues.map(function(value) {
                               return value.trim();
                             });
@@ -208,6 +209,7 @@ require_once("visual.php");
                           });
                         });
                     </script>
+                    
                     <?php
                           $tex = isset($_POST['tex']) ? $_POST['tex'] : array();
                           $texStr = implode(' ', $tex);
