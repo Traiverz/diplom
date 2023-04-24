@@ -120,3 +120,33 @@ label[for="order-files"]:hover::before {
   float: right;
   margin: 0 5px;
 }
+.button2 {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button2:first-child {
+  float: left;
+
+}
+
+.button2:nth-child(2) {
+  float: left;
+}
+.button2:nth-child(1) {
+  float: right;
+  margin: 0 5px;
+}
+
+.button2[type="submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #008080;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
