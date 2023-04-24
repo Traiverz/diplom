@@ -240,3 +240,33 @@ th, td {
   column-count: 3;
   margin-bottom: 10px;
 }
+
+.glavdiv {
+width: 100%;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+
+padding: 5px;
+background-color: #3e8e41;
+}
+
+.glavdiv1 {
+ width: 70%;
+ margin: 0 5px 5px 0;
+ background-color: #633e8e;
+}
+.divin {
+  width: 28%;
+  margin: 0 0 5px 5px; 
+  background-color: #8d8e3e;
+}
+.divin1 {
+  width: 100%;
+  background-color: #4f3e8e;
+}
+.poddiv {
+  width: 100%;
+  background-color: #8e413e;
+}
+

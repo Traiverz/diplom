@@ -1,0 +1,122 @@
+.form-container1 {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-header1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group0 {
+  margin-bottom: 20px;
+}
+.form-group1 {
+  display: inline-block;
+  margin-right: 20px;
+  text-align: center;
+  width: auto;
+}
+.form-group23 {
+  display: inline-block;
+  margin-right: 20px;
+  width: auto;
+}
+
+.label12 {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input1,
+.textarea1,
+.select1 {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.button1[type="submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #008080;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.tplock{
+  display: block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.tplock1{
+  display: block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.button1[type="submit"]:hover {
+  background-color: #006666;
+}
+
+.input1[type="file"] {
+  display: none;
+}
+
+.label1[for="order-files"]::before {
+  content: "Выбрать файлы";
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #008080;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+label[for="order-files"]:hover::before {
+  background-color: #006666;
+}
+.form-group01 {
+  display: Relative;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.button1 {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button1:first-child {
+  float: left;
+  color: #fff;
+}
+
+.button1:nth-child(2) {
+  float: right;
+}
+.button1:nth-child(1) {
+  float: right;
+  margin: 0 5px;
+}
