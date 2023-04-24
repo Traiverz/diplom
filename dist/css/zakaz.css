@@ -41,15 +41,15 @@
     width: 100%;
     /* background-color: silver; */
     margin-top: 20px;
-    min-height: 1000px;
-    height: 1000px;
+    /* min-height: 1000px;
+    height: 1000px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .this_is_order{
-    margin: 0 15px 0 15px;
+    margin: 0 15px 10px 15px;
     width: 283px;
     height: 320px;
     border: 2px solid black;

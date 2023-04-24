@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
   $data1 = $_POST['data1'];
   $data2 = $_POST['data2'];
   $oblojka = $_POST['file'];
-  $technology = json_decode($_POST['selectedTechnologies'], true);
+  $technology =  $_POST['technology'];
   $description = $_POST['description'];
   $date = date('Y-m-d', strtotime('today'));
   $price = $_POST['price'];
