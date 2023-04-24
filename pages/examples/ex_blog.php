@@ -57,8 +57,7 @@ require_once("visual.php");
     function loadbody() {
     var active8 = document.getElementById("otkritie_zakazi");
     active8.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
+
   }
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

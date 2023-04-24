@@ -48,8 +48,7 @@ require_once("visual.php");
     function loadbody() {
     var active10 = document.getElementById("uslugi_drugih");
     active10.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
+
   }
   </script>
 

@@ -67,7 +67,7 @@ session_start();
     b = document.getElementById(b);
     u = document.getElementById(u);
     i = document.getElementById(i);
-    chat = document.getElementById(chat);
+    chat = document.getElementById(messenger);
     x.style.display = "none";
     y.style.display = "none";
     t.style.display = "block";

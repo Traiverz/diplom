@@ -35,23 +35,6 @@ require_once("visual.php");
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Чаты</title>
-  
-  
-  <script type="text/javascript">
-    function showOrHide(bloggood, cat) {
-      bloggood = document.getElementById(bloggood);
-      cat = document.getElementById(cat);
-      if (bloggood.checked) cat.style.display = "block";
-      else cat.style.display = "none";
-    } 
-
-    function loadbody() {
-    var active1 = document.getElementById("chat_ss");
-    active1.className = "nav-link active";
-  }
-
-
-  </script>
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
@@ -61,7 +44,6 @@ require_once("visual.php");
 </head>
 <body class="hold-transition sidebar-mini" onload="loadbody(); loadbody111();">
 <div class="wrapper">
-  
 <?php include('bokovoe_menu.php'); ?>
 
   <div class="content-wrapper">
@@ -80,7 +62,7 @@ require_once("visual.php");
         </div>
       </div>
     </section>
-
+    
     
     <section class="content">
       <div class="container-fluid">
@@ -148,13 +130,13 @@ require_once("visual.php");
   </aside>
 </div>
 
-<!-- <script src="../../plugins/jquery/jquery.min.js"></script> -->
-<!-- <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-<!-- <script src="../../dist/js/adminlte.js"></script> -->
-<!-- <script src="../../dist/js/popper.min.js"></script> -->
-<!-- <script src="../../dist/js/bootstrap-material-design.min.js"></script> -->
-<!-- <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script> -->
-<!-- <script src="../../dist/js/demo.js"></script> -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../dist/js/adminlte.js"></script>
+<script src="../../dist/js/popper.min.js"></script>
+<script src="../../dist/js/bootstrap-material-design.min.js"></script>
+<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+<script src="../../dist/js/demo.js"></script>
 
 <script>
   let chatThis = document.querySelectorAll(".chat_this");

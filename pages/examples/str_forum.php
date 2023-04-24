@@ -126,7 +126,7 @@ if (isset($_POST['like'])) {
             <div class="show_info_for_obsyd">
                 <div class="pochti_knopka">Авторство: <b style="display: inline-block; margin: 0;"><?= $row10['name_author']?></b></div>
                 <div class="pochti_knopka">Оценили: <b style="display: inline-block; margin: 0;"><?= $row10['likes']?></b></div>
-                <button class="btn_like" href="chat.php" id="give_person_message">Написать автору</button>
+                <button class="btn_like" href="messenger.php" id="give_person_message">Написать автору</button>
                 <button class="btn_like" name="like" id="give_like">Мне нравится</button>
             </div>
           </form>

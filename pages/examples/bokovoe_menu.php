@@ -145,7 +145,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="chat.php" class="nav-link" id="chat">
+        <a href="messenger.php" class="nav-link" id="messenger">
           <i class="nav-icon far fa-envelope"></i>
           <p>Чаты</p>
         </a>

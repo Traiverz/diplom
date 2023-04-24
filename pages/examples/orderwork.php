@@ -27,7 +27,6 @@ if(mysqli_num_rows($mysql) > 0) {
      error_log("Нет данных");
 }
 
-
 require_once("visual.php");
  
 
@@ -57,8 +56,7 @@ require_once("visual.php");
     function loadbody() {
     var active8 = document.getElementById("otkritie_zakazi");
     active8.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
+
   }
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -431,22 +429,43 @@ require_once("visual.php");
               </div>
             </div>
           </div>
-		  <? 
-			$sql100 = "SELECT * FROM zadanie WHERE status = 'В работе' AND 'name_executor' = '".$a["name_person"]."'";
-              $result = mysqli_query($conn, $sql100);
-              
-              while ($row100 = mysqli_fetch_assoc($result)) {
-                echo '<div class="zakaz"><a href="zakaz.php"><table class="mytable2"> ';
-                echo '<tr><td rowspan="3" style="width: 8%;">' . $row100['picture'] . '</td>';
-                echo '<td colspan="2">' . $row100["name_customer"] . '</td><td style="width: 12%;"colspan="2" >' . $row100['status'] . '</td></tr>';
-                echo '<tr><td colspan="2"> ' . $row100['name_order'] . '</td>';
-                echo '<td style="width: 12%;"colspan="2"> ' . $row100['technology'] . '</td></tr>';
-                echo '<tr><td style="width: 33%;">' . $row100['data_start'] . '</td><td colspan="2" style="width: 32%;"> ' . $row100['data_end'] . '</td>';
-                echo '<td colspan="2" style="width: 33%;" class="zakaz_price">' . $row100['price'] . '</td>';
-                echo '</tr></table></a></div>;';
-              }
-            
+          <div class="order_container">
+            <!-- <div class="this_is_order">
+              <div class="name_order">Мобильная игра "Змейка"</div><br>
+              <div clas="take_info_order">
+                <b>Технологии</b>: JavaScript, PHP, HTML, CSS<br>
+                <b>Создан:</b> 2023-02-01<br>
+                <b>Закроется:</b> 2023-03-01<br>
+                <b>Цена:</b> 4000₸
+              </div>
+              <div class="authr">
+                <b style="width: 100%;">Заказчик </b><br>
+                <div class="author_ava" style="background-image: url(../../dist/img/avatar/avatar1.png);"></div>
+                <div class="author_name">Odarich</div>
+              </div>
+            </div> -->
+            <?php
+            // $sql25 = "SELECT * FROM zadanie WHERE name_customer = '".$_SESSION['session_username']."'";
+            $sql25 = "SELECT * FROM zadanie WHERE status = 'В работе'";
+            $result = mysqli_query($conn, $sql25);
+            while ($row25 = mysqli_fetch_assoc($result)) {
+              echo '<div class="this_is_order">';
+              echo '<div class="name_order">' . $row25['name_order'] . '</div><br>';
+              echo '<div clas="take_info_order">';
+              echo '<b>Технологии: </b>' . $row25['technology'] . '<br>';
+              echo '<b>Создан: </b>' . $row25['data_add'] . '<br>';
+              echo '<b>Закроется: </b>' . $row25['data_end'] . '<br>';
+              echo '<b>Цена: </b>' . $row25['price'] . '₸';
+              echo '</div>';
+              echo '<div class="authr">';
+              echo '<b style="width: 100%;">Заказчик </b><br>';
+              echo '<div class="author_ava" style="background-image: url(../../dist/img/avatar/avatar1.png)"></div>';
+              echo '<div class="author_name">' . $row25['name_customer'] . '</div>';
+              echo '</div>';
+              echo '</div>';
+            }
             ?>
+          </div>
 					
 						
         </div>

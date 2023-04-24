@@ -49,8 +49,7 @@ require_once("visual.php");
     function loadbody() {
     var active3 = document.getElementById("forum");
     active3.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
+
   }
   </script>
 

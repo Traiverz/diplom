@@ -52,7 +52,7 @@ require_once("visual.php");
     }
 
     function btn_buy_click1(){
-      window.location.href = "chat.php";
+      window.location.href = "messenger.php";
     }
   </script>
 

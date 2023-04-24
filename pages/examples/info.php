@@ -50,8 +50,7 @@ require_once("visual.php");
     function loadbody() {
     var active5 = document.getElementById("o_saite");
     active5.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
+
   }
   </script>
 

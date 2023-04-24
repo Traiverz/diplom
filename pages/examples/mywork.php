@@ -48,8 +48,7 @@ require_once("visual.php");
     function loadbody() {
     var active7 = document.getElementById("my_uslygi");
     active7.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
+
   }
   </script>
 

@@ -49,8 +49,7 @@ require_once("visual.php");
     function loadbody() {
     var active4 = document.getElementById("glavnaya");
     active4.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
+
   }
 
   </script>
@@ -525,9 +524,7 @@ require_once("visual.php");
                   
                 </table>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
 
       </section>
 
@@ -545,6 +542,8 @@ require_once("visual.php");
   <aside class="control-sidebar control-sidebar-dark">
   </aside>
 </div>
+
+
 
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

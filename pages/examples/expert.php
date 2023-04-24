@@ -63,8 +63,7 @@ require_once("visual.php");
     function loadbody() {
     var active6 = document.getElementById("moi_zakazi");
     active6.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
+
   }
 
 

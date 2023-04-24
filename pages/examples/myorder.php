@@ -57,8 +57,7 @@ require_once("visual.php");
     function loadbody() {
     var active6 = document.getElementById("moi_zakazi");
     active6.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
+
   }
 
 
@@ -318,6 +317,7 @@ require_once("visual.php");
             <a href="mycreateorder.php"><button class="create_order_btn"> Создать заказ</button></a>
           </div>
 
+
           <div class="order_container">
             <!-- <div class="this_is_order">
               <div class="name_order">Мобильная игра "Змейка"</div><br>
@@ -334,8 +334,8 @@ require_once("visual.php");
               </div>
             </div> -->
             <?php
-            // $sql25 = "SELECT * FROM zadanie WHERE name_customer = '".$_SESSION['session_username']."'";
-            $sql25 = "SELECT * FROM zadanie";
+            $sql25 = "SELECT * FROM zadanie WHERE name_customer = '".$_SESSION['session_username']."'";
+            // $sql25 = "SELECT * FROM zadanie";
             $result = mysqli_query($conn, $sql25);
             while ($row25 = mysqli_fetch_assoc($result)) {
               echo '<div class="this_is_order">';
