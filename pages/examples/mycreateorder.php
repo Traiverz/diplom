@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
   $data1 = $_POST['data1'];
   $data2 = $_POST['data2'];
   $oblojka = $_POST['file'];
-  $technology = "1";
+  $technology =  $_POST['technology'];
   $description = $_POST['description'];
   $date = date('Y-m-d', strtotime('today'));
   $price = $_POST['price'];
@@ -51,51 +51,24 @@ if (isset($_POST['submit'])) {
   }
 }
 require_once("visual.php");
-    $tex = isset($_POST['tex']) ? $_POST['tex'] : array();
-    $texStr = implode(' ', $tex);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Мои заказы</title>
-  
-  
-  <script type="text/javascript">
-    function showOrHide(bloggood, cat) {
-      bloggood = document.getElementById(bloggood);
-      cat = document.getElementById(cat);
-      if (bloggood.checked) cat.style.display = "block";
-      else cat.style.display = "none";
-    }
-
-
-    function loadbody() {
-    var active6 = document.getElementById("moi_zakazi");
-    active6.className = "nav-link active";
-    var passive = document.getElementById("chat");
-    passive.className = "nav-link";
-  }
-
-
-    function primary() {
-
-    }
-
-  </script>
-
-
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/alex.css">
+  <link rel="stylesheet" href="../../dist/css/createforms.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="hold-transition sidebar-mini" onload="loadbody(); loadbody111();">
+<body class="hold-transition sidebar-mini" onload="loadbody111();">
 <div class="wrapper">
   
 <?php include('bokovoe_menu.php'); ?>
@@ -121,136 +94,49 @@ require_once("visual.php");
     <section class="content">
     <form method="POST">
       <div class="container-fluid">
-        <table class="mytable1">
-          <tr>
-            <td colspan="4"><div class="colrowTable1">Заказ  <?= $texStr?></div></td>
-          </tr>
-          <tr>
-            <td><?= $a['name_person']?></td>
-            <td><?=date('Y-m-d', strtotime('today'))?></td>
-            <td colspan="2">Сроки</td>
-            
-          </tr>
-          <tr>
-            <td><input type="text" name="name_zakaz" class="form-control" placeholder="Назание заказа"></td>
-            <td><a type="text" name="status">Статус: Создание</a></td>
-            <td>С<input type="date" name="data1" class="form-control" placeholder="Срок с какое"></td>
-            <td>До<input type="date" name="data2" class="form-control" placeholder="по какое"></td>
+      <div class="form-wrapper">
+        <div class="form-left">
+          <div class="form-group1; ">
+          <a> Название заказа: </a><input class="input1" type="text" id="name_zakaz" name="name_zakaz" placeholder="Название вашего заказа" required>
+          </div>
 
-          </tr>
+          <div style="width: 60%;" class="form-group23">
+           <a> Технологии: </a><a class="tplock" type="text" name="texhnonlogi" id="texhnonlogi" readonly>Технологии не выбраны</a>
+          </div>
+          <div class="form-group23">
+            <?php require_once("tech.php"); ?>
+          </div>
+          <div class="form-group1">
+           <a> Дата начала: </a><input class="tplock1" type="date" id="data1" name="data1" placeholder="Дата начала" required>
+          </div>
+          <div class="form-group1">
+           <a> Дата окончания: </a><input class="tplock1" type="date" id="data2" name="data2" placeholder="Дата окончания" required>
+          </div>
+        </div>
 
-          <tr>
-            <td colspan="2" style="height: 54vh;"><input type="text" name="description" class="form-control" placeholder="Описание"></td>
-            <td colspan="2" style="text-align: left; width: 50%;">
-              <div class="technologies">
-              <button type="button" id="chooseTechBtn" data-toggle="modal" data-target="#techModal">
-                Выбрать
-              </button>
+        <div class="form-right" >
+          <div class="form-group0">
+          <a> Описание:</a><textarea  style="height: 41vh" class="textarea1" id="description" name="description" placeholder="Описание для вашего заказа" required></textarea>
+          </div>
+          <div class="form-group0">
+          <a> Цена:</a><input class="input1" type="number" id="price" name="price" placeholder="Максимальная цена, которую вы готовы заплатить" required>
+          </div>
+          <div class="form-group0">
+            <label class="label12" for="image">Выбрать картинку</label>
+            <input class="input1" type="file" id="image" name="image">
+          </div>
+          <div class="form-group0">
+            <label class="label12" for="attachments">Прикрепить файлы</label>
+            <input class="input1" type="file" id="attachments" name="attachments" multiple>
+          </div>
+        </div>
+      </div>
 
-              <!-- Модальное окно -->
-              <div class="modal fade" id="techModal" tabindex="-1" role="dialog" aria-labelledby="techModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="techModalLabel">Выберите технологии</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <!-- Тут размещаем список технологий из базы данных -->
-                      <div class="form-check">
-                        <?php
-                          $sql = "SELECT * FROM technology";
-                          $result = mysqli_query($conn, $sql);
-                          while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                        <div>
-                        <br>
-                          <input class="form-check-input" type="checkbox" value="<?= $row['name_technology'] ?>" id="<?= $row['id'] ?>">
-                          <label class="form-check-label" for="<?= $row['id'] ?>">
-                              <?= $row['name_technology'] ?>
-                          </label>
-                        </div>
-                        <?php } ?>
-                      </div>
-
-                      <style>
-                        .form-check {
-                          column-count: 3;
-                        }
-                      </style>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-                      <button type="button" class="btn btn-primary" id="saveTechBtn">Ок</button>
-                      <script>
-                        $(document).ready(function() {
-                          $("#saveTechBtn").click(function() {
-                            var checkedValues = $('input[type=checkbox]:checked').map(function() {
-                              return this.value;
-                            }).get();
-                            var techStr = checkedValues.join(' ');  
-                            $("#chooseTechBtn").text(techStr);
-                            $("#chooseTechBtn").val(techStr);
-                            $("#techModal").modal('hide');
-                            
-                            // Записываем выбранные технологии в массив $tex
-                            // помогите
-                            var techArr = checkedValues.map(function(value) {
-                              return value.trim();
-                            });
-                            <?php echo "var tex = ".json_encode($tex).";"; ?>
-                            techArr.forEach(function(tech) {
-                              if (!tex.includes(tech)) {
-                                tex.push(tech);
-                              }
-                            });
-                          });
-                        });
-                    </script>
-                    
-                    <?php
-                          $tex = isset($_POST['tex']) ? $_POST['tex'] : array();
-                          $texStr = implode(' ', $tex);
-                      ?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </td>
-
-          </tr>
-          <tr>
-            <td colspan="2" rowspan="2">
-            <form method="post" enctype="multipart/form-data">
-              <input type="file" name="file" onchange="oblojkaSelected()" />
-            </form>
-            <script>
-              function oblojkaSelected() {
-                var fileInput = document.querySelector('input[name="file"]');
-                var oblojka = fileInput.files[0].path;
-                console.log(oblojka);
-              }
-            </script>
-            </td>
-            <td colspan="2"><input type="text" name="price" class="form-control" placeholder="Укажите максимальну цену, которую, вы готовы предложить"></td>
-          </tr>
-          <tr>
-            <td colspan="3" class = "">
-                <button type="submit" name="submit" class="btn_tub_created" value="buttonLS">Отправить</button>
-                <button type="submit" name="submit" class="btn_tub_created" value="buttonBlackHol">В черновики</button>
-                <button type="submit" name="submit" class="btn_tub_created" value="buttonPublic">Опубликовать</button>
-            </td>
-          </tr>
-
-        </table>
-
-
-
-
-
+      <div class="form-group01">
+        <button type="submit" name="submit" class="button1" value="buttonPublic">Опубликовать</button>
+        <button type="submit" name="submit" class="button1" value="buttonLS">Отослать</button>
+        <button type="submit" name="submit" class="button1" value="buttonBlackHol">Черновик</button>
+      </div>
 
       </div>
     </form>
