@@ -42,7 +42,7 @@ require_once("visual.php");
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="hold-transition sidebar-mini" onload="loadbody(); loadbody111();">
+<body class="hold-transition sidebar-mini" onload="loadbody111();">
 <div class="wrapper">
 <?php include('bokovoe_menu.php'); ?>
 

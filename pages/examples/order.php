@@ -449,7 +449,7 @@ require_once("visual.php");
             $sql25 = "SELECT * FROM zadanie WHERE status = 'Опубликовано'";
             $result = mysqli_query($conn, $sql25);
             while ($row25 = mysqli_fetch_assoc($result)) {
-              echo '<div class="this_is_order">';
+              echo '<a class="href_hdr" href="sam_zakaz.php?id_zakaza=' . $row25['id_order'] . '"><div class="this_is_order">';
               echo '<div class="name_order">' . $row25['name_order'] . '</div><br>';
               echo '<div clas="take_info_order">';
               echo '<b>Технологии: </b>' . $row25['technology'] . '<br>';
@@ -462,7 +462,7 @@ require_once("visual.php");
               echo '<div class="author_ava" style="background-image: url(../../dist/img/avatar/avatar1.png)"></div>';
               echo '<div class="author_name">' . $row25['name_customer'] . '</div>';
               echo '</div>';
-              echo '</div>';
+              echo '</div></a>';
             }
             ?>
           </div>

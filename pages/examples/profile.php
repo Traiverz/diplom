@@ -148,6 +148,7 @@ if(mysqli_num_rows($mysql) > 0) {
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/alex.css">
+  <link rel="stylesheet" href="../../dist/css/zakaz.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -287,41 +288,43 @@ if(mysqli_num_rows($mysql) > 0) {
                       <div class="time-label">
                         123
                       </div>  -->
-                      <div class="zakaz">
-                        <table class="mytable2">
-                          <tr>
-                            <td rowspan="3" style="width: 8%;">Аватар</td>
-                            <td colspan="2">Тема</td>
-                            <td style="width: 12%;">Статус заказа</td>
-                          </tr>
-                          <tr>
-                            <td colspan="2">Краткое описание проекта</td>
-                            <td style="width: 12%;">Технологии</td>
-                          </tr>
-                          <tr>
-                            <td style="width: 46%;">Дата начала </td>
-                            <td colspan="2" style="width: 46%;">Дата закрытия</td>
-                          </tr>
-                        </table>
-                      </div>
-
-                      <div class="zakaz">
-                        <table class="mytable2">
-                          <tr>
-                            <td rowspan="3" style="width: 8%;">Аватар</td>
-                            <td colspan="2">Тема</td>
-                            <td style="width: 12%;">Статус заказа</td>
-                          </tr>
-                          <tr>
-                            <td colspan="2">Краткое описание проекта</td>
-                            <td style="width: 12%;">Технологии</td>
-                          </tr>
-                          <tr>
-                            <td style="width: 46%;">Дата начала </td>
-                            <td colspan="2" style="width: 46%;">Дата закрытия</td>
-                          </tr>
-                        </table>
-                      </div>
+                      <div class="order_container">
+            <!-- <div class="this_is_order">
+              <div class="name_order">Мобильная игра "Змейка"</div><br>
+              <div clas="take_info_order">
+                <b>Технологии</b>: JavaScript, PHP, HTML, CSS<br>
+                <b>Создан:</b> 2023-02-01<br>
+                <b>Закроется:</b> 2023-03-01<br>
+                <b>Цена:</b> 4000₸
+              </div>
+              <div class="authr">
+                <b style="width: 100%;">Заказчик </b><br>
+                <div class="author_ava" style="background-image: url(../../dist/img/avatar/avatar1.png);"></div>
+                <div class="author_name">Odarich</div>
+              </div>
+            </div> -->
+                      <?php
+                      $sql25 = "SELECT * FROM zadanie WHERE name_customer = '".$_SESSION['session_username']."'";
+                      // $sql25 = "SELECT * FROM zadanie";
+                      $result = mysqli_query($conn, $sql25);
+                      while ($row25 = mysqli_fetch_assoc($result)) {
+                        echo '<a class="href_hdr" href="sam_zakaz.php?id_zakaza=' . $row25['id_order'] . '"><div class="this_is_order">';
+                        echo '<div class="name_order">' . $row25['name_order'] . '</div><br>';
+                        echo '<div clas="take_info_order">';
+                        echo '<b>Технологии: </b>' . $row25['technology'] . '<br>';
+                        echo '<b>Создан: </b>' . $row25['data_add'] . '<br>';
+                        echo '<b>Закроется: </b>' . $row25['data_end'] . '<br>';
+                        echo '<b>Цена: </b>' . $row25['price'] . '₸';
+                        echo '</div>';
+                        echo '<div class="authr">';
+                        echo '<b style="width: 100%;">Заказчик </b><br>';
+                        echo '<div class="author_ava" style="background-image: url(../../dist/img/avatar/avatar1.png)"></div>';
+                        echo '<div class="author_name">' . $row25['name_customer'] . '</div>';
+                        echo '</div>';
+                        echo '</div></a>';
+                      }
+                      ?>
+                    </div>
 
                     
 
