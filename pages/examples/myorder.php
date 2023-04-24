@@ -333,11 +333,7 @@ require_once("visual.php");
                 <div class="author_name">Odarich</div>
               </div>
             </div> -->
-            
-
             <?php
-            
-
             // $sql25 = "SELECT * FROM zadanie WHERE name_customer = '".$_SESSION['session_username']."'";
             $sql25 = "SELECT * FROM zadanie";
             $result = mysqli_query($conn, $sql25);
@@ -358,15 +354,7 @@ require_once("visual.php");
               echo '</div>';
             }
             ?>
-
-
-
-
-
           </div>
-
-					
-						
         </div>
       </section>
 

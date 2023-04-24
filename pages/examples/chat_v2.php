@@ -52,7 +52,6 @@ require_once("visual.php");
 
 
   </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
@@ -149,13 +148,13 @@ require_once("visual.php");
   </aside>
 </div>
 
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../../dist/js/adminlte.js"></script>
-<script src="../../dist/js/popper.min.js"></script>
-<script src="../../dist/js/bootstrap-material-design.min.js"></script>
-<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-<script src="../../dist/js/demo.js"></script>
+<!-- <script src="../../plugins/jquery/jquery.min.js"></script> -->
+<!-- <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+<!-- <script src="../../dist/js/adminlte.js"></script> -->
+<!-- <script src="../../dist/js/popper.min.js"></script> -->
+<!-- <script src="../../dist/js/bootstrap-material-design.min.js"></script> -->
+<!-- <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script> -->
+<!-- <script src="../../dist/js/demo.js"></script> -->
 
 <script>
   let chatThis = document.querySelectorAll(".chat_this");
@@ -163,7 +162,6 @@ require_once("visual.php");
   let chatId = null;
   function close_message_box(){
     document.getElementById('main_messageis').style.display = 'none';
-    activeChatThis.style.backgroundColor = "";  
   }
   chatThis.forEach(function(elem) {
     elem.addEventListener("click", function(event) {

@@ -23,7 +23,7 @@
       if($row['author_mess'] === $_SESSION["session_username"]){
         $html = '<div class="my_msg"><div class="text_msg"><div class="sam_msg_box"><b>' . date('H:i', strtotime($row['date_time'])) . ' Вы:</b><br> ' . $row['mess_text'] . '</div></div></div>';
       } else {
-        $html = '<div class="other_msg"><div class="sam_msg_box_other"><div class="name_msg"><b>' . date('H:i', strtotime($row['date_time'])) . ' - ' . $row['author_mess'] . '</b></div><div class="text_msg">' . $row['mess_text'] . ' - ' . date('H:i', strtotime($row['date_time'])) . '</div></div></div>';
+        $html = '<div class="other_msg"><div class="sam_msg_box_other"><div class="name_msg"><b>' . date('H:i', strtotime($row['date_time'])) . ' - ' . $row['author_mess'] . '</b></div><div class="text_msg">' . $row['mess_text'] .'</div></div></div>';
       }echo $html;
     }
   } else {
