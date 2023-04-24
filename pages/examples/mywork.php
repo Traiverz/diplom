@@ -58,7 +58,7 @@ require_once("visual.php");
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/service.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
-
+  <link rel="stylesheet" href="../../dist/css/zakaz.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
@@ -78,7 +78,6 @@ require_once("visual.php");
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Домой</a></li>
               <li class="breadcrumb-item active">Мои услуги</li>
-              <li class="breadcrumb-item"><a href="myuslugicreate.php">Создать услугу</a></li>
             </ol>
           </div>
         </div>
@@ -86,6 +85,16 @@ require_once("visual.php");
     </section>
  
     <section class="content">
+    <div class="filtr">
+ 
+            <div class="dropdown">
+              <button class="dropbtn">Ваши услуги</button>
+              <div class="dropdown-content">
+              </div>
+            </div>
+            <a href="myuslugicreate.php"><button class="create_order_btn">Создать услугу</button></a>
+          </div>
+
         <div class="container-fluid">
         <div class="field-for-service">
             <?php

@@ -31,9 +31,9 @@ if(mysqli_num_rows($mysql) > 0) {
 if (isset($_POST['submit'])) {
   // Получение значений полей из формы
   $author = $a['name_person'];  
-  $header = $_POST['header'];
-  $oblojka = "Нет";
-  $technology = "1";
+  $header = $_POST['name_order'];
+  $oblojka = "../../dist/img/img_for_service/игровой_сервер.jpg";
+  $technology = $_POST['technology'];
   $description = $_POST['description'];
   $date = date('Y-m-d', strtotime('today'));
   $price = $_POST['price'];
@@ -85,6 +85,7 @@ require_once("visual.php");
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/alex.css">
+  <link rel="stylesheet" href="../../dist/css/createforms.css">
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -116,337 +117,45 @@ require_once("visual.php");
     <section class="content">
     <form method="POST">
       <div class="container-fluid">
-        <table class="mytable1">
-          <tr>
-            <td colspan="4"><div class="colrowTable1">Услуга</div></td>
-          </tr>
+      <div class="form-wrapper">
+        <div class="form-left">
+          <div class="form-group1; ">
+          <a> Название услуги: </a><input class="input1" type="text" id="name_order" name="name_order" placeholder="Название вашей услуги" required>
+          </div>
 
-          <tr>
-            <td colspan="2"><input type="text" name="header" class="form-control" placeholder="Заголовок для вашей услуги"></td>
-            <td colspan="2"><a type="text" name="status">Процесс: Создание</a></td>
-          </tr>
-<!-- 
-          <tr>
-            
-          </tr> -->
+          <div style="width: 60%;" class="form-group23">
+           <a> Технология: </a><a class="tplock" type="text" name="texhnonlogi" id="texhnonlogi" readonly>Технология к которой относится ваша услуга</a>
+          </div>
+          <div class="form-group23">
+            <?php require_once("tech.php"); ?>
+          </div>
+        </div>
 
-          <tr>
-            <td colspan="2"><a type="text" name="oblojka">
-              <button type="button" name="oblojkadown" class="btn btn-primary btn-block" onclick="primary4()">Загрузить обложку</button>
-            </td>
-            <td colspan="2"><a type="text" name="author"><?= $a['name_person']?></a></td>
-          </tr>
+        <div class="form-right" >
+          <div class="form-group0">
+          <a> Описание:</a><textarea  style="height: 41vh" class="textarea1" id="description" name="description" placeholder="Описание для вашей услуги" required></textarea>
+          </div>
+          <div class="form-group0">
+          <a> Цена:</a><input class="input1" type="number" id="price" name="price" placeholder="Цена вашей услуги" required>
+          </div>
+          <div class="form-group0">
+            <label class="label12" for="image">Выбрать картинку</label>
+            <input class="input1" type="file" id="image" name="image">
+          </div>
+          <div class="form-group0">
+            <label class="label12" for="attachments">Прикрепить файлы</label>
+            <input class="input1" type="file" id="attachments" name="attachments" multiple>
+          </div>
+        </div>
+      </div>
 
-          <tr>
-            <td colspan="2" ><input type="text" name="description" class="form-control" placeholder="Описание"></td>
-            <td colspan="2" style="text-align: left; width: 50%;">
-              <div class="technologies">
-                Какие технологии используются: <br>
-                <input type = 'checkbox' id = 'bloggood1' onchange = 'showOrHide("bloggood1", "cat1");'/> - Дизайн
-                <br />
-                <div id = 'cat1' style = 'display: none;'>   
-                  <!-- графдизайн, веб-дизайн, ux-дизайн, дизайн интерфейсов и бренд-дизайн
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">графдизайн
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">веб-дизайн
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">ux-дизайн
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">дизайн интерфейсов
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">бренд-дизайн
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">графдизайн</li>
-                    <li><input type="checkbox" name="languages" value="HTML">веб-дизайн</li>
-                    <li><input type="checkbox" name="languages" value="HTML">ux-дизайн</li>
-                    <li><input type="checkbox" name="languages" value="HTML">дизайн интерфейсов</li>
-                    <li><input type="checkbox" name="languages" value="HTML">бренд-дизайн</li>
-                  </ul>
-                </div>
-            
-                <input type = 'checkbox' id = 'bloggood2' onchange = 'showOrHide("bloggood2", "cat2");' />Доработка сайта
-                <br />
-                <div id = 'cat2' style = 'display: none;'>
-                  <!-- HTML, CSS, JavaScript и PHP
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">HTML
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">CSS
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">JavaScript
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">PHP
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">HTML</li>
-                    <li><input type="checkbox" name="languages" value="HTML">CSS</li>
-                    <li><input type="checkbox" name="languages" value="HTML">JavaScript</li>
-                    <li><input type="checkbox" name="languages" value="HTML">PHP</li>
-                  </ul>
-                </div>
-            
-                <input type = 'checkbox' id = 'bloggood3' onchange = 'showOrHide("bloggood3", "cat3");' />Создание сайта
-                <br />
-                <div id = 'cat3' style = 'display: none;'>
-                  <!-- HTML, CSS, JavaScript и PHP.
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">HTML 
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">CSS
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">JavaScript
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">PHP
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">HTML </li>
-                    <li><input type="checkbox" name="languages" value="HTML">CSS</li>
-                    <li><input type="checkbox" name="languages" value="HTML">JavaScript</li>
-                    <li><input type="checkbox" name="languages" value="HTML">PHP</li>
-                  </ul>
-                </div>
-            
-                <input type = 'checkbox' id = 'bloggood4' onchange = 'showOrHide("bloggood4", "cat4");' />Дестоп
-                <br />
-                  <div id = 'cat4' style = 'display: none;'>
-                  <!-- C++, C#, C, Python
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">C++
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">C#
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">C
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Python
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">C++</li>
-                    <li><input type="checkbox" name="languages" value="HTML">C#</li>
-                    <li><input type="checkbox" name="languages" value="HTML">C</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Python</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox' id = 'bloggood5' onchange = 'showOrHide("bloggood5", "cat5");' />Мобильные
-                <br />
-                <div id = 'cat5' style = 'display: none;'>
-                  Swift. HTML5 JavaScript. C# Objective-C. Python
-                  <!-- <label>
-                    <input type="checkbox" name="languages" value="HTML">Swift
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">HTML5
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">JavaScript
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">C++
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">C#
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Objective-C
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Python
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">Swift</li>
-                    <li><input type="checkbox" name="languages" value="HTML">HTML5</li>
-                    <li><input type="checkbox" name="languages" value="HTML">JavaScript</li>
-                    <li><input type="checkbox" name="languages" value="HTML">C++</li>
-                    <li><input type="checkbox" name="languages" value="HTML">C#</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Objective-C</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Python</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox' id = 'bloggood6' onchange = 'showOrHide("bloggood6", "cat6");' />Доработка программ
-                <br />
-                <div id = 'cat6' style = 'display: none;'>
-                  <!-- Swift. HTML5 JavaScript. C# Objective-C
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Swift
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">HTML5
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">JavaScript
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">C++
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">C#
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Objective-C
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">Swift</li>
-                    <li><input type="checkbox" name="languages" value="HTML">HTML5</li>
-                    <li><input type="checkbox" name="languages" value="HTML">JavaScript</li>
-                    <li><input type="checkbox" name="languages" value="HTML">C++</li>
-                    <li><input type="checkbox" name="languages" value="HTML">C#</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Objective-C</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox' id = 'bloggood7' onchange = 'showOrHide("bloggood7", "cat7");' />1С
-                <br />
-                <div id = 'cat7' style = 'display: none;'>
-                  <!-- Бухгалтерия, Предприятие, Фреш
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Бухгалтерия
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Предприятие
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Фреш
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">Бухгалтерия</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Предприятие</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Фреш</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox' id = 'bloggood8' onchange = 'showOrHide("bloggood8", "cat8");' />Парсер
-                <br />
-                <div id = 'cat8' style = 'display: none;'>
-                  <!-- Ruby, PHP, Python, C# 
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Ruby
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">PHP
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Python
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">C#
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">Ruby</li>
-                    <li><input type="checkbox" name="languages" value="HTML">PHP</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Python</li>
-                    <li><input type="checkbox" name="languages" value="HTML">C#</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox' id = 'bloggood9' onchange = 'showOrHide("bloggood9", "cat9");' />Разработка игр
-                <br />
-                <div id = 'cat9' style = 'display: none;'>
-                  <!-- Swift — игры на iOS или macOS.
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Swift — игры на iOS
-                  </label>
-                  <label>
-                    <input type="checkbox" name="languages" value="HTML">Swift — игры на macOS.
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">Swift — игры на iOS</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Swift — игры на macOS.</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox' id = 'bloggood10' onchange = 'showOrHide("bloggood10", "cat10");' />PHP и JavaScript
-                <br />
-                <div id = 'cat10' style = 'display: none;'>
-                  <!-- <label>
-                    <input type="checkbox" name="languages" value="HTML">браузерные игры
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">браузерные игры</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox' id = 'bloggood11' onchange = 'showOrHide("bloggood11", "cat11");' />C#
-                <br />
-                <div id = 'cat11' style = 'display: none;'>
-                  <!-- <input type="checkbox" name="languages" value="HTML">игры на Unity
-                </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">игры на Unity</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox' id = 'bloggood12' onchange = 'showOrHide("bloggood12", "cat12");' />С или C++
-                <br />
-                <div id = 'cat12' style = 'display: none;'>
-                  <!-- <input type="checkbox" name="languages" value="HTML">большие требовательные игры
-                </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">большие требовательные игры</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox' id = 'bloggood13' onchange = 'showOrHide("bloggood13", "cat13");' />Тестирование
-                <br />
-                <div id = 'cat13' style = 'display: none;'>
-                  <!-- Игры, Приложение, Приложение мобильные
-                    <input type="checkbox" name="languages" value="HTML">Игры
-                  </label>
-                    <input type="checkbox" name="languages" value="HTML">Приложение
-                  </label>
-                    <input type="checkbox" name="languages" value="HTML">Приложение мобильные
-                  </label> -->
-                  <ul class="vipad">
-                    <li><input type="checkbox" name="languages" value="HTML">Игры</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Приложение</li>
-                    <li><input type="checkbox" name="languages" value="HTML">Приложение мобильные</li>
-                  </ul>
-                </div>
-            
-              <input type = 'checkbox'/>Хостинг <br />
-              <input type = 'checkbox'/>Администрация серверов
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td colspan="2" rowspan="2">
-            <button type="button" name="file" class="btn btn-primary btn-block" onclick="primary3()">Прикрепить файлы</button>
-            </td>
-            <td colspan="2"><input type="number" name="price" class="form-control" placeholder="Цена"></td>
-          </tr>
-
-          <tr>
-            <td colspan="2">
-                <button type="submit" name="submit" class="btn btn-primary btn-block" value="buttonPublic">Создать и опубликовать</button>
-                <button type="submit" name="submit" class="btn btn-primary btn-block" value="buttonBlackHol">Сохранить в черновики </button>
-            </td>
-          </tr>
-
-        </table>
-
-
-
-
-
+      <div class="form-group01">
+        <button type="submit" name="submit" class="button2" value="buttonPublic">Создать и опубликовать</button>
+        <button type="submit" name="submit" class="button2" value="buttonBlackHol">Сохранить в черновики </button>
+      </div>
 
       </div>
-      </form>
+    </form>
     </section>
 
     <!-- /.content -->

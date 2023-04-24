@@ -41,8 +41,11 @@
     width: 100%;
     /* background-color: silver; */
     margin-top: 20px;
+<<<<<<< HEAD
     /* min-height: 1000px; */
     /* height: 1000px; */
+=======
+>>>>>>> 2427402c42f07fdcd4f67b1a50c9447eba24110d
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

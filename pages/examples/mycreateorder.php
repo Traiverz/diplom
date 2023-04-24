@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
   $header = $_POST['name_zakaz'];
   $data1 = $_POST['data1'];
   $data2 = $_POST['data2'];
-  $oblojka = $_POST['file'];
+  $oblojka = "../../dist/img/img_for_service/игровой_сервер.jpg";
   $technology =  $_POST['technology'];
   $description = $_POST['description'];
   $date = date('Y-m-d', strtotime('today'));
@@ -97,7 +97,7 @@ require_once("visual.php");
       <div class="form-wrapper">
         <div class="form-left">
           <div class="form-group1; ">
-          <a> Название заказа: </a><input class="input1" type="text" id="name_zakaz" name="name_zakaz" placeholder="Название вашего заказа" required>
+          <a> Название заказа: </a><input class="input1" type="text" id="name_order" name="name_order" placeholder="Название вашего заказа" required>
           </div>
 
           <div style="width: 60%;" class="form-group23">
