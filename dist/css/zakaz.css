@@ -171,6 +171,8 @@
     /* background-color: silver; */
     width: 100%;
     font-size: 15px;
+    height: 300px;
+    overflow: auto;
 }
 
 .sam_ispol{
@@ -183,11 +185,19 @@
     margin-bottom: 5px;
 }
 
+.sam_ispol:hover{
+    background-color: skyblue;
+    cursor: pointer;
+}
+
 .sam_ispol_ava{
     background-color: blue;
     width: 60px;
     height: 60px;
     border-radius: 30px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .sam_ispol_info{

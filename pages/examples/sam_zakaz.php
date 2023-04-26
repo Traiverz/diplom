@@ -2,8 +2,7 @@
 require_once("connection.php");
 
 session_start();
-$id_uslygi = $_GET['id_uslygi'];
-$_SESSION['location_servis'] = $id_uslygi;
+$id_zakaza = $_GET['id_zakaza'];
 
 if (!$conn) {
   die('Ошибка подключения к базе данных: ' . mysqli_connect_error());
@@ -71,7 +70,7 @@ require_once("visual.php");
   
 <?php include('bokovoe_menu.php'); ?>
 <?php  
-        $sql5 = "SELECT * FROM uslygi WHERE id_uslygi = '".$_SESSION['location_servis']."'";
+        $sql5 = "SELECT * FROM zadanie WHERE id_order = '".$id_zakaza."'";
         $result5 = mysqli_query($conn, $sql5);
         $row5 = mysqli_fetch_assoc($result5);
 
@@ -87,7 +86,7 @@ require_once("visual.php");
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Домой</a></li>
               <li class="breadcrumb-item">Заказы</li>
-              <li class="breadcrumb-item active">Заказ №___</li>
+              <li class="breadcrumb-item active">Заказ №<?= $row5['id_order']?></li>
             </ol>
           </div>
         </div>
@@ -102,58 +101,67 @@ require_once("visual.php");
           <div class="show_info_for_service">
             <div class="sam_zakaz">
               <div class="sam_zakaz_left">
-                Название заказа:<br>
-                Заказчик:	<br>
-                Исполнитель:<br>
-                <div class="descript">Описание:</div>
-                <div class="fails">Прикреплённые файлы</div><br>
+                Название заказа:<?= $row5['name_order']?><br>
+                Заказчик:	<?= $row5['name_customer']?><br>
+                Исполнитель:<?= $row5['name_executor']?><br>
+                <div class="descript">Описание:<?= $row5['decription']?></div>
+                <div class="fails">Прикреплённые файлы<?= $row5['id_order']?></div><br>
               </div>
               <div class="sam_zakaz_right">
-                  Cтатус: В работе<br>
-                  Cтатус: Опубликован<br>
-                  Cтатус: Закрыт<br>
+                <?
+                  if($row5['status'] === "Опубликовано") {echo 'Cтатус: Опубликован';}
+                  elseif ($row5['status'] === "В работе") {echo 'Cтатус: В работе';}
+                  elseif ($row5['status'] === "Рассмотрение") {echo 'Cтатус: На рассмотрении';}
+                  else {echo 'Cтатус: Закрыт';}
+                  ?>
                 </div>
             </div>
           </div>
 
           <div class="show_price_for_service1">
             <div class="avtor_data1">
-              Ставка заказа <br> Дата заказа:
+              Ставка заказа: <?= $row5['price']?><br> Дата заказа: <?= $row5['data_add']?>
               
             </div>
-
+            
             <div class="avtor_data1">
-              Ваша ставка:<br>Комментарий:
-              <div class = "ispol_content_container">
-                <div class = "sam_ispol">
-                  <div class="sam_ispol_ava" style=""></div>
-                  <div class="sam_ispol_info">
-                    Имя: <br> Рейтинг: 
-                  </div>
-                </div>
-              </div>
-              <div class = "ispol_content_container">
-                <div class = "sam_ispol">
-                  <div class="sam_ispol_ava" style=""></div>
-                  <div class="sam_ispol_info">
-                    Имя: <br> Рейтинг: 
-                  </div>
-                </div>
-              </div>
+              <? 
+              if ($row5['name_customer'] != $_SESSION["session_username"] and $_SESSION["user_role"] === 'ispolnitel') {
+                echo 'Ваша ставка:<br>Комментарий:<br>';
+                echo '<button class="btn_buy_zakaz" id="take_message_avtor">Press me</button>';
+              }
+              elseif ($_SESSION["user_role"] === 'zakazchik') {
+                  echo '<div class = "ispol_content_container">';
+                  echo 'Вы можете выбрать исполнителя на свой заказ';
+                  $sql25 = "SELECT * FROM person WHERE user_role = 'ispolnitel'";
+                  $result = mysqli_query($conn, $sql25);
+                  while ($row25 = mysqli_fetch_assoc($result)) {
+                    echo '<div class = "sam_ispol">';
+                    echo '<div class="sam_ispol_ava" style="background-image: url(' . $row25['photo'] . ')"></div>';
+                    echo '<div class="sam_ispol_info">';
+                    echo 'Имя: ' . $row25['name_person'] . '<br> Рейтинг: ' . $row25['raiting_saita'] . '';
+                    echo '</div>';
+                    echo '</div>';
+                  }
+                  echo '</div>';
+              }
+              ?>
             </div>
 
             <div class="avtor_data1">
               Просматривают заказ:<br>
               Приняли заказ:<br>
               Участвовать<br>
-              <div class="btns_zakaz">
-                <button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c заказчиком</button>
-                <button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button>
-              </div>
-              <div class="btns_zakaz">
-                <button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c испоолнителем</button>
-                <button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button>
-              </div>
+              <?
+                if ($row5['status'] === "В работе" and $_SESSION["user_role"] === 'ispolnitel') {
+                  echo '<div class="btns_zakaz"><button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c заказчиком</button>';
+                  echo '<button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button></div>';
+                }
+                elseif ($row5['status'] === "В работе" and $_SESSION["user_role"] === 'zakazchik') {
+                  echo '<div class="btns_zakaz"><button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c исполнителем</button>';
+                  echo '<button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button></div>';
+                }
+              ?>
             </div>
           </div>
         </div>

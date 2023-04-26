@@ -449,6 +449,7 @@ require_once("visual.php");
             $sql25 = "SELECT * FROM zadanie WHERE status = 'Опубликовано'";
             $result = mysqli_query($conn, $sql25);
             while ($row25 = mysqli_fetch_assoc($result)) {
+              
               echo '<a class="href_hdr" href="sam_zakaz.php?id_zakaza=' . $row25['id_order'] . '"><div class="this_is_order">';
               echo '<div class="name_order">' . $row25['name_order'] . '</div><br>';
               echo '<div clas="take_info_order">';
