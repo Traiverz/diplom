@@ -6,7 +6,7 @@
     if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password'])) {
     $username= htmlspecialchars($_POST['name']);
     $email=htmlspecialchars($_POST['email']);
-    $password=htmlspecialchars($_POST['password']);
+    $password=md5(md5(trim($_POST['password'])));
     $query=mysqli_query($conn, "SELECT * FROM person WHERE name_person ='".$username."'");
     $numrows=mysqli_num_rows($query);
     if($numrows==0)

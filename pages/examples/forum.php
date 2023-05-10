@@ -91,9 +91,7 @@ require_once("visual.php");
     <section class="content-header">
       <div class="container-fluid">
         <h3 class="nav-icon fas fa-search">Тематики форума</h3>
-
-
-        <?    $sql25 = "SELECT * FROM tema";
+           <? $sql25 = "SELECT * FROM tema";
               $result = mysqli_query($conn, $sql25);
               while ($row25 = mysqli_fetch_assoc($result)) {
                 echo '<button class="vopros">' . $row25['name_tema'] . '<div class="childe-vopros"><ion-icon name="menu-outline" style="font-size: 25px;"></ion-icon></div></button>';
@@ -110,19 +108,6 @@ require_once("visual.php");
               }
 
             ?>
-
-
-                <!-- echo '<li> <a href="str_forum.php">Первая тема</a><br></li>';
-                echo '<li> <a href="str_forum.php">Вторая тема</a><br></li>';
-                echo '<li> <a href="str_forum.php">Третья тема</a><br></li>';
-                echo '<li> <a href="str_forum.php">Четвертая тема</a><br></li>';
-                echo '<li> <a href="str_forum.php">Пятая тема</a><br></li>';
-                echo '<li> <a href="str_forum.php">Шестая тема</a><br></li>';
-                echo '<li> <a href="str_forum.php">Седьмая тема</a><br></li>'; -->
-
-
-
-        
       </div>
     </section>
 
