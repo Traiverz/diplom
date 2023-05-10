@@ -460,7 +460,7 @@ require_once("visual.php");
               echo '<div class="authr">';
               echo '<b style="width: 100%;">Заказчик </b><br>';
               echo '<div class="author_ava" style="background-image: url(../../dist/img/avatar/avatar1.png)"></div>';
-              echo '<div class="author_name">' . $row25['name_customer'] . '</div>';
+              echo '<div class="author_name" href="profile_.php?name_customer=' . $row25['name_customer'] . '">' . $row25['name_customer'] . '</div>';
               echo '</div>';
               echo '</div></a>';
             }

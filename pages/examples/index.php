@@ -171,7 +171,7 @@ require_once("visual.php");
                 </div>
               </div>
               <div class="container">
-
+<!-- 
                 <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="false">
                   <div class="itc-slider__wrapper">
                     <div class="itc-slider__items">
@@ -194,7 +194,7 @@ require_once("visual.php");
                   </div>
                   <button class="itc-slider__btn itc-slider__btn_prev"></button>
                   <button class="itc-slider__btn itc-slider__btn_next"></button>
-                </div>
+                </div> -->
               
               </div>
               <!-- /.card-body-->

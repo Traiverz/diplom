@@ -146,10 +146,11 @@ require_once("visual.php");
                       $sql98 = "SELECT * FROM person WHERE name_person = '".$row5['author_name']."'";
                       $result = mysqli_query($conn, $sql98);
                       $row98 = mysqli_fetch_assoc($result);
-                      echo '<td style="width: 20%;"><div class="sadasd" style="background-image: url(' . $row98['photo'] . ');"></div></td>';
+                      echo '<td style="width: 20%;"><a href="profile_.php?name_customer_=' .$row5['author_name']. '"><div class="sadasd" style="background-image: url(' . $row98['photo'] . ');"></div></td>';
                   ?>
                   
                   <td style="width: 80%;"><div class="sadasd1"><?= $row5['author_name']?></div></td>
+              
                 </tr>
               </table>
               <?php 
