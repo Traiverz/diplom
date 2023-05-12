@@ -161,16 +161,23 @@
 }
 
 .avtor_data1{
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     padding: 10px;
     width: 100%;
+    line-height: 120%;
+}
+
+.avtor_data1:last-child{
+    margin-bottom: 0px;
 }
 
 .ispol_content_container{
     /* background-color: silver; */
     width: 100%;
     font-size: 15px;
+    height: 300px;
+    overflow: auto;
 }
 
 .sam_ispol{
@@ -183,11 +190,22 @@
     margin-bottom: 5px;
 }
 
+.sam_ispol:hover {
+    cursor: pointer;
+}
+
+.sam_ispol:hover .sam_ispol_btn {
+    display: block;
+}
+
 .sam_ispol_ava{
     background-color: blue;
     width: 60px;
     height: 60px;
     border-radius: 30px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .sam_ispol_info{
@@ -214,6 +232,42 @@
     transition: transform 0.3s ease-in;
     margin: 1%;
 }
+
+.btn_buy_zakaz_1{
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 40px 40px gray inset, 0 0 0 0 gray;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+}
+
+.btn_buy_zakaz_1:hover {
+    box-shadow: 0 0 10px 0 gray inset, 0 0 10px 4px gray;
+    color: #18531a;
+  }
+
+  .btn_buy_zakaz_2{
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 40px 40px red inset, 0 0 0 0 red;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+}
+
+.btn_buy_zakaz_2:hover {
+    box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px red;
+    color: red;
+  }
 
 .btn_buy_zakaz:nth-child(1){
     width: 55%;

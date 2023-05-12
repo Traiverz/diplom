@@ -301,7 +301,7 @@ if (mysqli_query($conn, $query)) {
                     <b>Мой контактная:</b> <a ><?= $a['contact_2']?></a><br>
                     <b>Компания:</b> <a ><?= $a['company']?></a><br>
                     <b>Мой GitHub:</b> <a ><?= $a['git']?></a><br>
-                    <div class="order_container">
+                    <div class="order_container" style="justify-content: space-between">
                             <?php
                             $sql25 = "SELECT * FROM uslygi WHERE author_name = '".$_SESSION['session_username']."'";
                             $result = mysqli_query($conn, $sql25);

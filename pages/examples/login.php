@@ -14,7 +14,7 @@ if (isset($_POST["login"])) {
 
   if (!empty($_POST['username']) && !empty($_POST['password'])) {
     $username = htmlspecialchars($_POST['username']);
-    $password = htmlspecialchars($_POST['password']);
+    $password = md5(md5(trim($_POST['password'])));
     $query = mysqli_query($conn, "SELECT * FROM person WHERE name_person='" . $username . "' AND password_person='" . $password . "'");
     $numrows = mysqli_num_rows($query);
     if ($numrows != 0) {

@@ -66,10 +66,9 @@ require_once("visual.php");
     
     <section class="content">
       <div class="container-fluid">
-
         <div class="open_chat_box">
-          
           <div class="chat_box">
+            <button class="btn_buy_chat" id="" data-value="" onclick="">Создать чат</button>
                   <?  $sql25 = "SELECT * FROM chats";
                       $result = mysqli_query($conn, $sql25);
                       while ($row25 = mysqli_fetch_assoc($result)) {
