@@ -32,15 +32,6 @@ $row7 = mysqli_fetch_assoc($result7);
 $sql8 = "SELECT * FROM executor_person WHERE name_executor = '".$_SESSION["session_username"]."'";
 $result8 = mysqli_query($conn, $sql8);
 $row8 = mysqli_fetch_assoc($result8);
-mysqli_close($conn);
-// пошла проверочка
-$statuspage = 'error';
-if ($row6['user_role'] == 'ispolnitel' && $row5['status'] == 'Опубликовано') {$statuspage = 'isp_new';} 
-elseif ($row6['user_role'] == 'ispolnitel' && $row5['status'] == 'В работе') {$statuspage = 'isp_work';} 
-elseif ($row6['user_role'] == 'ispolnitel' && $row5['status'] == 'Закрыт') {$statuspage = 'isp_end';} 
-elseif ($row6['user_role'] == 'zakazchik' && $row5['status'] == 'Опубликовано') {$statuspage = 'zak_new';} 
-elseif ($row6['user_role'] == 'zakazchik' && $row5['status'] == 'В работе') {$statuspage = 'zak_work';} 
-elseif ($row6['user_role'] == 'zakazchik' && $row5['status'] == 'Закрыт') {$statuspage = 'zak_end';}
 
 
 ?>
@@ -95,7 +86,7 @@ elseif ($row6['user_role'] == 'zakazchik' && $row5['status'] == 'Закрыт') 
                 Заказчик:	<?= $row5['name_customer']?><br>
                 Исполнитель: <?= $row5['name_executor']?><br>
                 <div class="descript">Описание:<?= $row5['decription']?></div>
-                <div class="fails">Прикреплённые файлы<?= $row5['id_order']?></div><br>
+                <div class="fails">Прикреплённые файлы</div><br>
               </div>
               <div class="sam_zakaz_right">
                 <?
@@ -114,41 +105,53 @@ elseif ($row6['user_role'] == 'zakazchik' && $row5['status'] == 'Закрыт') 
             </div>
             
             <div class="avtor_data1">
-              <div class="lbl_add_list_auction">
-                Ваша ставка:<br>
-                Комментарий:<br>
-                <button class="btn_buy_zakaz" id="take_message_avtor" onclick="add_exec()">Взять заказ</button>
-              </div>
               <?
-              echo "Статус страницы: " . $statuspage;
-              // для выбора специалиста
-                  // echo '<div class = "ispol_content_container">';
-                  // echo 'Вы можете выбрать исполнителя на свой заказ';
-                  // $sql25 = "SELECT * FROM person WHERE user_role = 'ispolnitel'";
-                  // $result = mysqli_query($conn, $sql25);
-                  // while ($row25 = mysqli_fetch_assoc($result)) {
-                  //   echo '<div class = "sam_ispol">';
-                  //   echo '<div class="sam_ispol_ava" style="background-image: url(' . $row25['photo'] . ')"></div>';
-                  //   echo '<div class="sam_ispol_info">';
-                  //   echo 'Имя: ' . $row25['name_person'] . '<br> Рейтинг: ' . $row25['raiting_saita'] . '';
-                  //   echo '</div>';
-                  //   echo '</div>';
-                  // }
-                  // echo '</div>';
+                if ($row5['status'] == 'Опубликовано' and $row6['user_role'] == 'ispolnitel'){
+                  echo '<div class="lbl_add_list_auction"><label for="inputEmail">Ваша ставка:</label><input type="text" class="form-control" id="inputStavka" inputmode="numeric" placeholder="Ваша ставка:">';
+                  echo '<label for="inputEmail">Комментарий:</label><input type="email" class="form-control" id="inputKomment" placeholder="Комментарий:">';
+                  echo '<button class="btn_buy_zakaz" id="take_message_avtor" onclick="add_exec()">Взять заказ</button></div>';
+                }
+                if ($row5['status'] == 'Опубликовано' and $row6['user_role'] == 'zakazchik'){
+                  echo 'Или выбрать из тех кто предложил свою цену';
+                  echo '<div class = "ispol_content_container">';
+                  $sql25 = "SELECT * FROM zakazi_na_zakazi WHERE id_zakaza = '".$id_zakaza."'";
+                  $result25 = mysqli_query($conn, $sql25);
+                  if(mysqli_num_rows($result25) > 0) {
+                    while ($row25 = mysqli_fetch_assoc($result25)) {
+                      $sql254 = "SELECT * FROM person WHERE name_person = '".$row25['name_person']."'";
+                      $result254 = mysqli_query($conn, $sql254);
+                      $row254 = mysqli_fetch_assoc($result254);
+                      echo '<div class = "sam_ispol">';
+                      echo '<div class="sam_ispol_ava" style="background-image: url(' . $row254['photo'] . ')"></div>';
+                      echo '<div class="sam_ispol_info">';
+                      echo 'Имя: ' . $row25['name_person'] . '<br> Ставка: ' . $row25['stavka'] . '<br> Комментарий: ' . $row25['komment'] . '';
+                      echo '<div class="sam_ispol_btn" style="display:none;"><button class="btn_buy_zakaz_1" id="take_message_avtor" data-value="' . $row25['name_person'] . '" onclick="take_exeecutor()">Выбрать</button></div>';
+                      echo '</div>';
+                      echo '</div>';
+                    }
+                  } else {echo '<span style="color: red;">Пока нет предложений!</span>';}
+                  echo '</div>';
+                }
               ?>
             </div>
 
             <div class="avtor_data1">
-              Просматривают заказ:<br>
-              Приняли заказ:<br>
-              Участвовать<br>
               <?
-              // кнопки
-                  // echo '<div class="btns_zakaz"><button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c заказчиком</button>';
-                  // echo '<button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button></div>';
-
-                  // echo '<div class="btns_zakaz"><button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c исполнителем</button>';
-                  // echo '<button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button></div>';
+                  
+                  if ($row5['status'] == 'В работе' and $row6['user_role'] == 'zakazchik'){
+                    echo '<div class="btns_zakaz"><button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c исполнителем</button>';
+                    echo '<button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button></div>';
+                  }
+                  elseif ($row6['user_role'] == 'ispolnitel'){
+                    echo '<div class="btns_zakaz"><button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Связаться c заказчиком</button>';
+                    echo '<button class="btn_buy_zakaz" id="take_message_avtor" onclick="btn_buy_click1();">Пожаловаться</button></div>';
+                  }
+                  else{echo '<span style="color: red;">Связь с исполнителем станет доступна после того как за заказ возьмётся один из исполнителей!</span><br><br>';}
+                  
+                  if ($row5['name_customer'] == $_SESSION["session_username"]){
+                    echo '<button class="btn_buy_zakaz_2" id="take_message_avtor" data-value="" onclick="drop_order();">Удалить заказ</button>';
+                  }
+                  
               ?>
             </div>
           </div>
@@ -156,9 +159,7 @@ elseif ($row6['user_role'] == 'zakazchik' && $row5['status'] == 'Закрыт') 
       </div>
     </section>
 
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       
@@ -178,18 +179,60 @@ elseif ($row6['user_role'] == 'zakazchik' && $row5['status'] == 'Закрыт') 
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 <script src="../../dist/js/demo.js"></script>
 <script>
+  var samIspolElements = document.querySelectorAll('.sam_ispol');
+  samIspolElements.forEach(function(element) {
+    element.addEventListener('mouseover', function() {
+      element.querySelector('.sam_ispol_btn').style.display = 'block';
+    });
+    element.addEventListener('mouseout', function() {
+      element.querySelector('.sam_ispol_btn').style.display = 'none';
+    });
+  });
+
+  function take_exeecutor(){
+    var username = event.target.getAttribute('data-value');
+    var url = window.location.href;
+    var id_zakaza = url.match(/[?&]id_zakaza=([^&#]*)/)[1];
+    var params = 'username=' + encodeURIComponent(username) + '&id_zakaza=' + encodeURIComponent(id_zakaza);
+
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        location.reload();
+        alert('Успешно выбран исполнитель!');
+      }
+    };
+    xhr.open('POST', 'get_exec.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(params);
+  }
+
   function add_exec(){
-    // let xhr = new XMLHttpRequest();
-    // xhr.onload = function() {
-    //   if (xhr.status === 200) {
-    //     alert ('Теперь вы исполниетель!!');
-    //     document.getElementById('ispolnitel_zakaza').innerHTML = '?php echo $_SESSION["session_username"]; ?>';
-    //     document.getElementById('ispolnitel_zakaza_1').innerHTML = '';
-    //   }
-    // };
-    // xhr.open('POST', 'add_exec.php', true);
-    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    // xhr.send('zakaz_id=' + ?php echo $id_zakaza; ?>);
+    var url = window.location.href;
+    var username = "<?php echo $_SESSION['session_username']; ?>";
+    var stavkaInput = document.getElementById('inputStavka');
+    var kommentInput = document.getElementById('inputKomment');
+    var stavka = stavkaInput.value;
+    var userkomment = kommentInput.value;
+    var id_zakaza = url.match(/[?&]id_zakaza=([^&#]*)/)[1];
+    var params = 'username=' + encodeURIComponent(username) + '&stavka=' + encodeURIComponent(stavka) + '&userkomment=' + encodeURIComponent(userkomment) + '&id_zakaza=' + encodeURIComponent(id_zakaza);
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        alert('Успешно');
+      }
+    };
+    xhr.open('POST', 'get_auction.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(params);
+  }
+
+  function btn_buy_click1(){
+    window.location.href = 'messenger.php'
+  }
+
+  function drop_order(){
+    alert('Эта функция пока недоступна!');
   }
 </script>
 </body>
