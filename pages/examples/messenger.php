@@ -69,6 +69,63 @@ require_once("visual.php");
         <div class="open_chat_box">
           <div class="chat_box">
             <button class="btn_buy_chat" id="" data-value="" onclick="">Создать чат</button>
+            <div class="modal fade" id="userListModal" tabindex="-1" role="dialog" aria-labelledby="userListModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="userListModalLabel">Список пользователей</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <ul id="userList">
+                    <!-- Здесь будет выводиться список пользователей -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            // Получаем кнопку "Создать чат"
+            const createChatButton = document.querySelector('.btn_buy_chat');
+
+            // Получаем модальное окно "Список пользователей"
+            const userListModal = document.querySelector('#userListModal');
+
+            // Получаем список пользователей
+            const userList = document.querySelector('#userList');
+
+            // Функция для открытия модального окна "Список пользователей"
+            function openUserListModal() {
+              // Очищаем список пользователей
+              userList.innerHTML = '';
+
+              // Показываем модальное окно
+              $(userListModal).modal('show');
+
+              // Отправляем AJAX-запрос на получение списка пользователей
+              const xhr = new XMLHttpRequest();
+              xhr.open('GET', 'get_users.php');
+              xhr.onload = function() {
+                if (xhr.status === 200) {
+                  // Если запрос выполнен успешно, то парсим полученный JSON-ответ
+                  const users = JSON.parse(xhr.responseText);
+
+                  // Создаем элементы списка для каждого пользователя
+                  users.forEach(user => {
+                    const li = document.createElement('li');
+                    li.textContent = user.name_person;
+                    userList.appendChild(li);
+                  });
+                }
+              };
+              xhr.send();
+            }
+
+            // Назначаем обработчик события на кнопку "Создать чат"
+            createChatButton.addEventListener('click', openUserListModal);
+          </script>
                   <?  $sql25 = "SELECT * FROM chats";
                       $result = mysqli_query($conn, $sql25);
                       while ($row25 = mysqli_fetch_assoc($result)) {
