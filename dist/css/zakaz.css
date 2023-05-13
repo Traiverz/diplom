@@ -149,6 +149,7 @@
     position: relative;
     /* z-index: 2; */
     border: 1px solid silver;
+    
 }
 
 .show_price_for_service1{   
@@ -166,6 +167,7 @@
     padding: 10px;
     width: 100%;
     line-height: 120%;
+    position: relative;
 }
 
 .avtor_data1:last-child{
@@ -253,7 +255,6 @@
 
   .btn_buy_zakaz_2{
     text-decoration: none;
-    display: inline-block;
     border-radius: 5px;
     border: none;
     box-shadow: 0 0 40px 40px red inset, 0 0 0 0 red;
@@ -262,7 +263,11 @@
     letter-spacing: 2px;
     color: white;
     transition: .15s ease-in-out;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
+
 
 .btn_buy_zakaz_2:hover {
     box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px red;

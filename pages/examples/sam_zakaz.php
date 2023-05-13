@@ -52,7 +52,7 @@ $row8 = mysqli_fetch_assoc($result8);
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="hold-transition sidebar-mini" onload="loadbody(); loadbody111();">
+<body class="hold-transition sidebar-mini" onload="loadbody111();">
 <div class="wrapper">
   
 <?php include('bokovoe_menu.php'); ?>
@@ -148,8 +148,11 @@ $row8 = mysqli_fetch_assoc($result8);
                   }
                   else{echo '<span style="color: red;">Связь с исполнителем станет доступна после того как за заказ возьмётся один из исполнителей!</span><br><br>';}
                   
-                  if ($row5['name_customer'] == $_SESSION["session_username"]){
-                    echo '<button class="btn_buy_zakaz_2" id="take_message_avtor" data-value="" onclick="drop_order();">Удалить заказ</button>';
+                  if ($row5['name_customer'] == $_SESSION["session_username"] and $row5['status'] == 'В работе'){
+                    echo '<button class="btn_buy_zakaz_2" id="take_message_avtor" data-value="drop_order" onclick="drop_order();">Завершить заказ</button>';
+                  }
+                  elseif ($row5['name_customer'] == $_SESSION["session_username"] and $row5['status'] == 'Опубликовано'){
+                    echo '<button class="btn_buy_zakaz_2" id="take_message_avtor" data-value="end_order" onclick="drop_order();">Удалить заказ</button>';
                   }
                   
               ?>
@@ -232,7 +235,9 @@ $row8 = mysqli_fetch_assoc($result8);
   }
 
   function drop_order(){
-    alert('Эта функция пока недоступна!');
+    var actions = event.target.getAttribute('data-value');
+    if (actions == 'drop_order'){alert('Функция удаления пока недоступна!');}
+    else if (actions == 'end_order'){alert('Функция завершения пока недоступна!');}
   }
 </script>
 </body>

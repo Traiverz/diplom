@@ -27,9 +27,7 @@ if(mysqli_num_rows($mysql) > 0) {
      error_log("Нет данных");
 }
 
-// Обработка отправки формы
 if (isset($_POST['submit'])) {
-  // Получение значений полей из формы
   $author = $a['name_person'];  
   $header = $_POST['name_zakaz'];
   $data1 = $_POST['data1'];
@@ -40,9 +38,7 @@ if (isset($_POST['submit'])) {
   $date = date('Y-m-d', strtotime('today'));
   $price = $_POST['price'];
   $status = ($_POST['submit'] == "buttonBlackHol") ? "Черновик" :  "Рассмотрение";
-  // Запись данных в базу
   $query = "INSERT INTO zadanie (name_customer, technology, price, name_order, decription, picture, data_add, data_start, data_end, status) VALUES ('$author', '$technology', '$price','$header', '$description', '$oblojka', '$date', '$data1', '$data2', '$status')";
-  
   if (mysqli_query($conn, $query)) {
     echo "<script>alert('Данные успешно сохранены в базу!');</script>";
   } else {
