@@ -159,11 +159,28 @@ if (mysqli_query($conn, $query)) {
         mini_state_of_ispol.style.display = "none";
         state_of_ispol.style.display = "none";
       } 
-
       var active11 = document.getElementById("profile");
       active11.className = "nav-link active";
     }
 
+  function loadbody111() {
+    if ("<?= $c['id_medali'] ?>" == 4) {
+      Vip1();
+      } else if ("<?= $c['id_medali'] ?>" == 5) {
+      Vip2();
+    }
+  }
+  function Vip2() {
+    // админ
+    var sidebar_admin = document.getElementById('adminpanel');
+    sidebar_admin.style.display = "block"
+  }
+  function Vip1() {
+    // эксперт
+    var sidebar_expert = document.getElementById('expert');
+    sidebar_expert.style.display = "block"
+  }
+      
 
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -177,7 +194,7 @@ if (mysqli_query($conn, $query)) {
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="hold-transition sidebar-mini" onload="loadbody();">
+<body class="hold-transition sidebar-mini" onload="loadbody(); loadbody111();">
 <div class="wrapper">
   
 <?php include('bokovoe_menu.php'); ?>
