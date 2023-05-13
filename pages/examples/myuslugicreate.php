@@ -1,8 +1,6 @@
 <?php
 require_once("connection.php");
-
 session_start();
-
 if(!isset($_SESSION["session_username"]))
 header("location:login.php");
 if (!$conn) {
@@ -27,9 +25,7 @@ if(mysqli_num_rows($mysql) > 0) {
      error_log("Нет данных");
 }
 
-// Обработка отправки формы
 if (isset($_POST['submit'])) {
-  // Получение значений полей из формы
   $author = $a['name_person'];  
   $header = $_POST['name_order'];
   $oblojka = "../../dist/img/img_for_service/игровой_сервер.jpg";
@@ -38,18 +34,14 @@ if (isset($_POST['submit'])) {
   $date = date('Y-m-d', strtotime('today'));
   $price = $_POST['price'];
   $status = ($_POST['submit'] == "buttonPublic") ? "Опубликовано" : "Черновик";
-  
-  // Запись данных в базу
   $query = "INSERT INTO uslygi (author_name, technology, price, header, description, data, status, img) VALUES ('$author', '$technology', '$price','$header', '$description', '$date', '$status', '$oblojka')";
-  
   if (mysqli_query($conn, $query)) {
-    echo "<script>alert('Данные успешно сохранены в базу!');</script>";
+    // echo "<script>alert('Данные успешно сохранены в базу!');</script>";
   } else {
     $error_message = mysqli_error($conn);
     echo "<script>alert('" . addslashes($error_message) . "');</script>";
   }
 }
-
 require_once("visual.php");
 
 ?>
@@ -58,7 +50,7 @@ require_once("visual.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Мои заказы</title>
+  <title>Создание услуги</title>
   
   
   <script type="text/javascript">
@@ -182,3 +174,28 @@ require_once("visual.php");
 <script src="../../dist/js/demo.js"></script>
 </body>
 </html>
+
+
+<?php
+$get_id_service = $_GET['editing_the_created_user_service'];
+// echo $get_id_service;
+$sql_serv = "SELECT * FROM uslygi WHERE id_uslygi = '" . $get_id_service . "'";
+$result12 = mysqli_query($conn, $sql_serv);
+if ($result12 && mysqli_num_rows($result12) > 0) {
+    // Строка найдена, можно получить данные
+    $editing_service = mysqli_fetch_assoc($result12);
+    echo '<script>
+    var title = document.getElementById("name_order");
+    title.value = "' . $editing_service['header'] . '";
+    var price = document.getElementById("price");
+    price.value = "' . $editing_service['price'] . '";
+    var technologies = document.getElementById("texhnonlogi");
+    technologies.innerHTML = "' . $editing_service['technology'] . '";  
+    var description = document.getElementById("description");
+    description.value = "' . $editing_service['description'] . '";
+  </script>';
+} else {
+    // Строка не найдена
+    echo "Строка не найдена.";
+}
+?>

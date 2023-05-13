@@ -342,6 +342,7 @@ require_once("visual.php");
               echo '<div clas="take_info_order">';
               echo '<b>Технологии: </b>' . $row25['technology'] . '<br>';
               echo '<b>Создан: </b>' . $row25['data_add'] . '<br>';
+              echo '<b>Статус: </b>' . $row25['status'] . '<br>';
               echo '<b>Закроется: </b>' . $row25['data_end'] . '<br>';
               echo '<b>Цена: </b>' . $row25['price'] . '₸';
               echo '</div>';

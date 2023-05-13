@@ -65,6 +65,14 @@ require_once("visual.php");
   <link rel="stylesheet" href="../../dist/css/bootstrap-material-design.min.css">
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src='https://salebot.pro/js/salebot.js' charset='utf-8'></script>
+  <script>
+    SaleBotPro.init({
+    onlineChatId: '1247'
+    });
+  </script>
+
 </head>
 <body class="hold-transition sidebar-mini" onload="loadbody(); loadbody111();">
 <div class="wrapper">
@@ -116,7 +124,7 @@ require_once("visual.php");
           <h4>Наши контакты:</h4>
           <p>Email 1: niceconter100@mail.ru</p>
           <p>Email 2: odarich.kostik@mail.ru</p>
-          <p>Email 2: (тут типа ромы почта :D)</p>
+          <p>Email 2: grizly0077@mail.ru</p>
           <p>Университет: СКУ им. М. Козыбаева</p>
           <p>Факультет: ФИЦТ</p>
           <p>Кафедра: ИКТ</p>
