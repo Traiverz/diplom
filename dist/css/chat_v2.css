@@ -17,8 +17,18 @@
 
 .btn_buy_chat{
     position: absolute;
-    right: 0;
-    top: 0;
+	margin-top: -20px;
+	display: inline-block;
+    padding: 10px 20px;
+    background-color: #eaeaea;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+	left: 600px; 
+	
+    
 }
 
 /* .chat_box:nth-child(1){
@@ -146,7 +156,7 @@
 }
 
 .sam_msg_box{
-    background-color: #98FB98;
+    background-color: #00ffff;
     display: inline-block;
     padding: 5px 10px 5px 5px;
     border-radius: 20px;
@@ -163,7 +173,7 @@
     bottom: 0;
     right: -17px;
     border: 20px solid transparent;
-    border-bottom-color: #98FB98;
+    border-bottom-color: #00ffff;
 }
 
 .other_msg{
@@ -176,7 +186,7 @@
 }
 
 .sam_msg_box_other{
-    background-color: #DA70D6;
+    background-color: #c0c0c0;
     display: inline-block;
     padding: 5px 5px 5px 10px;
     border-radius: 20px;
@@ -192,9 +202,9 @@
     bottom: 0;
     left: -17px;
     border: 20px solid transparent;
-    /* border-bottom-color: #B0E0E6; вариант 1 */
-    /* border-bottom-color: #FFFFE0; вариант 2 */
-    border-bottom-color: #DA70D6;
+    /* border-bottom-color: #B0E0E6; вариант 1  #00ffff*/ 
+    /* border-bottom-color: #FFFFE0; вариант 2  #808080*/
+    border-bottom-color: #c0c0c0;
 }
 
 .btn_input_msg{

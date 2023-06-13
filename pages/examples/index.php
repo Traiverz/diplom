@@ -203,22 +203,22 @@ require_once("visual.php");
               <ul class="nav flex-column">
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Проектов <span class="float-right badge bg-primary">31</span>
+                    Проектов <span class="float-right badge bg-primary">4</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Рейтинг у заказчиков<span class="float-right badge bg-info">400</span>
+                    Рейтинг у заказчиков<span class="float-right badge bg-info">36</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Рейтинг на сайте<span class="float-right badge bg-success">280</span>
+                    Рейтинг на сайте<span class="float-right badge bg-success">700</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Технологии <span class="float-right badge bg-danger">HTML5</span>
+                    Технологии <span class="float-right badge bg-danger">HTML</span>
                   </a>
                 </li>
               </ul>
@@ -244,17 +244,17 @@ require_once("visual.php");
               <ul class="nav flex-column">
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Проектов <span class="float-right badge bg-primary">31</span>
+                    Проектов <span class="float-right badge bg-primary">1</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Рейтинг у заказчиков<span class="float-right badge bg-info">400</span>
+                    Рейтинг у заказчиков<span class="float-right badge bg-info">37</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Рейтинг на сайте<span class="float-right badge bg-success">280</span>
+                    Рейтинг на сайте<span class="float-right badge bg-success">800</span>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -285,22 +285,22 @@ require_once("visual.php");
               <ul class="nav flex-column">
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Проектов <span class="float-right badge bg-primary">31</span>
+                    Проектов <span class="float-right badge bg-primary">7</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Рейтинг у заказчиков<span class="float-right badge bg-info">400</span>
+                    Рейтинг у заказчиков<span class="float-right badge bg-info">38</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Рейтинг на сайте<span class="float-right badge bg-success">280</span>
+                    Рейтинг на сайте<span class="float-right badge bg-success">900</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    Технологии <span class="float-right badge bg-danger">Проектирование</span>
+                    Технологии <span class="float-right badge bg-danger">Java, PHP</span>
                   </a>
                 </li>
               </ul>

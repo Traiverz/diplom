@@ -25,7 +25,7 @@ if(mysqli_num_rows($mysql) > 0) {
     $a = mysqli_fetch_array($mysql);
     $_SESSION["online"] = $a["online"];
     $_SESSION["user_role"] = $a["user_role"];
-    $query = "UPDATE person SET online='offline' WHERE name_person ='".$_SESSION["session_username"]."'";
+    $query = "UPDATE person SET online='online' WHERE name_person ='".$_SESSION["session_username"]."'";
     mysqli_query($conn, $query);
 
     $mysql1 = mysqli_query($conn, "SELECT * FROM customer_person WHERE id_customer  ='".$a["id_customer"]."'");
@@ -43,26 +43,7 @@ if(mysqli_num_rows($mysql) > 0) {
 } else {
      error_log("Нет данных");
 }
-if (isset($_POST['submit'])) {
-$technology = $_POST['technology'];
-$author = $a['name_person'];  
-$header = $_POST['name_order'];
-$oblojka = "../../dist/img/img_for_service/игровой_сервер.jpg";
-$technology = $_POST['technology'];
-$description = $_POST['description'];
-$date = date('Y-m-d', strtotime('today'));
-$price = $_POST['price'];
-$status = ($_POST['submit'] == "buttonPublic") ? "Опубликовано" : "Черновик";
- // Запись данных в базу
-  $query = "INSERT INTO uslygi (author_name, technology, price, header, description, data, status, img) VALUES ('$author', '$technology', '$price','$header', '$description', '$date', '$status', '$oblojka')";
-  
-if (mysqli_query($conn, $query)) {
-  echo "<script>alert('Данные успешно сохранены в базу!');</script>";
-} else {
-  $error_message = mysqli_error($conn);
-  echo "<script>alert('" . addslashes($error_message) . "');</script>";
-}
-}
+
 
  
 ?>
@@ -239,7 +220,7 @@ if (mysqli_query($conn, $query)) {
                         <b>Рейтинг</b> <a class="float-right"><?= $c['grade']?></a>
                       </li>
                       <li class="list-group-item">
-                        <b>Статус</b> <a class="float-right"><?= $a['status']?></a>
+                        <b>Статус</b> <a class="float-right"><?= $a['online']?></a>
                       </li>
 
                       </li>
@@ -312,7 +293,7 @@ if (mysqli_query($conn, $query)) {
                   <div class="active tab-pane" id="activity">
                     <!-- Обо мне -->
                     <a><?= $a['person_description']?></a><br><br>
-                    <b>Технологии которыми я владею:</b><a > <?= $c['technology']?></a><br><br>
+                    <b>Технологии которыми я владею:</b><a > <?= $c['services']?></a><br><br>
                     <b>Город:</b> <a ><?= $a['city']?></a><br>
                     <b>Мой контактный номер:</b> <a ><?= $a['contact_1']?></a><br>
                     <b>Мой контактная:</b> <a ><?= $a['contact_2']?></a><br>
@@ -435,7 +416,7 @@ if (mysqli_query($conn, $query)) {
                           <h3>Вы можете указать свои навыки</h3>
                           <h6>Благодаря ним мы сможем помочь вам с подбором заказа и показывать предложения</h6>
                           <div style="width: 60%;" class="form-group23">
-                          <a> Технология: </a><a class="tplock" type="text" name="texhnonlogi" id="texhnonlogi" readonly><?= $c['technology']?></a>
+                          <a> Технология: </a><a class="tplock" type="text" name="texhnonlogi" id="texhnonlogi" readonly><?= $c['services']?></a>
                           </div>
                           <div class="form-group23">
                             <?php require_once("tech.php"); ?>

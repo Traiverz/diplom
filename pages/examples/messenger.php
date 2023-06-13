@@ -67,8 +67,9 @@ require_once("visual.php");
     <section class="content">
       <div class="container-fluid">
         <div class="open_chat_box">
+          <button class="btn_buy_chat" id="" data-value="" onclick="">Создать чат</button>
           <div class="chat_box">
-            <button class="btn_buy_chat" id="" data-value="" onclick="">Создать чат</button>
+            
             <div class="modal fade" id="userListModal" tabindex="-1" role="dialog" aria-labelledby="userListModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">

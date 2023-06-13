@@ -14,8 +14,8 @@
   $chat_id = $_POST['chat_id'];$sql = "SELECT * FROM chats_messages WHERE id_chat = '".$chat_id."'";$result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-      if($row['author_mess'] === $_SESSION["session_username"]){$html = '<div class="my_msg"><div class="text_msg"><div class="sam_msg_box"><b><span style="color:red;">' . get_smart_date(($row['date_time'])) . '</span> Вы:</b><br> ' . $row['mess_text'] . '</div></div></div>';
-      } else {$html = '<div class="other_msg"><div class="sam_msg_box_other"><div class="name_msg"><b><span style="color:red;">' . get_smart_date(($row['date_time'])) . '</span> ' . $row['author_mess'] . '</b></div><div class="text_msg">' . $row['mess_text'] .'</div></div></div>';
+      if($row['author_mess'] === $_SESSION["session_username"]){$html = '<div class="my_msg"><div class="text_msg"><div class="sam_msg_box"><b><span style="color:black;">' . get_smart_date(($row['date_time'])) . '</span> Вы:</b><br> ' . $row['mess_text'] . '</div></div></div>';
+      } else {$html = '<div class="other_msg"><div class="sam_msg_box_other"><div class="name_msg"><b><span style="color:black;">' . $row['author_mess'] . '</span> ' . get_smart_date(($row['date_time'])) . '</b></div><div class="text_msg">' . $row['mess_text'] .'</div></div></div>';
       }echo $html;}} else {echo '<div class="null_chats_message">Здесь пока нет сообщений, станьте первым кто напишет!</div>';}
   mysqli_close($conn);
 ?>
